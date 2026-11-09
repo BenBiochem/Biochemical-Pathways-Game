@@ -22,6 +22,10 @@ Also on the menu: an ATP Calculator, Draw molecules, where you finish or draw th
 
 The whole game is that one HTML file: plain JavaScript and CSS, no libraries, no network. A pathway is data (a list of steps, each with its molecules, enzyme and cofactors, drawn on a chart), so the file can be read in any text editor.
 
+## Contact
+
+Want a pathway added, interested in collaborating in any way, or just want to talk? Email me at [benjaminellispeterson@gmail.com](mailto:benjaminellispeterson@gmail.com).
+
 ## License
 
 Copyright (c) 2026 Benjamin E. Peterson. All rights reserved. Free to use for your own study and for teaching; any other use needs written permission. See [LICENSE](LICENSE).
