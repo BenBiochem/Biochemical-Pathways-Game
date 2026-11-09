@@ -30997,11 +30997,16 @@ return el('li', {}, el('strong', { text: p[0] }), el('span', { text: p[1] }));
 }))
 });
 }
+var BOB_MS = 3400;
+var bobStart = 0;
 function brandTitle() {
 var b = MG.brand;
 if (!b || !b.mascot || !b.titleSvg) { return el('h1', { class: 'mg-title', text: 'Pathway Quiz' }); }
+if (!bobStart) { bobStart = Date.now(); }
+var mascot = el('img', { class: 'mg-brand__mascot', src: b.mascot, alt: '', 'aria-hidden': 'true', width: 96, height: 95, draggable: 'false' });
+mascot.style.animationDelay = '-' + ((Date.now() - bobStart) % BOB_MS) + 'ms';
 return el('h1', { class: 'mg-title mg-brand' },
-el('img', { class: 'mg-brand__mascot', src: b.mascot, alt: '', 'aria-hidden': 'true', width: 96, height: 95, draggable: 'false' }),
+mascot,
 el('span', { class: 'mg-brand__text', html: b.titleSvg }),
 el('span', { class: 'mg-brand__sr', text: 'Pathway Quiz' }));
 }
