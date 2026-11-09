@@ -6,7 +6,9 @@ Learn metabolic pathways by building them. Each pathway is a flow chart of react
 
 ## Play
 
-Download `pathway_quiz.html` (open it above and press the download icon), then double-click it. It opens in your browser. It is one file: no install, no internet, nothing to set up. It works on a phone too.
+**[Play it in your browser](https://benbiochem.github.io/Biochemical-Pathways-Game/pathway_quiz.html).** No download, no sign-up, and it works on a phone.
+
+To play offline, download `pathway_quiz.html` (open it above and press the download icon), then double-click it on a computer. It is one file: no install, no internet, nothing to set up.
 
 1. **Pick a pathway.** Twenty-two of them, from glycolysis to the urea cycle, or Everything for all of it at once.
 2. **Pick a way to play.** *Build* asks one question at a time and grows the map. *Fill the Map* is a blank map with six choices per blank. *Fill in the Blank* is a blank map where you type every answer. The Cofactors switch leaves out ATP, water and the other cofactors when you only want the molecules and enzymes.
