@@ -16,7 +16,7 @@ To play offline, download `pathway_quiz.html` (open it above and press the downl
 
 <p align="center"><img src="images/map.png" alt="A finished TCA cycle map" width="820"></p>
 
-Also on the menu: an ATP Calculator, Draw molecules, where you finish or draw the structures, and Quizzes, where you compare two look-alike enzymes or molecules side by side and step through a mechanism one move at a time. Settings has a Language switch (English, Español, Deutsch and 简体中文; molecule and enzyme names stay in English) and a light and a dark theme (or Auto, which follows your device). The Advanced button at the bottom of the menu turns on photosynthesis, cell signaling and nucleotides with quizzes of their own, and Everything then holds every pathway.
+Also on the menu: an ATP Calculator, Draw molecules, where you finish or draw the structures, and Quizzes, where you compare two look-alike enzymes or molecules side by side and step through a mechanism one move at a time. Settings has a Language switch (English, Español, Deutsch, Français, Português, Nederlands, Svenska, Norsk, Русский, 日本語, 한국어 and 简体中文; molecule and enzyme names stay in English) and a light and a dark theme (or Auto, which follows your device). The Advanced button at the bottom of the menu turns on photosynthesis, cell signaling and nucleotides with quizzes of their own, and Everything then holds every pathway.
 
 <p align="center"><img src="images/phone.png" alt="The menu and a finished map on a phone" width="520"></p>
 

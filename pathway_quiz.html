@@ -2144,6 +2144,12 @@ color: inherit;
 [data-theme="dark"] .mg-ring__arc {
 filter: var(--mg-tile-dim);
 }
+html:lang(ja) {
+--mg-font: "Avenir Next", "Nunito", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", system-ui, sans-serif;
+}
+html:lang(ko) {
+--mg-font: "Avenir Next", "Nunito", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans CJK KR", "Noto Sans KR", system-ui, sans-serif;
+}
 [data-theme="dark"] .mg-backdrop svg {
 opacity: 0.12;
 }
@@ -23115,9 +23121,19 @@ var LANGS = [
 { id: 'en', name: 'English' },
 { id: 'es', name: 'Español' },
 { id: 'de', name: 'Deutsch' },
+{ id: 'fr', name: 'Français' },
+{ id: 'pt', name: 'Português (Brasil)' },
+{ id: 'nl', name: 'Nederlands' },
+{ id: 'sv', name: 'Svenska' },
+{ id: 'no', name: 'Norsk' },
+{ id: 'ru', name: 'Русский' },
+{ id: 'ja', name: '日本語' },
+{ id: 'ko', name: '한국어' },
 { id: 'zh', name: '简体中文' }
 ];
+var ALIASES = { nb: 'no', nn: 'no' };
 var packs = {};
+var lazy = {};     // tables handed over as JSON text, parsed when the language is first used
 var current = 'en';
 var recording = false;
 var pending = {};
@@ -23127,7 +23143,7 @@ return false;
 }
 function isAvailable(id) {
 if (!isOffered(id)) { return false; }
-if (id === 'en' || packs[id]) { return true; }
+if (id === 'en' || packs[id] || lazy[id]) { return true; }
 var where = root.location && root.location.protocol;
 return where === 'http:' || where === 'https:';
 }
@@ -23154,6 +23170,7 @@ return Object.prototype.hasOwnProperty.call(vars, key) ? String(vars[key]) : m;
 });
 }
 function register(id, table) {
+if (typeof table === 'string') { lazy[id] = table; return; }
 packs[id] = packs[id] || {};
 Object.keys(table || {}).forEach(function (k) { packs[id][k] = table[k]; });
 }
@@ -23163,6 +23180,9 @@ if (root.document && root.document.documentElement) { root.document.documentElem
 function use(id, done) {
 var finish = typeof done === 'function' ? done : function () {};
 if (!isAvailable(id)) { finish(false); return; }
+if (lazy[id] && !packs[id]) {
+try { register(id, JSON.parse(lazy[id])); delete lazy[id]; } catch (e) { finish(false); return; }
+}
 if (id === 'en' || packs[id]) { current = id; setPageLang(id); finish(true); return; }
 if (!root.document || !root.document.createElement) { finish(false); return; }
 if (pending[id]) { pending[id].push(finish); return; }
@@ -23184,6 +23204,7 @@ var nav = root.navigator || {};
 var list = nav.languages && nav.languages.length ? nav.languages : [nav.language || 'en'];
 for (var i = 0; i < list.length; i++) {
 var base = String(list[i] || '').toLowerCase().split('-')[0];
+base = ALIASES[base] || base;
 if (isAvailable(base)) { return base; }
 }
 return 'en';
