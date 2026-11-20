@@ -8,7 +8,7 @@ Learn metabolic pathways by building them. Each pathway is a flow chart of react
 
 **[Play it in your browser](https://benbiochem.github.io/Biochemical-Pathways-Game/pathway_quiz.html).** No download, no sign-up, and it works on a phone.
 
-To play offline, download `pathway_quiz.html` (open it above and press the download icon), then double-click it on a computer. It is one file: no install, no internet, nothing to set up.
+To play offline, download `pathway_quiz.html` (open it above and press the download icon), then double-click it on a computer. It is one file: no install, no internet, nothing to set up. It is in English; `pathway_quiz_all_languages.html` is the same game with every language inside it.
 
 1. **Pick a pathway.** Twenty-two of them, from glycolysis to the urea cycle, or Everything for all of it at once.
 2. **Pick a way to play.** *Build* asks one question at a time and grows the map. *Fill the Map* is a blank map with six choices per blank. *Fill in the Blank* is a blank map where you type every answer. The Cofactors switch leaves out ATP, water and the other cofactors when you only want the molecules and enzymes.
@@ -16,7 +16,7 @@ To play offline, download `pathway_quiz.html` (open it above and press the downl
 
 <p align="center"><img src="images/map.png" alt="A finished TCA cycle map" width="820"></p>
 
-Also on the menu: an ATP Calculator, Draw molecules, where you finish or draw the structures, and Quizzes, where you compare two look-alike enzymes or molecules side by side and step through a mechanism one move at a time. Settings has a light and a dark theme (or Auto, which follows your device). The Advanced button at the bottom of the menu turns on photosynthesis, cell signaling and nucleotides with quizzes of their own, and Everything then holds every pathway.
+Also on the menu: an ATP Calculator, Draw molecules, where you finish or draw the structures, and Quizzes, where you compare two look-alike enzymes or molecules side by side and step through a mechanism one move at a time. Settings has a Language switch (English, Español, Deutsch and 简体中文; molecule and enzyme names stay in English) and a light and a dark theme (or Auto, which follows your device). The Advanced button at the bottom of the menu turns on photosynthesis, cell signaling and nucleotides with quizzes of their own, and Everything then holds every pathway.
 
 <p align="center"><img src="images/phone.png" alt="The menu and a finished map on a phone" width="520"></p>
 

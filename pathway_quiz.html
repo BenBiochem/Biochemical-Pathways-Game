@@ -90,7 +90,7 @@ color-scheme: light;
 --mg-shadow-sm: 3px 4px 0 var(--mg-shadow-color);
 --mg-tap: 44px;
 --mg-max: 1100px;
---mg-font: "Avenir Next", "Nunito", "Arial Rounded MT Bold", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+--mg-font: "Avenir Next", "Nunito", "Arial Rounded MT Bold", "Trebuchet MS", "Segoe UI", system-ui, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
 }
 [data-theme="dark"] {
 --mg-bg: #282A36;
@@ -992,6 +992,16 @@ border-radius: 16px;
 .mg-setting--stack {
 grid-template-columns: minmax(0, 1fr);
 }
+.mg-setting__select {
+min-height: var(--mg-tap);
+max-width: 190px;
+padding: 6px 10px;
+background: var(--mg-surface-alpha);
+border: 2.5px solid var(--mg-line);
+border-radius: 12px;
+font: 800 16px/1.2 var(--mg-font);
+color: var(--mg-ink);
+}
 .mg-setting__title {
 font: 800 17px/1.25 var(--mg-font);
 }
@@ -1747,7 +1757,8 @@ border-radius: 50%;
 }
 .mg-ptile__title {
 font: 800 13.5px/1.15 var(--mg-font);
-overflow-wrap: break-word;
+min-width: 0;
+overflow-wrap: anywhere;
 }
 @media (min-width: 1000px) {
 .mg-ptiles {
@@ -2135,6 +2146,12 @@ filter: var(--mg-tile-dim);
 }
 [data-theme="dark"] .mg-backdrop svg {
 opacity: 0.12;
+}
+html:not(:lang(en)) button,
+html:not(:lang(en)) .mg-ptile__title,
+html:not(:lang(en)) .mg-setting__title {
+overflow-wrap: anywhere;
+hyphens: auto;
 }
 .mgc-host {
 --mgc-ink: #141414;
@@ -5797,7 +5814,7 @@ note: 'A metal cluster held to the protein by cysteines, not by heme, in a [2Fe-
 cytb: {
 name: 'Cytochrome b', short: 'Cyt b', family: 'etc', noStructure: true,
 aliases: ['cytochrome b', 'cyt b', 'cytb', 'cytochrome b (reduced)', 'cyt b (fe2+)', 'cytochrome b562', 'cytochrome b566', 'cyt bl', 'cyt bh', 'b562', 'b566'],
-note: 'A heme protein of Complex III that receives electrons from ubiquinol. Its heme iron cycles between Fe\\u00b3\\u207a and Fe\\u00b2\\u207a. Antimycin A binds beside the b hemes and blocks the complex.'
+note: 'A heme protein of Complex III that receives electrons from ubiquinol. Its heme iron cycles between Fe\u00b3\u207a and Fe\u00b2\u207a. Antimycin A binds beside the b hemes and blocks the complex.'
 },
 cytc1: {
 name: 'Cytochrome c\u2081', short: 'Cyt c\u2081', family: 'etc', noStructure: true,
@@ -5807,12 +5824,12 @@ note: 'The last heme protein of Complex III. It sits on the intermembrane side a
 cyta: {
 name: 'Cytochrome a', short: 'Cyt a', family: 'etc', noStructure: true,
 aliases: ['cytochrome a', 'cyt a', 'cyta', 'cytochrome a (reduced)', 'cyt a (fe2+)', 'heme a', 'cytochrome a (fe2+)'],
-note: 'A heme a center of Complex IV (cytochrome c oxidase). It receives electrons from cytochrome c by way of the pair of copper atoms called CuA and passes them to cytochrome a\\u2083.'
+note: 'A heme a center of Complex IV (cytochrome c oxidase). It receives electrons from cytochrome c by way of the pair of copper atoms called CuA and passes them to cytochrome a\u2083.'
 },
 cyta3: {
 name: 'Cytochrome a\u2083', short: 'Cyt a\u2083', family: 'etc', noStructure: true,
 aliases: ['cytochrome a3', 'cyt a3', 'cyta3', 'heme a3', 'cytochrome a3 (reduced)'],
-note: 'The second heme of the last pumping complex of the chain. It belongs to Complex IV (cytochrome c oxidase), and with the copper CuB it forms the binuclear center where oxygen binds and is reduced to water; four electrons are needed for each O\\u2082.'
+note: 'The second heme of the last pumping complex of the chain. It belongs to Complex IV (cytochrome c oxidase), and with the copper CuB it forms the binuclear center where oxygen binds and is reduced to water; four electrons are needed for each O\u2082.'
 },
 udpg: {
 name: 'UDP-glucose', short: 'UDPG', family: 'sugar',
@@ -6086,22 +6103,22 @@ malic: { name: 'Malic enzyme', short: 'ME', family: 'dehydrogenase', decoy: true
 complex1: {
 name: 'Complex I (NADH dehydrogenase)', short: 'Complex I', ec: '7.1.1.2', family: 'etc',
 aliases: ['complex i', 'complex 1', 'nadh dehydrogenase', 'nadh:ubiquinone oxidoreductase', 'nadh-ubiquinone oxidoreductase', 'nadh-q oxidoreductase', 'nadh:q oxidoreductase', 'nadh coq reductase', 'nadh-coq reductase', 'nadh ubiquinone reductase', 'nadh-q reductase', 'nadh dehydrogenase complex', 'respiratory complex i'],
-note: 'The largest complex of the chain, with 45 subunits in mammals. NADH passes its electrons through FMN and a chain of iron-sulfur clusters to ubiquinone, and the enzyme pumps 4 H\\u207a from the matrix to the intermembrane space for every 2 electrons. Rotenone and amytal block it.'
+note: 'The largest complex of the chain, with 45 subunits in mammals. NADH passes its electrons through FMN and a chain of iron-sulfur clusters to ubiquinone, and the enzyme pumps 4 H\u207a from the matrix to the intermembrane space for every 2 electrons. Rotenone and amytal block it.'
 },
 complex3: {
 name: 'Complex III (cytochrome bc\u2081 complex)', short: 'Complex III', ec: '7.1.1.8', family: 'etc',
 aliases: ['complex iii', 'complex 3', 'cytochrome bc1 complex', 'cytochrome bc1', 'bc1 complex', 'cytochrome b-c1 complex', 'coenzyme q-cytochrome c oxidoreductase', 'ubiquinol-cytochrome c oxidoreductase', 'ubiquinol:cytochrome c oxidoreductase', 'q-cytochrome c oxidoreductase', 'cytochrome c reductase', 'respiratory complex iii', 'ubiquinol cytochrome c reductase', 'ubiquinol-cytochrome c reductase', 'coenzyme q-cytochrome c reductase', 'bc1', 'qcr'],
-note: 'Made of 11 different subunits in mammals. The quinone cycle passes electrons from ubiquinol, one at a time, to cytochrome c and moves 4 H\\u207a into the intermembrane space for each ubiquinol oxidized. Antimycin A blocks it.'
+note: 'Made of 11 different subunits in mammals. The quinone cycle passes electrons from ubiquinol, one at a time, to cytochrome c and moves 4 H\u207a into the intermembrane space for each ubiquinol oxidized. Antimycin A blocks it.'
 },
 complex4: {
 name: 'Complex IV (cytochrome c oxidase)', short: 'Complex IV', ec: '7.1.1.9', family: 'etc',
 aliases: ['complex iv', 'complex 4', 'cytochrome c oxidase', 'cytochrome oxidase', 'cox', 'cco', 'respiratory complex iv', 'cytochrome aa3', 'cyt aa3', 'cytochrome c oxidase complex'],
-note: 'Made of 13 subunits in mammals, with two hemes and three copper ions. It passes electrons from cytochrome c through copper and heme centers to O\\u2082, which becomes water, and pumps 4 H\\u207a per O\\u2082 (2 per pair of electrons). Cyanide, azide and carbon monoxide block it.'
+note: 'Made of 13 subunits in mammals, with two hemes and three copper ions. It passes electrons from cytochrome c through copper and heme centers to O\u2082, which becomes water, and pumps 4 H\u207a per O\u2082 (2 per pair of electrons). Cyanide, azide and carbon monoxide block it.'
 },
 atpsynthase: {
 name: 'Complex V (ATP synthase)', short: 'ATP synthase', ec: '7.1.2.2', family: 'etc',
 aliases: ['atp synthase', 'complex v', 'complex 5', 'f1fo atp synthase', 'f0f1 atp synthase', 'f1f0 atp synthase', 'f1fo atpase', 'f0f1 atpase', 'f1f0 atpase', 'atp synthetase', 'f-type atpase'],
-note: 'F\\u2081F\\u2080 ATP synthase. Protons flowing down their gradient through the F\\u2080 ring turn a rotor, and the F\\u2081 head makes ATP from ADP and inorganic phosphate (about 4 H\\u207a per ATP: the c ring takes 12 protons per turn and each turn makes 3 ATP). Oligomycin blocks F\\u2080; uncouplers such as DNP let protons bypass it.'
+note: 'F\u2081F\u2080 ATP synthase. Protons flowing down their gradient through the F\u2080 ring turn a rotor, and the F\u2081 head makes ATP from ADP and inorganic phosphate (about 4 H\u207a per ATP: the c ring takes 12 protons per turn and each turn makes 3 ATP). Oligomycin blocks F\u2080; uncouplers such as DNP let protons bypass it.'
 },
 ucp1: { name: 'Uncoupling protein 1', short: 'UCP1', family: 'etc', decoy: true, aliases: ['uncoupling protein 1', 'ucp1', 'thermogenin', 'uncoupling protein'], note: 'Lets protons leak back across the inner membrane of brown fat, so the energy is released as heat instead of ATP.' },
 aox: { name: 'Alternative oxidase', short: 'AOX', family: 'etc', decoy: true, aliases: ['alternative oxidase', 'aox', 'cyanide-resistant oxidase'], note: 'Found in plants and fungi. Passes electrons from ubiquinol straight to O\u2082, bypassing Complexes III and IV.' },
@@ -10551,6 +10568,8 @@ var MG = root.MG = root.MG || {};
 var SUB2 = '₂';
 var MINUS = '−';
 var EPS = 1e-9;
+function tt(text, vars) { return MG.i18n.t(text, vars); }
+function tr(text) { return MG.i18n.tr(text); }
 var SETS = {
 modern: {
 id: 'modern', nadh: 2.5, fadh2: 1.5, title: 'NADH 2.5, FADH' + SUB2 + ' 1.5',
@@ -10585,7 +10604,11 @@ function same(a, b) { return Math.abs(a - b) < EPS; }
 function stepFor(values) {
 return values.some(function (v) { return Math.abs(v * 2 - Math.round(v * 2)) < EPS && Math.abs(v - Math.round(v)) > EPS; }) ? 0.5 : 1;
 }
-function plural(n, one, many) { return n === 1 ? one : (many || one + 's'); }
+function thenList(items) {
+var out = items.length ? items[0] : '';
+for (var i = 1; i < items.length; i++) { out = tt('{before}, then {next}', { before: out, next: items[i] }); }
+return out;
+}
 var FA_NAMES = {
 '4:0': 'butyric acid', '6:0': 'caproic acid', '8:0': 'caprylic acid', '10:0': 'capric acid', '12:0': 'lauric acid', '14:0': 'myristic acid',
 '16:0': 'palmitic acid', '18:0': 'stearic acid', '20:0': 'arachidic acid', '22:0': 'behenic acid', '24:0': 'lignoceric acid',
@@ -10606,7 +10629,7 @@ carbons: c, doubleBonds: k, label: label, name: FA_NAMES[label] || null,
 rounds: c / 2 - 1, acetyl: c / 2
 };
 }
-function faTitle(fa) { return fa.name ? fa.name.charAt(0).toUpperCase() + fa.name.slice(1) + ' (' + fa.label + ')' : fa.label + ' fatty acid'; }
+function faTitle(fa) { return fa.name ? fa.name.charAt(0).toUpperCase() + fa.name.slice(1) + ' (' + fa.label + ')' : tt('{label} fatty acid', { label: fa.label }); }
 function article(n) { return n === 8 || n === 18 ? 'an' : 'a'; }
 function round3(v) { return Math.round(v * 1000) / 1000; }
 var DB_AT = { '16:1': [9], '18:1': [9], '18:2': [9, 12], '18:3': [9, 12, 15], '20:4': [5, 8, 11, 14] };
@@ -10657,7 +10680,8 @@ if (id === 'fattyacid') {
 var fa = fattyAcid(o.carbons, o.doubleBonds);
 return {
 kind: 'fatty', mol: null, carbons: fa.carbons, doubleBonds: fa.doubleBonds, name: faTitle(fa), blind: 'A fatty acid',
-facts: [fa.carbons + ' carbons', fa.doubleBonds + ' C=C double ' + plural(fa.doubleBonds, 'bond')]
+facts: [tt('{n} carbons', { n: fa.carbons }),
+fa.doubleBonds === 1 ? tt('{n} C=C double bond', { n: fa.doubleBonds }) : tt('{n} C=C double bonds', { n: fa.doubleBonds })]
 };
 }
 var mol = MOLECULE_FOR[id];
@@ -10665,20 +10689,25 @@ if (!mol) { return null; }
 var c = MOLECULE_CARBONS[mol];
 return {
 kind: 'molecule', mol: mol, carbons: c, doubleBonds: 0, name: MOLECULE_NAME[mol], blind: MOLECULE_NAME[mol],
-facts: [mol === 'acetylcoa' ? c + ' carbons in the acetyl group' : c + ' carbons']
+facts: [mol === 'acetylcoa' ? tt('{n} carbons in the acetyl group', { n: c }) : tt('{n} carbons', { n: c })]
 };
+}
+function chainWorking(carbons, doubleBonds, stop) {
+var v = { carbons: carbons, bonds: doubleBonds };
+if (!doubleBonds) { return stop ? tt('{carbons} carbons, no double bonds.', v) : tt('{carbons} carbons, no double bonds', v); }
+if (doubleBonds === 1) { return stop ? tt('{carbons} carbons, {bonds} double bond.', v) : tt('{carbons} carbons, {bonds} double bond', v); }
+return stop ? tt('{carbons} carbons, {bonds} double bonds.', v) : tt('{carbons} carbons, {bonds} double bonds', v);
 }
 function readPrompt(st) {
 var p = { id: 'read', stage: 'read', kind: 'read', recipe: '' };
 if (st.kind === 'fatty') {
-var bonds = st.doubleBonds ? st.doubleBonds + ' double ' + plural(st.doubleBonds, 'bond') : 'no double bonds';
 p.text = 'Look at the structure. How many carbons does the chain have, and how many C=C double bonds?';
 p.fields = [fieldFor('carbons', 'Carbons', st.carbons, 1, 2, 40), fieldFor('doubleBonds', 'C=C double bonds', st.doubleBonds, 1, 0, 8)];
 p.hints = [
 'Every corner and the end of the zigzag is a carbon, and so is the carbon of the carboxyl group at the left end.',
 'A double bond is drawn as two parallel lines between two carbons.'
 ];
-p.working = st.carbons + ' carbons, ' + bonds;
+p.working = chainWorking(st.carbons, st.doubleBonds, false);
 return p;
 }
 if (st.mol === 'glucose') {
@@ -10701,15 +10730,17 @@ p.hints = [
 ];
 }
 p.fields = [fieldFor('carbons', 'Carbons', st.carbons, 1, 1, 40)];
-p.working = st.carbons + ' carbons';
+p.working = tt('{n} carbons', { n: st.carbons });
 return p;
+}
+function carrierName(e) {
+if (e.kind === 'fadh2') { return 'FADH' + SUB2; }
+if (e.kind === 'atp') { return e.label && e.label.indexOf(' ') >= 0 ? tr(e.label) : (e.label || 'ATP'); }
+return e.kind === 'nadph' ? 'NADPH' : 'NADH';
 }
 function carrierWords(each) {
 var parts = [];
-each.forEach(function (e) {
-var word = e.kind === 'fadh2' ? 'FADH' + SUB2 : (e.kind === 'atp' ? (e.label || 'ATP') : (e.kind === 'nadph' ? 'NADPH' : 'NADH'));
-parts.push(format(e.n) + ' ' + word);
-});
+each.forEach(function (e) { parts.push(format(e.n) + ' ' + carrierName(e)); });
 return parts.join(', ');
 }
 function makeStage(def, sc) {
@@ -10741,7 +10772,7 @@ if (sc.counts) { shown = countsWorking(def.each, runs); }
 return {
 id: def.id, title: def.title, where: def.where || '', runs: runs, runsLabel: def.runsLabel || '', runsText: def.runsText || '',
 runsHint: def.runsHint || '', tallyText: def.tallyText || '',
-per: def.per || '', recipe: def.per ? 'Per ' + def.per + ': ' + carrierWords(def.each) : carrierWords(def.each),
+per: def.per || '', recipe: def.per ? tt('Per {per}: {carriers}', { per: tr(def.per), carriers: carrierWords(def.each) }) : carrierWords(def.each),
 rule: def.rule, tally: tally, cyto: cyto, worth: money, working: shown, each: def.each, note: def.note || '',
 text: def.text || '', info: !def.each.length
 };
@@ -10824,14 +10855,16 @@ rule: 'Joining the fatty acid to coenzyme A splits ATP to AMP and pyrophosphate:
 },
 {
 id: 'box', title: 'Beta-oxidation', where: 'Mitochondrial matrix', runs: fa.rounds, per: 'round',
-runsText: 'How many rounds of beta-oxidation does ' + article(fa.carbons) + ' ' + fa.carbons + '-carbon fatty acid need?', runsLabel: 'rounds',
+runsText: article(fa.carbons) === 'an' ? tt('How many rounds of beta-oxidation does an {carbons}-carbon fatty acid need?', { carbons: fa.carbons })
+: tt('How many rounds of beta-oxidation does a {carbons}-carbon fatty acid need?', { carbons: fa.carbons }), runsLabel: 'rounds',
 runsHint: 'Each round cuts off two carbons, and the last round leaves two acetyl-CoA at once, so there is one round fewer than there are acetyl-CoA.',
 each: [{ kind: 'fadh2', n: 1 }, { kind: 'nadh', n: 1 }],
 rule: 'Each round has an oxidation step that reduces FAD and another that reduces NAD⁺.'
 },
 {
 id: 'tca', title: 'Acetyl-CoA in the TCA cycle', where: 'Mitochondrial matrix', runs: fa.acetyl, per: 'acetyl-CoA',
-runsText: 'How many acetyl-CoA does ' + article(fa.carbons) + ' ' + fa.carbons + '-carbon fatty acid give?', runsLabel: 'acetyl-CoA',
+runsText: article(fa.carbons) === 'an' ? tt('How many acetyl-CoA does an {carbons}-carbon fatty acid give?', { carbons: fa.carbons })
+: tt('How many acetyl-CoA does a {carbons}-carbon fatty acid give?', { carbons: fa.carbons }), runsLabel: 'acetyl-CoA',
 runsHint: 'Every two carbons of the chain leave as one acetyl-CoA.',
 each: [{ kind: 'nadh', n: 3 }, { kind: 'fadh2', n: 1 }, { kind: 'atp', n: 1, label: 'GTP' }],
 rule: 'Every acetyl-CoA goes once around the TCA cycle: count the NAD⁺ steps, the FAD step and the step that makes a nucleoside triphosphate.'
@@ -10850,24 +10883,31 @@ return [];
 }
 function introFor(id, sc, o) {
 var s = sc.set;
-var shuttleText = sc.shuttle === 'gp' ? 'the glycerol phosphate shuttle (each cytosolic NADH is worth ' + format(s.fadh2) + ')' :
-'the malate-aspartate shuttle (each cytosolic NADH is worth ' + format(s.nadh) + ')';
-if (id === 'glycolysis' || id === 'glucose') { return 'Count with ' + s.title + ', using ' + shuttleText + '.'; }
-if (id === 'uncoupled') { return 'Count with ' + s.title + '. An uncoupler such as 2,4-dinitrophenol lets protons leak back across the inner membrane, so ATP synthase has no gradient to use.'; }
+var v = { values: s.title };
+if (id === 'glycolysis' || id === 'glucose') {
+if (sc.shuttle === 'gp') { return tt('Count with {values}, using the glycerol phosphate shuttle (each cytosolic NADH is worth {worth}).', { values: s.title, worth: format(s.fadh2) }); }
+return tt('Count with {values}, using the malate-aspartate shuttle (each cytosolic NADH is worth {worth}).', { values: s.title, worth: format(s.nadh) });
+}
+if (id === 'uncoupled') { return tt('Count with {values}. An uncoupler such as 2,4-dinitrophenol lets protons leak back across the inner membrane, so ATP synthase has no gradient to use.', v); }
 if (id === 'fermentation') { return 'There is no oxygen, so nothing reaches the chain.'; }
-if (id === 'fattyacid') { return 'Count with ' + s.title + '. Activation is paid with 2 ATP equivalents.'; }
-return 'Count with ' + s.title + '.';
+if (id === 'fattyacid') { return tt('Count with {values}. Activation is paid with 2 ATP equivalents.', v); }
+return tt('Count with {values}.', v);
 }
 function unitFor(id, o) {
-if (id === 'tca') { return 'one acetyl-CoA'; }
-if (id === 'pyruvate') { return 'one pyruvate'; }
-if (id === 'fattyacid') { return 'one ' + faTitle(fattyAcid(o.carbons, o.doubleBonds)).replace(/^([A-Z])/, function (m) { return m.toLowerCase(); }); }
-return 'one glucose';
+if (id === 'tca') { return tr('one acetyl-CoA'); }
+if (id === 'pyruvate') { return tr('one pyruvate'); }
+if (id === 'fattyacid') {
+var fa = fattyAcid(o.carbons, o.doubleBonds);
+return tt('one {name}', { name: fa.name ? fa.name + ' (' + fa.label + ')' : tt('{label} fatty acid', { label: fa.label }) });
+}
+return tr('one glucose');
 }
 function titleFor(id, o) {
 var sc = scenario(id);
 if (id === 'fattyacid') { return faTitle(fattyAcid(o.carbons, o.doubleBonds)); }
-if (id === 'glycolysis' || id === 'glucose') { return sc.title + (o.shuttle === 'gp' ? ', glycerol phosphate shuttle' : ', malate-aspartate shuttle'); }
+if (id === 'glycolysis' || id === 'glucose') {
+return o.shuttle === 'gp' ? tt('{title}, glycerol phosphate shuttle', { title: tr(sc.title) }) : tt('{title}, malate-aspartate shuttle', { title: tr(sc.title) });
+}
 return sc.title;
 }
 function normalizeOpts(opts) {
@@ -10886,20 +10926,24 @@ if (id === 'glucose' && o.convention === 'modern') { return 'Current textbooks g
 if (id === 'glucose') { return 'Older books give 36 ATP with the glycerol phosphate shuttle and 38 with the malate-aspartate shuttle.'; }
 if (id === 'fattyacid') {
 var fa = fattyAcid(o.carbons, o.doubleBonds);
-var before = format(total + 2);
-var text = before + ' ATP are made from the acyl-CoA; the 2 ATP equivalents of activation are already spent.';
-if (fa.label === '18:0' && o.convention === 'modern') { text += ' The net total for stearic acid is therefore 120 ATP.'; }
-if (fa.doubleBonds > 1) { text += ' A double bond at an even-numbered carbon also needs NADPH, which this simple rule leaves out.'; }
-return text;
+var v = { atp: format(total + 2) };
+if (fa.label === '18:0' && o.convention === 'modern') {
+return tt('{atp} ATP are made from the acyl-CoA; the 2 ATP equivalents of activation are already spent. The net total for stearic acid is therefore 120 ATP.', v);
+}
+if (fa.doubleBonds > 1) {
+return tt('{atp} ATP are made from the acyl-CoA; the 2 ATP equivalents of activation are already spent. A double bond at an even-numbered carbon also needs NADPH, which this simple rule leaves out.', v);
+}
+return tt('{atp} ATP are made from the acyl-CoA; the 2 ATP equivalents of activation are already spent.', v);
 }
 if (id === 'uncoupled') { return 'Only the ATP made directly (substrate-level) is left. The carriers still give up their electrons, and the energy is released as heat.'; }
 return '';
 }
 function carrierPlus(each, times) {
-return each.map(function (e) {
-var word = e.kind === 'fadh2' ? 'FADH' + SUB2 : (e.kind === 'atp' ? (e.label || 'ATP') : (e.kind === 'nadph' ? 'NADPH' : 'NADH'));
-return format(e.n * times) + ' ' + word;
-}).join(' + ').replace(/\+ −/g, '− ');
+return each.map(function (e) { return format(e.n * times) + ' ' + carrierName(e); }).join(' + ').replace(/\+ −/g, '− ');
+}
+function makesOnce(stage) {
+var carriers = carrierPlus(stage.each, 1);
+return stage.per ? tt('Per {per}: {carriers}.', { per: tr(stage.per), carriers: carriers }) : carriers + '.';
 }
 function dedupeWork(working) {
 var at = working.lastIndexOf(' = ');
@@ -10910,14 +10954,14 @@ var sheet = [];
 if (st) {
 sheet.push({
 id: 'read', title: 'Read the structure',
-lines: [st.kind === 'fatty' ? st.facts.join(', ') + '.' : (st.mol === 'acetylcoa' ? 'The acetyl group has 2 carbons.' : st.name + ' has ' + st.carbons + ' carbons.')]
+lines: [st.kind === 'fatty' ? tt('{facts}.', { facts: st.facts.join(', ') }) : (st.mol === 'acetylcoa' ? 'The acetyl group has 2 carbons.' : tt('{name} has {n} carbons.', { name: st.name, n: st.carbons }))]
 });
 }
 var counts = [];
 if (id === 'fattyacid') {
 var fa = fattyAcid(o.carbons, o.doubleBonds);
-counts.push('Acetyl-CoA = carbons ÷ 2 = ' + fa.carbons + ' ÷ 2 = ' + fa.acetyl + '.');
-counts.push('Rounds of beta-oxidation = acetyl-CoA − 1 = ' + fa.acetyl + ' − 1 = ' + fa.rounds + '.');
+counts.push(tt('Acetyl-CoA = carbons ÷ 2 = {carbons} ÷ 2 = {acetyl}.', { carbons: fa.carbons, acetyl: fa.acetyl }));
+counts.push(tt('Rounds of beta-oxidation = acetyl-CoA − 1 = {acetyl} − 1 = {rounds}.', { acetyl: fa.acetyl, rounds: fa.rounds }));
 } else if (id === 'glucose' || id === 'uncoupled') {
 counts.push('Glucose (6 carbons) splits into 2 pyruvate, so the link reaction runs 2 times.');
 counts.push('Each pyruvate gives 1 acetyl-CoA, so the TCA cycle turns 2 times.');
@@ -10925,7 +10969,7 @@ counts.push('Each pyruvate gives 1 acetyl-CoA, so the TCA cycle turns 2 times.')
 if (counts.length) { sheet.push({ id: 'count', title: 'Count', lines: counts }); }
 stages.forEach(function (stage) {
 var makes = stage.runs === 1
-? (stage.per ? 'Per ' + stage.per + ': ' : '') + carrierPlus(stage.each, 1) + '.'
+? makesOnce(stage)
 : stage.runs + ' × (' + carrierPlus(stage.each, 1) + ') = ' + carrierPlus(stage.each, stage.runs) + '.';
 sheet.push({ id: stage.id, title: stage.title, lines: [makes, dedupeWork(stage.working) + ' ATP.'] });
 });
@@ -10933,12 +10977,25 @@ var lines = [dedupeWork(sumWorking) + ' ATP.'];
 if (id === 'fattyacid') {
 var f = fattyAcid(o.carbons, o.doubleBonds);
 var c = o.convention === 'classic' ? { a: 8.5, b: 7, db: 2 } : { a: 7, b: 6, db: 1.5 };
-lines.push('Shortcut for a chain of n carbons: ' + format(c.a) + ' × n − ' + c.b + (f.doubleBonds ? ' − ' + format(c.db) + ' × (double bonds)' : '') + ' = ' +
-format(c.a) + ' × ' + f.carbons + ' − ' + c.b + (f.doubleBonds ? ' − ' + format(c.db) + ' × ' + f.doubleBonds : '') + ' = ' + format(total) + '.');
+var v = { a: format(c.a), b: c.b, db: format(c.db), carbons: f.carbons, bonds: f.doubleBonds, total: format(total) };
+lines.push(f.doubleBonds
+? tt('Shortcut for a chain of n carbons: {a} × n − {b} − {db} × (double bonds) = {a} × {carbons} − {b} − {db} × {bonds} = {total}.', v)
+: tt('Shortcut for a chain of n carbons: {a} × n − {b} = {a} × {carbons} − {b} = {total}.', v));
 }
 if (note) { lines.push(note); }
 sheet.push({ id: 'total', title: 'Total', lines: lines });
 return sheet;
+}
+function tallyQuestion(st, unit) {
+var v = { title: tr(st.title), unit: unit, runs: st.runs };
+return st.runs > 1 ? tt('{title}: count what it makes for {unit}. It runs {runs} times.', v) : tt('{title}: count what it makes for {unit}.', v);
+}
+function recipeHint(st) {
+return st.runs > 1 ? tt('{recipe}, {runs} times.', { recipe: st.recipe, runs: st.runs }) : tt('{recipe}.', { recipe: st.recipe });
+}
+function worthHintFor(st, sc) {
+var v = { nadh: format(sc.set.nadh), fadh2: format(sc.set.fadh2), cyto: format(worth('nadhc', sc.set, sc.shuttle)) };
+return st.cyto ? tt('NADH is worth {nadh}, FADH₂ {fadh2}, and cytosolic NADH {cyto} with this shuttle.', v) : tt('NADH is worth {nadh}, FADH₂ {fadh2}.', v);
 }
 function build(id, opts) {
 var sc0 = scenario(id);
@@ -10960,18 +11017,16 @@ fields: [fieldFor('runs', st.runsLabel, st.runs, 1, 0, 60)],
 hints: [st.runsHint || st.rule], working: format(st.runs)
 });
 }
-var runWords = st.runs > 1 ? ' It runs ' + st.runs + ' times.' : '';
 prompts.push({
 id: st.id + '.tally', stage: st.id, kind: 'tally', recipe: st.recipe,
-text: st.tallyText || (st.title + ': count what it makes for ' + unit + '.' + runWords),
+text: st.tallyText || tallyQuestion(st, unit),
 fields: [
 fieldFor('nadh', 'NADH', st.tally.nadh, 1), fieldFor('fadh2', 'FADH' + SUB2, st.tally.fadh2, 1), fieldFor('atp', st.each.some(function (e) { return e.kind === 'atp' && e.label === 'GTP'; }) ? 'ATP or GTP' : 'ATP made directly', st.tally.atp, 1)
 ],
-hints: [st.rule, st.recipe + (st.runs > 1 ? ', ' + st.runs + ' times' : '') + '.'],
+hints: [st.rule, recipeHint(st)],
 working: 'NADH ' + format(st.tally.nadh) + ', FADH' + SUB2 + ' ' + format(st.tally.fadh2) + ', ATP ' + format(st.tally.atp)
 });
-var worthHint = sc.uncoupled ? 'With an uncoupler no carrier gives any ATP; only the ATP made directly counts.' :
-'NADH is worth ' + format(sc.set.nadh) + ', FADH' + SUB2 + ' ' + format(sc.set.fadh2) + (st.cyto ? ', and cytosolic NADH ' + format(worth('nadhc', sc.set, sc.shuttle)) + ' with this shuttle' : '') + '.';
+var worthHint = sc.uncoupled ? 'With an uncoupler no carrier gives any ATP; only the ATP made directly counts.' : worthHintFor(st, sc);
 prompts.push({
 id: st.id + '.worth', stage: st.id, kind: 'worth', recipe: '',
 text: 'What is that worth in ATP?',
@@ -10983,7 +11038,7 @@ working: st.working
 var sumWorking = stages.length === 1 ? stages[0].working : stages.map(function (st) { return format(st.worth); }).join(' + ').replace(/\+ −/g, '− ') + ' = ' + format(total);
 prompts.push({
 id: 'total', stage: '', kind: 'total', recipe: '',
-text: 'Add every stage together: how many ATP is ' + unit + ' worth in all?',
+text: tt('Add every stage together: how many ATP is {unit} worth in all?', { unit: unit }),
 fields: [fieldFor('atp', 'ATP', total, stepFor([total, sc.set.nadh, sc.set.fadh2]))],
 hints: ['Add the ATP of each stage, counting a cost as a minus.'],
 working: sumWorking
@@ -11010,12 +11065,12 @@ return parts.join(', ');
 function packSheet(led, stages, counts, structure, sumWorking, note) {
 var sheet = [];
 if (structure) {
-sheet.push({ id: 'read', title: 'Read the structure', lines: led.readLines || [structure.name + ' has ' + structure.carbons + ' carbons.'] });
+sheet.push({ id: 'read', title: 'Read the structure', lines: led.readLines || [tt('{name} has {n} carbons.', { name: structure.name, n: structure.carbons })] });
 }
 if (led.counts && led.counts.length) { sheet.push({ id: 'count', title: 'Count', lines: led.counts }); }
 stages.forEach(function (stage) {
 var makes = stage.info ? 'Nothing is made here that the count needs.'
-: (stage.runs === 1 ? (stage.per ? 'Per ' + stage.per + ': ' : '') + carrierPlus(stage.each, 1) + '.'
+: (stage.runs === 1 ? makesOnce(stage)
 : stage.runs + ' × (' + carrierPlus(stage.each, 1) + ') = ' + carrierPlus(stage.each, stage.runs) + '.');
 sheet.push({ id: stage.id, title: stage.title, lines: [makes, counts ? stage.working + '.' : dedupeWork(stage.working) + ' ATP.'] });
 });
@@ -11032,7 +11087,7 @@ var stages = led.stages.map(function (d) { return makeStage(d, sc); });
 var total = 0;
 var nadph = 0;
 stages.forEach(function (st) { total += counts ? st.tally.atp : st.worth; nadph += st.tally.nadph; });
-var unit = led.unit;
+var unit = tr(led.unit);
 var structure = led.structure || null;
 var noteText = typeof led.note === 'function' ? led.note(total, nadph) : (led.note || '');
 var prompts = [];
@@ -11051,20 +11106,19 @@ fields: [fieldFor('runs', st.runsLabel, st.runs, 1, 0, 60)],
 hints: [st.runsHint || st.rule], working: format(st.runs)
 });
 }
-var runWords = st.runs > 1 ? ' It runs ' + st.runs + ' times.' : '';
 var gtp = st.each.some(function (e) { return e.kind === 'atp' && e.label === 'GTP'; });
 prompts.push({
 id: st.id + '.tally', stage: st.id, kind: 'tally', recipe: st.recipe,
-text: st.tallyText || (st.title + ': count what it makes for ' + unit + '.' + runWords),
+text: st.tallyText || tallyQuestion(st, unit),
 fields: counts
 ? [fieldFor('atp', 'ATP', st.tally.atp, 1), fieldFor('nadph', 'NADPH', st.tally.nadph, 1)]
 : [fieldFor('nadh', 'NADH', st.tally.nadh, 1), fieldFor('fadh2', 'FADH' + SUB2, st.tally.fadh2, 1), fieldFor('atp', gtp ? 'ATP or GTP' : 'ATP made directly', st.tally.atp, 1)],
-hints: [st.rule, st.recipe + (st.runs > 1 ? ', ' + st.runs + ' times' : '') + '.'],
+hints: [st.rule, recipeHint(st)],
 working: counts ? 'ATP ' + format(st.tally.atp) + ', NADPH ' + format(st.tally.nadph)
 : 'NADH ' + format(st.tally.nadh) + ', FADH' + SUB2 + ' ' + format(st.tally.fadh2) + ', ATP ' + format(st.tally.atp)
 });
 if (!counts) {
-var worthHint = 'NADH is worth ' + format(sc.set.nadh) + ', FADH' + SUB2 + ' ' + format(sc.set.fadh2) + (st.cyto ? ', and cytosolic NADH ' + format(worth('nadhc', sc.set, sc.shuttle)) + ' with this shuttle' : '') + '.';
+var worthHint = worthHintFor(st, sc);
 prompts.push({
 id: st.id + '.worth', stage: st.id, kind: 'worth', recipe: '',
 text: 'What is that worth in ATP?',
@@ -11078,7 +11132,8 @@ var sumWorking = counts ? countsTotal(stages)
 : (stages.length === 1 ? stages[0].working : stages.map(function (st) { return format(st.worth); }).join(' + ').replace(/\+ −/g, '− ') + ' = ' + format(total));
 prompts.push({
 id: 'total', stage: '', kind: 'total', recipe: '',
-text: led.totalText || (counts ? 'Add every stage together: how many ATP and how many NADPH does ' + unit + ' cost in all?' : 'Add every stage together: how many ATP is ' + unit + ' worth in all?'),
+text: led.totalText || (counts ? tt('Add every stage together: how many ATP and how many NADPH does {unit} cost in all?', { unit: unit })
+: tt('Add every stage together: how many ATP is {unit} worth in all?', { unit: unit })),
 fields: counts ? [fieldFor('atp', 'ATP', total, 1), fieldFor('nadph', 'NADPH', nadph, 1)] : [fieldFor('atp', 'ATP', total, stepFor([total, sc.set.nadh, sc.set.fadh2]))],
 hints: led.totalHints || [counts ? 'Add the ATP of each stage, and add the NADPH of each stage.' : 'Add the ATP of each stage, counting a cost as a minus.'],
 working: sumWorking
@@ -11103,7 +11158,7 @@ var b = build(sc.id, o);
 var ex = sc.explainer;
 var steps = [];
 if (b.structure) {
-steps.push(stepOf('read', 'Read the structure', ex.readText || 'Look at the drawing: ' + b.structure.name.toLowerCase() + ' is the starting point of the count.', b.sheet[0].lines,
+steps.push(stepOf('read', 'Read the structure', ex.readText || tt('Look at the drawing: {name} is the starting point of the count.', { name: b.structure.name.toLowerCase() }), b.sheet[0].lines,
 { kind: 'molecule', mol: b.structure.mol, hl: [] }));
 }
 b.sheet.forEach(function (block) {
@@ -11207,7 +11262,7 @@ function () { return 'One FADH' + SUB2 + ' at acyl-CoA dehydrogenase and one NAD
 ['Look at the oxidation steps of one round.']),
 fact('fa-double', 'Fats', 'How many ATP does each double bond of a fatty acid take away?', 'ATP',
 function (s) { return s.fadh2; },
-function (s) { return 'The isomerase replaces acyl-CoA dehydrogenase at that step, so one FADH' + SUB2 + ' (' + format(s.fadh2) + ' ATP) is not made.'; },
+function (s) { return tt('The isomerase replaces acyl-CoA dehydrogenase at that step, so one FADH₂ ({atp} ATP) is not made.', { atp: format(s.fadh2) }); },
 ['Think about which step the isomerase skips.'])
 ];
 function factPrompts(opts) {
@@ -11236,10 +11291,12 @@ function methodText(id, b) {
 if (id === 'fattyacid') {
 return 'Each round makes 1 FADH' + SUB2 + ' and 1 NADH, each acetyl-CoA makes 3 NADH, 1 FADH' + SUB2 + ' and 1 GTP in the TCA cycle, activation costs 2, and each double bond takes away one FADH' + SUB2 + '.';
 }
-return b.stages.map(function (st) {
-if (st.info) { return st.title + ' (nothing to count)'; }
-return st.title + ' (' + st.recipe + (st.runs > 1 ? ', ' + st.runs + ' times' : '') + ')';
-}).join(', then ') + '.';
+var parts = b.stages.map(function (st) {
+var v = { title: tr(st.title), recipe: st.recipe, runs: st.runs };
+if (st.info) { return tt('{title} (nothing to count)', v); }
+return st.runs > 1 ? tt('{title} ({recipe}, {runs} times)', v) : tt('{title} ({recipe})', v);
+});
+return tt('{steps}.', { steps: thenList(parts) });
 }
 function piecesText(id) {
 if (id === 'fattyacid') { return 'Every two carbons of the chain leave as one acetyl-CoA, and the rounds of beta-oxidation are one fewer than the acetyl-CoA.'; }
@@ -11251,19 +11308,34 @@ function totalHints(id, b) {
 var out = [];
 if (id === 'uncoupled') { out.push('The electrons still flow but the protons leak back, so no carrier gives any ATP: only the ATP made directly counts.'); }
 else if (id === 'fermentation') { return ['Without oxygen the NADH is used up making lactate or ethanol, so no carrier reaches the chain.']; }
-else if (b.stages.length > 1) { out.push('Stages to count: ' + b.stages.map(function (st) { return st.title; }).join(', then ') + '.'); }
+else if (b.stages.length > 1) { out.push(tt('Stages to count: {stages}.', { stages: thenList(b.stages.map(function (st) { return tr(st.title); })) })); }
 if (piecesText(id)) { out.push(piecesText(id)); }
 out.push(methodText(id, b));
 return out;
 }
+function totalQuestion(id, b) {
+var v = { unit: b.unit };
+var gp = b.shuttle === 'gp';
+if (id === 'tca') { return tt('How many ATP is {unit} worth after one turn of the TCA cycle?', v); }
+if (id === 'pyruvate') { return tt('How many ATP is {unit} worth when it is oxidized to CO₂?', v); }
+if (id === 'glycolysis') {
+return gp ? tt('How many ATP is {unit} worth after glycolysis, with oxygen (glycerol phosphate shuttle)?', v)
+: tt('How many ATP is {unit} worth after glycolysis, with oxygen (malate-aspartate shuttle)?', v);
+}
+if (id === 'glucose') {
+return gp ? tt('How many ATP is {unit} worth when it is completely oxidized (glycerol phosphate shuttle)?', v)
+: tt('How many ATP is {unit} worth when it is completely oxidized (malate-aspartate shuttle)?', v);
+}
+if (id === 'fermentation') { return tt('How many ATP is {unit} worth under anaerobic conditions?', v); }
+if (id === 'uncoupled') { return tt('How many ATP is {unit} worth with an uncoupler present?', v); }
+return tt('How many ATP is {unit} worth when it is completely oxidized (net of activation)?', v);
+}
 function totalPrompt(id, o) {
 var b = build(id, o);
 var last = b.prompts[b.prompts.length - 1];
-var shuttleWords = '';
-if (id === 'glycolysis' || id === 'glucose') { shuttleWords = b.shuttle === 'gp' ? ' (glycerol phosphate shuttle)' : ' (malate-aspartate shuttle)'; }
 return {
 id: 'quick.' + id + (id === 'fattyacid' ? '.' + fattyAcid(o.carbons, o.doubleBonds).label : '') + (id === 'glycolysis' || id === 'glucose' ? '.' + b.shuttle : ''), stage: '', kind: 'total', recipe: '', group: scenario(id).group,
-text: 'How many ATP is ' + b.unit + ' worth' + (id === 'tca' ? ' after one turn of the TCA cycle' : (id === 'pyruvate' ? ' when it is oxidized to CO' + SUB2 : (id === 'glycolysis' ? ' after glycolysis, with oxygen' : (id === 'glucose' ? ' when it is completely oxidized' : (id === 'fermentation' ? ' under anaerobic conditions' : (id === 'uncoupled' ? ' with an uncoupler present' : ' when it is completely oxidized (net of activation)')))))) + shuttleWords + '?',
+text: totalQuestion(id, b),
 fields: [fieldFor('atp', 'ATP', b.total, stepFor([b.total, set(o.convention).nadh, set(o.convention).fadh2]))],
 hints: totalHints(id, b),
 working: b.working + (b.note ? ' ATP. ' + b.note : '')
@@ -11326,7 +11398,8 @@ if (seen[key] || out.length >= count) { return; }
 seen[key] = true;
 var words = {
 fattyacid: 'How many ATP is this fatty acid worth when it is completely oxidized (net of activation)?',
-glucose: 'How many ATP is one glucose worth when it is completely oxidized, with ' + (b.shuttle === 'gp' ? 'the glycerol phosphate shuttle' : 'the malate-aspartate shuttle') + '?',
+glucose: b.shuttle === 'gp' ? tr('How many ATP is one glucose worth when it is completely oxidized, with the glycerol phosphate shuttle?')
+: tr('How many ATP is one glucose worth when it is completely oxidized, with the malate-aspartate shuttle?'),
 pyruvate: 'How many ATP is one pyruvate worth when it is oxidized to CO' + SUB2 + '?',
 tca: 'How many ATP is one acetyl-CoA worth after one turn of the TCA cycle?'
 };
@@ -11334,7 +11407,7 @@ out.push({
 id: 'structure.' + key, stage: '', kind: 'total', recipe: '', group: 'Structure', text: words[item.id] || (packed && packed.drill) || b.title, structure: b.structure,
 fields: [fieldFor('atp', 'ATP', b.total, stepFor([b.total, set(o.convention).nadh, set(o.convention).fadh2]))],
 hints: [
-item.id === 'fattyacid' ? 'Read the structure first: count the carbons (the carboxyl carbon counts) and the C=C double bonds.' : 'Read the structure first: ' + b.sheet[0].lines[0],
+item.id === 'fattyacid' ? 'Read the structure first: count the carbons (the carboxyl carbon counts) and the C=C double bonds.' : tt('Read the structure first: {line}', { line: tr(b.sheet[0].lines[0]) }),
 piecesText(item.id), methodText(item.id, b)
 ].filter(Boolean),
 working: b.working, sheet: b.sheet
@@ -11352,9 +11425,11 @@ for (var i = 0; i < EXPLAINERS.length; i++) { if (EXPLAINERS[i].id === id) { ret
 return null;
 }
 function bondPlaces(at) {
-var parts = at.map(function (p) { return p + ' and ' + (p + 1); });
+var parts = at.map(function (p) { return tt('{a} and {b}', { a: p, b: p + 1 }); });
 if (parts.length < 2) { return parts.join(''); }
-return parts.slice(0, -1).join(', ') + (parts.length > 2 ? ',' : '') + ' and ' + parts[parts.length - 1];
+var last = parts[parts.length - 1];
+if (parts.length === 2) { return tt('{a} and {b}', { a: parts[0], b: last }); }
+return tt('{list}, and {last}', { list: parts.slice(0, -1).join(', '), last: last });
 }
 function stepOf(id, title, text, math, figure) {
 return { id: id, title: title, text: text, math: math, figure: figure || null };
@@ -11366,11 +11441,14 @@ var n = fa.carbons, a = fa.acetyl, r = fa.rounds, k = fa.doubleBonds;
 var at = doubleBondAt(fa);
 var lines = function (id) { return b.sheet.filter(function (x) { return x.id === id; })[0].lines; };
 var steps = [];
-steps.push(stepOf('read', 'Read the structure',
-'Number the carbons from the carboxyl group at the left end, which is carbon 1. The last number is the length of the chain: ' + n + ' carbons. ' +
-(k ? 'A double bond is drawn as two parallel lines. This chain has ' + (k === 1 ? 'one, between carbons ' : k + ', between carbons ') + bondPlaces(at) + '.' :
-'Every bond between two carbons is a single line, so the chain has no double bonds.'),
-[n + ' carbons, ' + (k ? k + ' double ' + plural(k, 'bond') : 'no double bonds') + '.'],
+var rv = { carbons: n, bonds: k, places: bondPlaces(at) };
+var readText = !k
+? tt('Number the carbons from the carboxyl group at the left end, which is carbon 1. The last number is the length of the chain: {carbons} carbons. Every bond between two carbons is a single line, so the chain has no double bonds.', rv)
+: (k === 1
+? tt('Number the carbons from the carboxyl group at the left end, which is carbon 1. The last number is the length of the chain: {carbons} carbons. A double bond is drawn as two parallel lines. This chain has one, between carbons {places}.', rv)
+: tt('Number the carbons from the carboxyl group at the left end, which is carbon 1. The last number is the length of the chain: {carbons} carbons. A double bond is drawn as two parallel lines. This chain has {bonds}, between carbons {places}.', rv));
+steps.push(stepOf('read', 'Read the structure', readText,
+[chainWorking(n, k, true)],
 { kind: 'fatty', carbons: n, doubleBonds: k, numbered: true, hl: k ? ['carboxyl', 'doubleBonds'] : ['carboxyl'] }));
 steps.push(stepOf('act', 'Pay for the activation',
 'Before it can be burned, the fatty acid is joined to coenzyme A in the cytosol. That splits ATP into AMP and pyrophosphate, which spends two high-energy bonds, so activation costs 2 ATP equivalents.',
@@ -11379,16 +11457,17 @@ steps.push(stepOf('count', 'Count the two-carbon pieces',
 'Beta-oxidation cuts the chain into two-carbon pieces, and each leaves as acetyl-CoA. The last round gives two acetyl-CoA at once, so there is one round fewer than there are acetyl-CoA.',
 lines('count')));
 steps.push(stepOf('box', 'What the rounds make',
-'Each round has two oxidation steps: one reduces FAD to FADH' + SUB2 + ' and one reduces NAD⁺ to NADH. So one round makes 1 FADH' + SUB2 + ' and 1 NADH. With this way of counting, NADH is worth ' +
-format(st.nadh) + ' ATP and FADH' + SUB2 + ' is worth ' + format(st.fadh2) + ' ATP.',
+tt('Each round has two oxidation steps: one reduces FAD to FADH₂ and one reduces NAD⁺ to NADH. So one round makes 1 FADH₂ and 1 NADH. With this way of counting, NADH is worth {nadh} ATP and FADH₂ is worth {fadh2} ATP.',
+{ nadh: format(st.nadh), fadh2: format(st.fadh2) }),
 lines('box')));
 steps.push(stepOf('tca', 'What the TCA cycle makes',
 'Every acetyl-CoA goes once around the TCA cycle. One turn makes 3 NADH, 1 FADH' + SUB2 + ' and 1 GTP, and a GTP counts as 1 ATP.',
 lines('tca')));
 if (k) {
-steps.push(stepOf('db', 'Allow for the double bond' + (k > 1 ? 's' : ''),
-'A double bond that is already in the chain changes its round: an isomerase moves it into place, and acyl-CoA dehydrogenase, the step that makes FADH' + SUB2 + ', is skipped. The simple rule is that each double bond costs one FADH' + SUB2 +
-', which is ' + format(st.fadh2) + ' ATP.' + (k > 1 ? ' A double bond at an even-numbered carbon also uses NADPH, which this simple rule leaves out.' : ''),
+steps.push(stepOf('db', k > 1 ? tr('Allow for the double bonds') : tr('Allow for the double bond'),
+k > 1
+? tt('A double bond that is already in the chain changes its round: an isomerase moves it into place, and acyl-CoA dehydrogenase, the step that makes FADH₂, is skipped. The simple rule is that each double bond costs one FADH₂, which is {atp} ATP. A double bond at an even-numbered carbon also uses NADPH, which this simple rule leaves out.', { atp: format(st.fadh2) })
+: tt('A double bond that is already in the chain changes its round: an isomerase moves it into place, and acyl-CoA dehydrogenase, the step that makes FADH₂, is skipped. The simple rule is that each double bond costs one FADH₂, which is {atp} ATP.', { atp: format(st.fadh2) }),
 lines('db')));
 }
 var total = [dedupeWork(b.working) + ' ATP.'];
@@ -11399,8 +11478,10 @@ var acetyl = 3 * st.nadh + st.fadh2 + 1;
 var A = (round + acetyl) / 2;
 var B = 2 + round;
 steps.push(stepOf('shortcut', 'A shortcut for the whole sum',
-'Do every stage at once for a chain of n carbons. Activation costs 2. There are n ÷ 2 − 1 rounds, each worth ' + format(round) + ' (FADH' + SUB2 + ' and NADH), and n ÷ 2 acetyl-CoA, each worth ' + format(acetyl) +
-' (3 NADH, FADH' + SUB2 + ' and GTP). Collecting the terms gives ' + format(A) + ' × n − ' + format(B) + (k ? ', and each double bond takes off ' + format(st.fadh2) : '') + '.',
+k ? tt('Do every stage at once for a chain of n carbons. Activation costs 2. There are n ÷ 2 − 1 rounds, each worth {round} (FADH₂ and NADH), and n ÷ 2 acetyl-CoA, each worth {acetyl} (3 NADH, FADH₂ and GTP). Collecting the terms gives {a} × n − {b}, and each double bond takes off {fadh2}.',
+{ round: format(round), acetyl: format(acetyl), a: format(A), b: format(B), fadh2: format(st.fadh2) })
+: tt('Do every stage at once for a chain of n carbons. Activation costs 2. There are n ÷ 2 − 1 rounds, each worth {round} (FADH₂ and NADH), and n ÷ 2 acetyl-CoA, each worth {acetyl} (3 NADH, FADH₂ and GTP). Collecting the terms gives {a} × n − {b}.',
+{ round: format(round), acetyl: format(acetyl), a: format(A), b: format(B) }),
 ['−2 + (n ÷ 2 − 1) × ' + format(round) + ' + (n ÷ 2) × ' + format(acetyl) + ' = ' + format(A) + ' × n − ' + format(B),
 'n = ' + n + ': ' + format(A) + ' × ' + n + ' − ' + format(B) + (k ? ' − ' + format(st.fadh2) + ' × ' + k : '') + ' = ' + format(b.total) + '.']));
 return steps;
@@ -11418,8 +11499,8 @@ steps.push(stepOf('gly', 'Glycolysis, in the cytosol',
 'Glycolysis splits the six-carbon glucose into two three-carbon pyruvate. It makes 4 ATP directly and spends 2, so 2 ATP net, and it makes 1 NADH for each pyruvate, which is 2 NADH.',
 [gly[0]]));
 steps.push(stepOf('shuttle', 'The shuttle for the cytosolic NADH',
-'These 2 NADH are made in the cytosol, and NADH cannot cross the inner mitochondrial membrane, so a shuttle carries their electrons in. The malate-aspartate shuttle rebuilds NADH in the matrix, so each is worth ' + format(st.nadh) +
-' ATP. The glycerol phosphate shuttle hands the electrons to FAD, so each is worth only an FADH' + SUB2 + ', ' + format(st.fadh2) + ' ATP. This example uses the ' + (gp ? 'glycerol phosphate' : 'malate-aspartate') + ' shuttle.',
+gp ? tt('These 2 NADH are made in the cytosol, and NADH cannot cross the inner mitochondrial membrane, so a shuttle carries their electrons in. The malate-aspartate shuttle rebuilds NADH in the matrix, so each is worth {nadh} ATP. The glycerol phosphate shuttle hands the electrons to FAD, so each is worth only an FADH₂, {fadh2} ATP. This example uses the glycerol phosphate shuttle.', { nadh: format(st.nadh), fadh2: format(st.fadh2) })
+: tt('These 2 NADH are made in the cytosol, and NADH cannot cross the inner mitochondrial membrane, so a shuttle carries their electrons in. The malate-aspartate shuttle rebuilds NADH in the matrix, so each is worth {nadh} ATP. The glycerol phosphate shuttle hands the electrons to FAD, so each is worth only an FADH₂, {fadh2} ATP. This example uses the malate-aspartate shuttle.', { nadh: format(st.nadh), fadh2: format(st.fadh2) }),
 [gly[1]]));
 steps.push(stepOf('link', 'Pyruvate to acetyl-CoA, in the matrix',
 'Each pyruvate enters the mitochondrial matrix and is oxidized to acetyl-CoA. It loses one carbon as CO' + SUB2 + ' and makes 1 NADH. Two pyruvate make 2 NADH.',
@@ -11638,6 +11719,8 @@ var HISTORY = 80;
 var JOIN_REACH = 1.6;             // an atom closer than this to the selected one is joined to it
 var STAMP_REACH = 2.2;            // a stamp tapped closer than this to the selected atom is attached to it
 var SAME_PLACE = 0.4;             // two atoms closer than this are one place
+function tt(text, vars) { return MG.i18n.t(text, vars); }
+function tr(text) { return MG.i18n.tr(text); }
 function create() {
 return { atoms: [], bonds: [], sel: null, brush: 'C', tool: 'add', stamp: null, dbl: false, next: 1, undo: [] };
 }
@@ -11842,7 +11925,7 @@ var d = dir(ang);
 var sx = round(anchor.x + d.x), sy = round(anchor.y + d.y);
 slot = nearestAtom(st, sx, sy, SAME_PLACE) ? null : { angle: ang, x: sx, y: sy };
 }
-if (!slot) { return { did: 'none', message: 'That place is taken.' }; }
+if (!slot) { return { did: 'none', message: tr('That place is taken.') }; }
 remember(st);
 p0 = { x: slot.x, y: slot.y };
 th = slot.angle;
@@ -11896,7 +11979,7 @@ var first = addAtom(st, st.brush, snap(x), snap(y));
 st.sel = first.id;
 return { did: 'first' };
 }
-if (st.sel === null) { return { did: 'none', message: 'Tap an atom first, then tap beside it.' }; }
+if (st.sel === null) { return { did: 'none', message: tr('Tap an atom first, then tap beside it.') }; }
 var s = atomById(st, st.sel);
 var d = dir(snapAngle(Math.atan2(y - s.y, x - s.x)));
 var nx = round(s.x + d.x), ny = round(s.y + d.y);
@@ -11953,8 +12036,10 @@ return e;
 }
 function describe(st) {
 var n = st.atoms.length, m = st.bonds.length;
-if (!n) { return 'Nothing is drawn yet'; }
-return n + (n === 1 ? ' atom' : ' atoms') + ' and ' + m + (m === 1 ? ' bond' : ' bonds');
+if (!n) { return tr('Nothing is drawn yet'); }
+var v = { n: n, m: m };
+if (n === 1) { return m === 1 ? tt('{n} atom and {m} bond', v) : tt('{n} atom and {m} bonds', v); }
+return m === 1 ? tt('{n} atoms and {m} bond', v) : tt('{n} atoms and {m} bonds', v);
 }
 function analyse(st) {
 var index = {};
@@ -12058,29 +12143,36 @@ return n;
 }
 function check(st, target) {
 var an = analyse(st);
-if (an.empty) { return { ok: false, code: 'empty', message: 'Draw something first: tap the page to put the first atom.', over: [] }; }
-if (an.over.length) { return { ok: false, code: 'over', message: 'An atom has more bonds than it can have. The atoms with a cross need a bond taken away.', over: an.over }; }
-if (an.split) { return { ok: false, code: 'split', message: 'The drawing is in more than one piece. Join the pieces with a bond or take one away.', over: [] }; }
+if (an.empty) { return { ok: false, code: 'empty', message: tr('Draw something first: tap the page to put the first atom.'), over: [] }; }
+if (an.over.length) { return { ok: false, code: 'over', message: tr('An atom has more bonds than it can have. The atoms with a cross need a bond taken away.'), over: an.over }; }
+if (an.split) { return { ok: false, code: 'split', message: tr('The drawing is in more than one piece. Join the pieces with a bond or take one away.'), over: [] }; }
 var edges = targetEdges(target);
 for (var f = 0; f < target.o.length; f++) {
 var te = edges.map(function (e, i) { return [e[0], e[1], target.o[f][i]]; });
-if (isomorphic(an.nodes, an.edges, target.n, te)) { return { ok: true, code: 'ok', message: 'Right.', over: [] }; }
+if (isomorphic(an.nodes, an.edges, target.n, te)) { return { ok: true, code: 'ok', message: tr('Right.'), over: [] }; }
 }
-if (!sameCounts(count(an.nodes), count(target.n))) { return { ok: false, code: 'atoms', message: 'Not quite. The atoms are not the right ones yet: the elements, or how many of each.', over: [] }; }
-if (an.edges.length - an.nodes.length !== edges.length - target.n.length) { return { ok: false, code: 'rings', message: 'Not quite. The atoms are right, but your drawing has a different number of rings than the molecule.', over: [] }; }
+if (!sameCounts(count(an.nodes), count(target.n))) { return { ok: false, code: 'atoms', message: tr('Not quite. The atoms are not the right ones yet: the elements, or how many of each.'), over: [] }; }
+if (an.edges.length - an.nodes.length !== edges.length - target.n.length) { return { ok: false, code: 'rings', message: tr('Not quite. The atoms are right, but your drawing has a different number of rings than the molecule.'), over: [] }; }
 var wanted = target.o.map(function (o) { return doubles(edges, o); });
-if (wanted.indexOf(doubles(an.edges)) < 0) { return { ok: false, code: 'doubles', message: 'Not quite. The atoms and rings are right. Look again at the double bonds.', over: [] }; }
-return { ok: false, code: 'joined', message: 'Not quite. The atoms and the double bonds are right in number, but they are joined in a different way.', over: [] };
+if (wanted.indexOf(doubles(an.edges)) < 0) { return { ok: false, code: 'doubles', message: tr('Not quite. The atoms and rings are right. Look again at the double bonds.'), over: [] }; }
+return { ok: false, code: 'joined', message: tr('Not quite. The atoms and the double bonds are right in number, but they are joined in a different way.'), over: [] };
 }
 var NAMES = { C: ['carbon', 'carbons'], N: ['nitrogen', 'nitrogens'], O: ['oxygen', 'oxygens'], S: ['sulfur', 'sulfurs'], P: ['phosphorus', 'phosphorus atoms'] };
 var WORDS = { 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine' };
 function word(n) { return WORDS[n] || String(n); }
-function joinList(parts) { return parts.length > 1 ? parts.slice(0, -1).join(', ') + ' and ' + parts[parts.length - 1] : parts[0]; }
+function joinList(parts) {
+return parts.length > 1 ? tt('{list} and {last}', { list: parts.slice(0, -1).join(', '), last: parts[parts.length - 1] }) : parts[0];
+}
 function atomCounts(target) {
 var c = count(target.n);
 var parts = [];
-['C', 'N', 'O', 'S', 'P'].forEach(function (el) { if (c[el]) { parts.push(word(c[el]) + ' ' + NAMES[el][c[el] === 1 ? 0 : 1]); } });
-Object.keys(c).forEach(function (k) { if (!NAMES[k]) { parts.push(c[k] === 1 ? 'the group ' + k : word(c[k]) + ' ' + k + ' groups'); } });
+['C', 'N', 'O', 'S', 'P'].forEach(function (el) {
+if (!c[el]) { return; }
+parts.push(c[el] === 1 ? tt('one {element}', { element: tr(NAMES[el][0]) }) : tt('{count} {element}', { count: word(c[el]), element: tr(NAMES[el][1]) }));
+});
+Object.keys(c).forEach(function (k) {
+if (!NAMES[k]) { parts.push(c[k] === 1 ? tt('the group {name}', { name: k }) : tt('{count} {name} groups', { count: word(c[k]), name: k })); }
+});
 return joinList(parts);
 }
 function ringSizes(target) {
@@ -12103,26 +12195,35 @@ if (seen[e[1]] !== undefined) { sizes.push(seen[e[1]] + 1); }
 });
 return sizes.filter(function (s, i) { return sizes.indexOf(s) === i; }).sort(function (a, b) { return a - b; });
 }
-function skeletonText(target) {
+function skeletonText(target, inDrawing) {
 var edges = targetEdges(target);
 var rings = edges.length - target.n.length + 1;
 var dbl = doubles(edges, target.o[0]);
-var text;
-if (rings < 1) { text = 'It has no ring'; }
+var ringPart;
+if (rings < 1) { ringPart = tr('no ring'); }
 else {
 var sizes = ringSizes(target);
-text = 'It has ' + word(rings) + (rings === 1 ? ' ring (of ' : ' rings (of ') + joinList(sizes.map(word)) + ' atoms' + (rings > 1 && sizes.length === 1 ? ' each' : '') + ')';
+var rv = { count: word(rings), sizes: joinList(sizes.map(word)) };
+if (rings === 1) { ringPart = tt('one ring (of {sizes} atoms)', rv); }
+else { ringPart = sizes.length === 1 ? tt('{count} rings (of {sizes} atoms each)', rv) : tt('{count} rings (of {sizes} atoms)', rv); }
 }
-return text + ' and ' + (dbl === 0 ? 'no double bond' : word(dbl) + (dbl === 1 ? ' double bond' : ' double bonds')) + '.';
+var doublePart = dbl === 0 ? tr('no double bond') : (dbl === 1 ? tr('one double bond') : tt('{count} double bonds', { count: word(dbl) }));
+var v = { rings: ringPart, doubles: doublePart };
+return inDrawing ? tt('In the drawing it has {rings} and {doubles}.', v) : tt('It has {rings} and {doubles}.', v);
 }
 function hints(target, note) {
 var out = [];
 var first = String(note || '').match(/^[^.!?]*[.!?]/);
-if (first) { out.push('What it is: ' + first[0].trim()); }
-var inDrawing = target.tokens && target.tokens.length ? 'In the drawing it is made of ' : 'It is made of ';
-out.push(inDrawing + atomCounts(target) + (target.n.indexOf('P') >= 0 ? '. A phosphate group is one phosphorus and four oxygens.' : '.'));
-var skeleton = skeletonText(target);
-out.push(target.tokens && target.tokens.length ? 'In the drawing ' + skeleton.charAt(0).toLowerCase() + skeleton.slice(1) : skeleton);
+if (first) { out.push(tt('What it is: {note}', { note: tr(first[0].trim()) })); }
+var inDrawing = !!(target.tokens && target.tokens.length);
+var v = { atoms: atomCounts(target) };
+var phosphate = target.n.indexOf('P') >= 0;
+if (inDrawing) {
+out.push(phosphate ? tt('In the drawing it is made of {atoms}. A phosphate group is one phosphorus and four oxygens.', v) : tt('In the drawing it is made of {atoms}.', v));
+} else {
+out.push(phosphate ? tt('It is made of {atoms}. A phosphate group is one phosphorus and four oxygens.', v) : tt('It is made of {atoms}.', v));
+}
+out.push(skeletonText(target, inDrawing));
 return out;
 }
 MG.drawEdit = {
@@ -12157,6 +12258,13 @@ function geometry() { return MG.geometry || {}; }
 function entity(id) { return MG.entities && MG.entities.molecule ? MG.entities.molecule[id] || null : null; }
 function targets() { return MG.drawTargets || {}; }
 function word(n) { return WORDS[n] || String(n); }
+function tt(text, vars) { return MG.i18n.t(text, vars); }
+function tr(text) { return MG.i18n.tr(text); }
+function andList(items) {
+var out = items.length ? items[0] : '';
+for (var i = 1; i < items.length; i++) { out = tt('{before} and {next}', { before: out, next: items[i] }); }
+return out;
+}
 function rngFrom(seed) {
 var a = (Number(seed) || 1) >>> 0;
 return function () {
@@ -12270,10 +12378,10 @@ base = v && (v.right || v.left) ? runsText(v.right || v.left) : (atom && atom.la
 return (order === 2 ? '=' : MINUS) + base;
 }
 function pieceName(key, order, atom) {
-var bond = order === 2 ? 'double bond to ' : 'single bond to ';
 if (key === 'C') { return order === 2 ? 'double bond to the end of the line, a CH2' : 'single bond to the end of the line, a methyl group'; }
 var named = NAMED[key];
-return bond + (named ? named.name : (atom && atom.label ? runsText(atom.label.runs) : key));
+var piece = named ? tr(named.name) : (atom && atom.label ? runsText(atom.label.runs) : key);
+return order === 2 ? tt('double bond to {piece}', { piece: piece }) : tt('single bond to {piece}', { piece: piece });
 }
 function pieceRuns(key, left) {
 if (key === 'C') { return null; }
@@ -12495,13 +12603,12 @@ if (!g.formula) { return ''; }
 var f = String(g.formula).replace(/(\d+)/g, function (m) { return scripts(m, SUB); });
 var c = typeof g.charge === 'number' ? g.charge : 0;
 var cc = chargeCount(g);
-var charge;
 if (cc.pos > 0 && cc.neg > 0) {
-charge = 'a net charge of ' + (c > 0 ? '+' + c : (c < 0 ? MINUS + Math.abs(c) : '0')) + ' (' + word(cc.pos) + ' positive and ' + word(cc.neg) + ' negative)';
-} else {
-charge = c === 0 ? 'no charge' : 'a charge of ' + (c > 0 ? '+' + c : MINUS + Math.abs(c));
+return tt('Its formula is {formula}, with a net charge of {charge} ({pos} positive and {neg} negative) at pH 7.',
+{ formula: f, charge: c > 0 ? '+' + c : (c < 0 ? MINUS + Math.abs(c) : '0'), pos: word(cc.pos), neg: word(cc.neg) });
 }
-return 'Its formula is ' + f + ', with ' + charge + ' at pH 7.';
+if (c === 0) { return tt('Its formula is {formula}, with no charge at pH 7.', { formula: f }); }
+return tt('Its formula is {formula}, with a charge of {charge} at pH 7.', { formula: f, charge: c > 0 ? '+' + c : MINUS + Math.abs(c) });
 }
 function restorePrompt(id, rand) {
 var g = geometry()[id];
@@ -12511,17 +12618,18 @@ if (!items.length) { return null; }
 var hints = [];
 var all = sentencesOf(e.note);
 var open = all.filter(function (s) { return !leaks(s, items); })[0];
-hints.push(open ? 'What it is: ' + open
+hints.push(open ? tt('What it is: {note}', { note: tr(open) })
 : 'Each circle hangs on an atom that already has some bonds. A carbon has four bonds in all, a nitrogen three and an oxygen two; the rest is hydrogen.');
-hints.push(formulaText(g) || ('The finished drawing has ' + g.atoms.length + ' atoms. A group such as CoA counts as one. It is drawn as it is at pH 7.'));
+hints.push(formulaText(g) || tt('The finished drawing has {n} atoms. A group such as CoA counts as one. It is drawn as it is at pH 7.', { n: g.atoms.length }));
 hints.push('Two of the wrong choices are taken away at every circle.');
 var pieces = items.map(function (it) { return it.answerText; });
-var missing = items.length === 1 ? 'One piece is missing.' : (word(items.length).charAt(0).toUpperCase() + word(items.length).slice(1) + ' pieces are missing.');
+var count = word(items.length).charAt(0).toUpperCase() + word(items.length).slice(1);
 return {
 id: 'restore.' + id, kind: 'restore', mol: id, name: e.name || id, tier: tierOf(g.atoms.length),
-text: 'Finish the drawing of ' + (e.name || id) + '.',
-sub: missing + (items.length === 1 ? ' Tap the dashed circle and choose what belongs there.' : ' Tap each dashed circle and choose what belongs there.'),
-items: items, hints: hints, explain: all.join(' '), answerText: pieces.join(' and ')
+text: tt('Finish the drawing of {name}.', { name: e.name || id }),
+sub: items.length === 1 ? 'One piece is missing. Tap the dashed circle and choose what belongs there.'
+: tt('{count} pieces are missing. Tap each dashed circle and choose what belongs there.', { count: count }),
+items: items, hints: hints, explain: all.join(' '), answerText: andList(pieces)
 };
 }
 function drawPrompt(id) {
@@ -12533,7 +12641,7 @@ var all = sentencesOf(e.note);
 var hints = MG.drawEdit ? MG.drawEdit.hints(tg, all[0] || '') : [];
 return {
 id: 'draw.' + id, kind: 'draw', mol: id, name: e.name || id, tier: tierOf(g.atoms.length), heavy: tg.heavy, tokens: tg.tokens.slice(),
-text: 'Draw ' + (e.name || id) + '.',
+text: tt('Draw {name}.', { name: e.name || id }),
 sub: 'Put the atoms on the page and join them. Hydrogens, charges and stereochemistry (L, D, cis, trans) are not drawn or checked.',
 hints: hints, explain: all.join(' '), answerText: ''
 };
@@ -12593,7 +12701,7 @@ function check(prompt, response) {
 var r = response || {};
 if (prompt.kind === 'draw') {
 var tg = targetOf(prompt.mol);
-if (!tg || !MG.drawEdit || !r.state) { return { ok: false, code: 'empty', message: 'Draw something first.', over: [] }; }
+if (!tg || !MG.drawEdit || !r.state) { return { ok: false, code: 'empty', message: tr('Draw something first.'), over: [] }; }
 return MG.drawEdit.check(r.state, tg);
 }
 var placed = r.placed || [];
@@ -23003,6 +23111,105 @@ group: GROUP, count: 13, fixedOrder: true, build: salvageBuild
 (function (root) {
 'use strict';
 var MG = root.MG = root.MG || {};
+var LANGS = [
+{ id: 'en', name: 'English' },
+{ id: 'es', name: 'Español' },
+{ id: 'de', name: 'Deutsch' },
+{ id: 'zh', name: '简体中文' }
+];
+var packs = {};
+var current = 'en';
+var recording = false;
+var pending = {};
+function isOffered(id) {
+for (var i = 0; i < LANGS.length; i++) { if (LANGS[i].id === id) { return true; } }
+return false;
+}
+function isAvailable(id) {
+if (!isOffered(id)) { return false; }
+if (id === 'en' || packs[id]) { return true; }
+var where = root.location && root.location.protocol;
+return where === 'http:' || where === 'https:';
+}
+function tr(text) {
+if (typeof text !== 'string' || !text) { return text; }
+if (recording) {
+if (!MG.i18n.seen[text] && typeof root.__i18nSeen === 'function') { root.__i18nSeen(text); }   // tools/auto_continue.js collects them across reloads
+MG.i18n.seen[text] = (MG.i18n.seen[text] || 0) + 1;
+}
+var table = packs[current];
+if (!table) { return text; }
+if (Object.prototype.hasOwnProperty.call(table, text)) { return table[text]; }
+var core = text.replace(/^\s+|\s+$/g, '');
+if (core !== text && Object.prototype.hasOwnProperty.call(table, core)) {
+return text.slice(0, text.indexOf(core)) + table[core] + text.slice(text.indexOf(core) + core.length);
+}
+return text;
+}
+function t(text, vars) {
+var out = tr(text);
+if (!vars || typeof out !== 'string') { return out; }
+return out.replace(/\{(\w+)\}/g, function (m, key) {
+return Object.prototype.hasOwnProperty.call(vars, key) ? String(vars[key]) : m;
+});
+}
+function register(id, table) {
+packs[id] = packs[id] || {};
+Object.keys(table || {}).forEach(function (k) { packs[id][k] = table[k]; });
+}
+function setPageLang(id) {
+if (root.document && root.document.documentElement) { root.document.documentElement.setAttribute('lang', id); }
+}
+function use(id, done) {
+var finish = typeof done === 'function' ? done : function () {};
+if (!isAvailable(id)) { finish(false); return; }
+if (id === 'en' || packs[id]) { current = id; setPageLang(id); finish(true); return; }
+if (!root.document || !root.document.createElement) { finish(false); return; }
+if (pending[id]) { pending[id].push(finish); return; }
+pending[id] = [finish];
+var script = root.document.createElement('script');
+var settle = function (ok) {
+if (ok) { current = id; setPageLang(id); }
+var waiting = pending[id] || [];
+delete pending[id];
+waiting.forEach(function (f) { f(ok); });
+};
+script.onload = function () { settle(!!packs[id]); };
+script.onerror = function () { settle(false); };
+script.src = 'lang/' + id + '.js';
+root.document.head.appendChild(script);
+}
+function detect() {
+var nav = root.navigator || {};
+var list = nav.languages && nav.languages.length ? nav.languages : [nav.language || 'en'];
+for (var i = 0; i < list.length; i++) {
+var base = String(list[i] || '').toLowerCase().split('-')[0];
+if (isAvailable(base)) { return base; }
+}
+return 'en';
+}
+function record(on) {
+recording = !!on;
+if (on && !MG.i18n.seen) { MG.i18n.seen = {}; }
+}
+MG.i18n = {
+t: t,
+tr: tr,
+register: register,
+use: use,
+lang: function () { return current; },
+langs: function () { return LANGS.filter(function (l) { return isAvailable(l.id); }); },
+detect: detect,
+isOffered: isOffered,
+record: record,
+seen: null,
+_packs: packs
+};
+if (root.__i18nRecord) { record(true); }
+})(typeof window !== 'undefined' ? window : globalThis);
+(function (root) {
+'use strict';
+var MG = root.MG = root.MG || {};
 function list(pathway) {
 var out = [];
 var seen = {};
@@ -23367,7 +23574,7 @@ var FORMATS = ['names', 'structures', 'mixed'];
 var MODES = ['build', 'pick', 'type'];
 var THEMES = ['light', 'dark', 'auto'];
 var DEFAULTS = {
-format: 'mixed', showSlotLabels: true, givenStart: false, cofactors: true, sound: true, introSeen: false, theme: 'light', advanced: false,
+format: 'mixed', showSlotLabels: true, givenStart: false, cofactors: true, sound: true, introSeen: false, theme: 'light', advanced: false, lang: 'auto',
 pathwayId: 'glycolysis', mode: 'build', excluded: {}
 };
 var cache = null;
@@ -23394,6 +23601,7 @@ function normalise(key, value) {
 if (key === 'format') { return FORMATS.indexOf(value) >= 0 ? value : undefined; }
 if (key === 'mode') { return MODES.indexOf(value) >= 0 ? value : undefined; }
 if (key === 'theme') { return THEMES.indexOf(value) >= 0 ? value : undefined; }
+if (key === 'lang') { return value === 'auto' || (typeof value === 'string' && /^[a-z]{2,3}$/.test(value)) ? value : undefined; }
 if (key === 'pathwayId') { return value === '' || isPathwayId(value) ? value : undefined; }
 if (key === 'excluded') { return cleanExcluded(value); }
 return typeof value === 'boolean' ? value : undefined;
@@ -24307,6 +24515,8 @@ if (attrs[k] !== null && attrs[k] !== undefined) { e.setAttribute(k, String(attr
 if (parent) { parent.appendChild(e); }
 return e;
 }
+function tt(text, vars) { return MG.i18n.t(text, vars); }
+function tr(text) { return MG.i18n.tr(text); }
 function prefersReducedMotion() {
 try {
 return !!(root.matchMedia && root.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -24491,7 +24701,7 @@ id: r.id, rxn: r.id, cx: Pc.x, cy: Pc.y, w: pw, h: ph,
 x: Pc.x - pw / 2, y: Pc.y - ph / 2, lines: lines, label: label
 };
 L.pills[r.id] = pill;
-var bt = String(r.step);
+var bt = typeof r.step === 'number' ? String(r.step) : tr(String(r.step));
 L.badges[r.id] = {
 rxn: r.id, text: bt, x: pill.x - 6, y: pill.y - 10,
 w: Math.max(24, textWidth(bt, 12) + 10), h: 24
@@ -24543,7 +24753,7 @@ bbox: { x0: g.x, y0: g.y, x1: g.x + g.w, y1: g.y + g.h }
 };
 }
 function regionLabel(g, solid) {
-var text = String(g.label || '');
+var text = tr(String(g.label || ''));   // the tag is sized for the words the player reads
 var w = text ? Math.ceil(text.length * TAG_TEXT * TAG_EM) + TAG_PAD : 0;
 var h = text ? TAG_H : 0;
 if (g.type === 'circle') {
@@ -24585,7 +24795,7 @@ rg.labelBox = regionLabel(g, solid);
 return rg;
 });
 var noteList = (p.notes || []).map(function (n) {
-return { text: n.text, x: n.x, y: n.y, size: n.size || 16, color: n.color || C.regionLabel, anchor: n.anchor || 'start' };
+return { text: tr(n.text), x: n.x, y: n.y, size: n.size || 16, color: n.color || C.regionLabel, anchor: n.anchor || 'start' };
 });
 var rectRegions = L.regions.filter(function (rg) { return rg.type === 'rect'; }).map(function (rg) { return rg.bbox; });
 var shiftClear = function (dy) {
@@ -24765,7 +24975,7 @@ addLines(refs.content, wrapName(ent, name, 3, 14), CARD_W / 2, CARD_H / 2, 17, '
 function paintPill(refs, pill, state, showLabels, word) {
 clearNode(refs.text);
 var filled = state === 'filled' || state === 'missed';
-var lines = filled ? pill.lines : [showLabels ? (word || 'enzyme') : '?'];
+var lines = filled ? pill.lines : [showLabels ? tr(word || 'enzyme') : '?'];
 var cls = filled ? 'mgc-pill-text' : (showLabels ? 'mgc-pill-hint' : 'mgc-pill-text mgc-pill-text--q');
 addLines(refs.text, lines, pill.w / 2, pill.h / 2, 13.5, cls, pill.w - 12);
 }
@@ -24805,7 +25015,7 @@ var ent = filled ? MG.entities.cofactor[value || chip.cofId] : null;
 var pal = chipPalette(theme, state, ent);
 refs.body.style.fill = pal ? pal[0] : '';
 refs.text.style.fill = pal ? (pal[2] ? pal[1] : textOn(pal[0], pal[1])) : '';
-refs.text.textContent = filled ? (ent ? ent.display : chip.display) : (showLabels ? chip.kind : '?');
+refs.text.textContent = filled ? (ent ? ent.display : chip.display) : (showLabels ? tr(chip.kind) : '?');
 refs.text.setAttribute('class', filled ? 'mgc-chip-text' : (showLabels ? 'mgc-chip-hint' : 'mgc-chip-text mgc-chip-text--q'));
 refs.group.setAttribute('data-family', filled ? (ent ? ent.family : chip.family) : '');
 fitText(refs.text, chip.w - 10);
@@ -24813,25 +25023,42 @@ fitText(refs.text, chip.w - 10);
 function describeSlot(P, slot, state, value) {
 var rxn = null;
 if (slot.rxn) { P.reactions.forEach(function (r) { if (r.id === slot.rxn) { rxn = r; } }); }
-var where = !rxn ? 'starting metabolite'
-: (typeof rxn.step === 'number' ? 'step ' + rxn.step : 'the ' + String(rxn.step).toLowerCase() + ' reaction');
+function say(none, numbered, named, vars) {
+var slots = vars || {};
+if (!rxn) { return none ? tt(none, slots) : ''; }
+if (typeof rxn.step === 'number') { slots.n = rxn.step; return tt(numbered, slots); }
+slots.step = tr(String(rxn.step).toLowerCase());
+return tt(named, slots);
+}
 var filled = state === 'filled' || state === 'missed';
-var shown = state === 'missed' ? ', answer shown' : '';
 var v = value || slot.answer;
+var text;
 if (slot.kind === 'node') {
 var mol = MG.entities.molecule[v];
 var mname = mol ? mol.name : v;
-if (!filled) { return 'Empty slot: ' + (rxn ? 'metabolite for ' + where : 'starting metabolite'); }
-return (rxn ? mname + ', ' + where : mname + ' (starting metabolite)') + shown;
-}
-if (slot.kind === 'enz') {
+text = filled
+? say('{name} (starting metabolite)', '{name}, step {n}', '{name}, the {step} reaction', { name: mname })
+: say('Empty slot: starting metabolite', 'Empty slot: metabolite for step {n}', 'Empty slot: metabolite for the {step} reaction');
+} else if (slot.kind === 'enz') {
 var en = MG.entities.enzyme[v];
-var word = rxn && rxn.terms && rxn.terms.enz ? rxn.terms.enz : (P.terms && P.terms.enz ? P.terms.enz : 'enzyme');
-return filled ? word.charAt(0).toUpperCase() + word.slice(1) + ' for ' + where + ': ' + (en ? en.name : v) + shown : 'Empty slot: ' + word + ' for ' + where;
-}
+var word = tr(rxn && rxn.terms && rxn.terms.enz ? rxn.terms.enz : (P.terms && P.terms.enz ? P.terms.enz : 'enzyme'));
+text = filled
+? say(null, '{word} for step {n}: {name}', '{word} for the {step} reaction: {name}', { word: word.charAt(0).toUpperCase() + word.slice(1), name: en ? en.name : v })
+: say(null, 'Empty slot: {word} for step {n}', 'Empty slot: {word} for the {step} reaction', { word: word });
+} else {
 var cf = MG.entities.cofactor[v];
-var verb = slot.kind === 'in' ? 'consumed in ' : 'released in ';
-return filled ? (cf ? cf.name : v) + ', ' + verb + where + shown : 'Empty slot: cofactor ' + verb + where;
+var cname = cf ? cf.name : v;
+if (slot.kind === 'in') {
+text = filled
+? say(null, '{name}, consumed in step {n}', '{name}, consumed in the {step} reaction', { name: cname })
+: say(null, 'Empty slot: cofactor consumed in step {n}', 'Empty slot: cofactor consumed in the {step} reaction');
+} else {
+text = filled
+? say(null, '{name}, released in step {n}', '{name}, released in the {step} reaction', { name: cname })
+: say(null, 'Empty slot: cofactor released in step {n}', 'Empty slot: cofactor released in the {step} reaction');
+}
+}
+return state === 'missed' ? tt('{text}, answer shown', { text: text }) : text;
 }
 function create(container, pathway, options) {
 if (!container || !pathway) { throw new Error('MG.chart.create needs a container and a pathway'); }
@@ -24861,7 +25088,7 @@ if (reduce) { container.classList.add('mgc-reduce'); }
 if (root.getComputedStyle && root.getComputedStyle(container).position === 'static') {
 container.style.position = 'relative';
 }
-var svg = el('svg', { 'class': 'mgc-svg', role: 'group', 'aria-label': P.title + ' pathway chart' });
+var svg = el('svg', { 'class': 'mgc-svg', role: 'group', 'aria-label': tt('{title} pathway chart', { title: tr(P.title) }) });
 container.appendChild(svg);
 var world = el('g', { 'class': 'mgc-world' }, svg);
 var layers = {};
@@ -25206,8 +25433,8 @@ function addButton(text, label, html, handler) {
 var b = document.createElement('button');
 b.type = 'button';
 b.className = 'mg-btn mg-btn--icon mgc-btn';
-b.setAttribute('aria-label', label);
-b.title = label;
+b.setAttribute('aria-label', tr(label));
+b.title = tr(label);
 if (html) { b.innerHTML = html; } else { b.textContent = text; }
 b.addEventListener('click', function () { userMoved = true; handler(); });
 bar.appendChild(b);
@@ -25276,6 +25503,8 @@ MG.chart.paintChip = paintChip;    // chip colours, run on stand-in elements by 
 (function (root) {
 'use strict';
 var MG = root.MG = root.MG || {};
+function tt(text, vars) { return MG.i18n.t(text, vars); }
+function tr(text) { return MG.i18n.tr(text); }
 var CLASS_NAMES = { 1: 'oxidoreductases', 2: 'transferases', 3: 'hydrolases', 4: 'lyases', 5: 'isomerases', 6: 'ligases', 7: 'translocases' };
 var COFACTOR_CLUE = {
 redox: 'Look at what is oxidized or reduced here: this carrier is in the opposite state on the other side of the arrow.',
@@ -25337,20 +25566,29 @@ return out;
 }
 function noteSentence(note, kind, ids) {
 var sentences = String(note || '').match(/[^.!?]*[.!?]+(?=\s|$)|[^.!?]+$/g) || [];
-for (var i = 0; i < sentences.length; i++) {
-var clean = redact(sentences[i].trim(), kind, ids);
+function polish(clean) {
 if (/^\.\.\.,\s*[a-z]/.test(clean)) { clean = clean.replace(/^\.\.\.,\s*/, ''); clean = clean.charAt(0).toUpperCase() + clean.slice(1); }
-if (/[a-z]{3}/i.test(clean)) { return clean; }
+return clean;
+}
+for (var i = 0; i < sentences.length; i++) {
+var raw = sentences[i].trim();
+var clean = polish(redact(raw, kind, ids));
+if (/[a-z]{3}/i.test(clean)) {
+var shown = tr(raw);
+return shown === raw ? clean : polish(redact(shown, kind, ids));
+}
 }
 return '';
 }
 function lookText(slot, target, ids, kind, enzWord) {
-var what = (slot.kind === 'enz' && enzWord && enzWord !== 'enzyme' ? 'You are looking for the ' + enzWord + '.' : WHAT_TO_FIND[slot.kind]) || (slot.role === 'prod'
-? 'You are looking for the product of this step.'
-: 'You are looking for the missing substrate of this step.');
+var what;
+if (slot.kind === 'enz' && enzWord && enzWord !== 'enzyme') { what = tt('You are looking for the {enzyme}.', { enzyme: tr(enzWord) }); }
+else if (WHAT_TO_FIND[slot.kind]) { what = tr(WHAT_TO_FIND[slot.kind]); }
+else if (slot.role === 'prod') { what = tr('You are looking for the product of this step.'); }
+else { what = tr('You are looking for the missing substrate of this step.'); }
 var family = (MG.entities.familyHint && MG.entities.familyHint[kind]) || {};
-var text = what + (family[target.family] ? ' It is ' + family[target.family] + '.' : '');
-if (ids.length > 1) { text += ' There are ' + ids.length + ' to find here, in any order.'; }
+var text = what + (family[target.family] ? ' ' + tt('It is {family}.', { family: tr(family[target.family]) }) : '');
+if (ids.length > 1) { text += ' ' + tt('There are {n} to find here, in any order.', { n: ids.length }); }
 return text;
 }
 function moleculeClue(e, ids) {
@@ -25364,17 +25602,18 @@ counts[el] = (counts[el] || 0) + (n ? Number(n) : 1);
 return m;
 });
 var parts = [];
-if (counts.C) { parts.push(counts.C + ' carbon' + (counts.C === 1 ? '' : 's')); }
-if (counts.P) { parts.push(counts.P + ' phosphorus atom' + (counts.P === 1 ? '' : 's')); }
-if (parts.length) { return 'It has ' + parts.join(' and ') + '.'; }
+if (counts.C) { parts.push(counts.C === 1 ? tt('{n} carbon', { n: counts.C }) : tt('{n} carbons', { n: counts.C })); }
+if (counts.P) { parts.push(counts.P === 1 ? tt('{n} phosphorus atom', { n: counts.P }) : tt('{n} phosphorus atoms', { n: counts.P })); }
+if (parts.length === 2) { return tt('It has {first} and {second}.', { first: parts[0], second: parts[1] }); }
+if (parts.length) { return tt('It has {atoms}.', { atoms: parts[0] }); }
 }
 return noteSentence(e.note, 'molecule', ids);
 }
 function enzymeClue(e, rxn, ids) {
 var parts = [];
 var cls = e.ec ? String(e.ec).split('.')[0] : '';
-if (CLASS_NAMES[cls]) { parts.push('Its EC number starts with ' + cls + ' (' + CLASS_NAMES[cls] + ').'); }
-if (rxn && rxn.irreversible) { parts.push('This step is irreversible in cells.'); }
+if (CLASS_NAMES[cls]) { parts.push(tt('Its EC number starts with {n} ({group}).', { n: cls, group: tr(CLASS_NAMES[cls]) })); }
+if (rxn && rxn.irreversible) { parts.push(tr('This step is irreversible in cells.')); }
 var note = noteSentence(e.note, 'enzyme', ids);
 if (note) { parts.push(note); }
 return parts.join(' ');
@@ -25382,13 +25621,16 @@ return parts.join(' ');
 function clueText(kind, rxn, target, ids) {
 if (kind === 'molecule') { return moleculeClue(target, ids); }
 if (kind === 'enzyme') { return enzymeClue(target, rxn, ids); }
-return COFACTOR_CLUE_BY_ID[target.id] || COFACTOR_CLUE[target.family] || noteSentence(target.note, 'cofactor', ids);
+var own = COFACTOR_CLUE_BY_ID[target.id] || COFACTOR_CLUE[target.family];
+return own ? tr(own) : noteSentence(target.note, 'cofactor', ids);
 }
 function lastClue(e) {
 var name = String(e.name || '');
 var n = name.trim().split(/\s+/).length;
 var letters = (name.match(/[\p{L}\p{N}]/gu) || []).length;
-return 'Its name has ' + n + ' word' + (n === 1 ? '' : 's') + ' and ' + letters + ' letter' + (letters === 1 ? '' : 's') + '.';
+var wordCount = n === 1 ? tt('{n} word', { n: n }) : tt('{n} words', { n: n });
+var letterCount = letters === 1 ? tt('{n} letter', { n: letters }) : tt('{n} letters', { n: letters });
+return tt('Its name has {words} and {letters}.', { words: wordCount, letters: letterCount });
 }
 function stepAnswers(pathway, rxn) {
 var mols = [];
@@ -25411,13 +25653,13 @@ var target = entityOf(kind, ids[0]);
 if (!target) { return []; }
 var wording = pathway && pathway.entityNotes ? pathway.entityNotes[target.id] : null;
 if (wording) { target = Object.assign({}, target, { note: wording }); }
-var out = [{ label: 'What is happening', text: redact(rxn.hint || '', kind, ids) }];
+var out = [{ label: tr('What is happening'), text: redact(tr(rxn.hint || ''), kind, ids) }];
 var enzWord = rxn && rxn.terms && rxn.terms.enz ? rxn.terms.enz : (pathway && pathway.terms && pathway.terms.enz ? pathway.terms.enz : 'enzyme');
 var step = stepAnswers(pathway, rxn);
-out.push({ label: 'What to look for', text: redactStep(redact(lookText(slot, target, ids, kind, enzWord), kind, ids), step) });
+out.push({ label: tr('What to look for'), text: redactStep(redact(lookText(slot, target, ids, kind, enzWord), kind, ids), step) });
 var clue = clueText(kind, rxn, target, ids);
-if (clue) { out.push({ label: 'A clue', text: redactStep(redact(clue, kind, ids), step) }); }
-out.push({ label: 'Last clue', text: redact(lastClue(target), kind, ids) });
+if (clue) { out.push({ label: tr('A clue'), text: redactStep(redact(clue, kind, ids), step) }); }
+out.push({ label: tr('Last clue'), text: redact(lastClue(target), kind, ids) });
 return out;
 }
 var WHY_MAX = 240;
@@ -25427,32 +25669,32 @@ var OXIDIZED = { nad: 'nadh', nadp: 'nadph', fad: 'fadh2', q: 'qh2' };
 var REDUCED = { nadh: 'nad', nadph: 'nadp', fadh2: 'fad', qh2: 'q' };
 var CARRIERS = ['nad', 'nadh', 'fad', 'fadh2', 'q', 'qh2', 'cytcox'];
 var VERBS = [
-{ re: /^(phosphoryl transfer|phosphorylation|pyrophosphoryl transfer)/, shape: '1:1', text: 'phosphorylates {S} to {P}' },
-{ re: /^(isomerization|epimerization|phosphoryl shift|cyclization)/, shape: '1:1', text: 'rearranges {S} into {P}' },
-{ re: /^(oxidative decarboxylation|oxidation|oxidative deamination|water oxidation)/, shape: '1:1', text: 'oxidizes {S} to {P}' },
-{ re: /^(oxidative decarboxylation|oxidation|oxidative deamination)/, shape: '1:2', text: 'oxidizes {S} to {P1} and {P2}' },
-{ re: /^(reduction|reductive amination)/, shape: '1:1', text: 'reduces {S} to {P}' },
-{ re: /^(reduction|reductive amination)/, shape: '2:1', text: 'reduces {S} to {P}' },
-{ re: /^dehydration/, shape: '1:1', skip: ['h2o'], text: 'removes water from {S}, giving {P}' },
-{ re: /^hydration/, shape: '1:1', skip: ['h2o'], text: 'adds water to {S}, giving {P}' },
-{ re: /^decarboxylation/, shape: '1:1', needsOut: 'co2', skip: ['co2'], text: 'takes a carbon off {S} as CO₂, giving {P}' },
-{ re: /^carboxylation/, shape: '1:1', needsIn: 'co2', skip: ['co2'], text: 'adds a carbon from CO₂ to {S}, making {P}' },
-{ re: /^carboxylation/, shape: '1:1', needsIn: 'hco3', skip: ['hco3'], text: 'adds a carbon from HCO₃⁻ to {S}, making {P}' },
-{ re: /^carboxylation/, shape: '1:1', text: 'adds a carbon to {S}, making {P}' },
-{ re: /^transamination/, shape: '2:2', text: 'moves the amino group of {S1} onto {S2}, giving {P1} and {P2}' },
-{ re: /^transamination/, shape: '1:1', text: 'swaps an amino group for a keto group, turning {S} into {P}' },
-{ re: /^(hydrolysis|proteolysis|proteolytic)/, shape: '1:2', skip: ['h2o'], text: 'hydrolyzes {S} into {P1} and {P2}' },
-{ re: /^(hydrolysis|proteolysis|proteolytic|dephosphorylation|gtpase action)/, shape: '1:1', skip: ['h2o'], text: 'hydrolyzes {S}, giving {P}' },
-{ re: /^phosphorolysis/, shape: '1:1', needsIn: 'pi', skip: ['pi'], text: 'splits {S} with phosphate, giving {P}' },
-{ re: /^(thiolysis|cleavage)/, shape: '1:2', needsIn: 'coa', skip: ['coa'], text: 'splits {S} with CoA-SH into {P1} and {P2}' },
-{ re: /^(aldol cleavage|elimination|thiolysis|cleavage|phosphorolysis)/, shape: '1:2', text: 'splits {S} into {P1} and {P2}' },
-{ re: /^(cleavage|phosphorolysis)/, shape: '1:1', text: 'splits {S}, giving {P}' },
-{ re: /^(condensation|aldol condensation|amide bond|amidation|ring closure|complex assembly|carbamoyl transfer|glycosyl transfer|nucleotidyl transfer|transfer of|two-carbon transfer|amidotransfer)/, shape: '2:1', text: 'joins {S1} and {S2} into {P}' },
-{ re: /^(condensation|aldol condensation)/, shape: '2:2', text: 'joins {S1} and {S2}, giving {P1} and {P2}' },
-{ re: /^photoexcitation/, shape: '1:1', needsIn: 'photon', skip: ['photon'], text: 'lifts {S} to {P} with the energy of a photon' },
-{ re: /^(electron transfer|reduction of o|release into the quinone)/, shape: '1:1', skip: CARRIERS, pump: true, text: 'takes electrons from {S} and passes them on, giving {P}' },
-{ re: /^(atp synthesis|photophosphorylation)/, shape: '1:1', skip: ['pi', 'hplus'], text: 'makes {P} from {S} and Pᵢ' },
-{ re: /^(antiport|symport|transport|facilitated diffusion|movement|uptake|entry)/, shape: 'same', skip: ['hplus'], text: 'carries {S} across the membrane' }
+{ re: /^(phosphoryl transfer|phosphorylation|pyrophosphoryl transfer)/, shape: '1:1', text: '{enzyme} phosphorylates {S} to {P}' },
+{ re: /^(isomerization|epimerization|phosphoryl shift|cyclization)/, shape: '1:1', text: '{enzyme} rearranges {S} into {P}' },
+{ re: /^(oxidative decarboxylation|oxidation|oxidative deamination|water oxidation)/, shape: '1:1', text: '{enzyme} oxidizes {S} to {P}' },
+{ re: /^(oxidative decarboxylation|oxidation|oxidative deamination)/, shape: '1:2', text: '{enzyme} oxidizes {S} to {P1} and {P2}' },
+{ re: /^(reduction|reductive amination)/, shape: '1:1', text: '{enzyme} reduces {S} to {P}' },
+{ re: /^(reduction|reductive amination)/, shape: '2:1', text: '{enzyme} reduces {S} to {P}' },
+{ re: /^dehydration/, shape: '1:1', skip: ['h2o'], text: '{enzyme} removes water from {S}, giving {P}' },
+{ re: /^hydration/, shape: '1:1', skip: ['h2o'], text: '{enzyme} adds water to {S}, giving {P}' },
+{ re: /^decarboxylation/, shape: '1:1', needsOut: 'co2', skip: ['co2'], text: '{enzyme} takes a carbon off {S} as CO₂, giving {P}' },
+{ re: /^carboxylation/, shape: '1:1', needsIn: 'co2', skip: ['co2'], text: '{enzyme} adds a carbon from CO₂ to {S}, making {P}' },
+{ re: /^carboxylation/, shape: '1:1', needsIn: 'hco3', skip: ['hco3'], text: '{enzyme} adds a carbon from HCO₃⁻ to {S}, making {P}' },
+{ re: /^carboxylation/, shape: '1:1', text: '{enzyme} adds a carbon to {S}, making {P}' },
+{ re: /^transamination/, shape: '2:2', text: '{enzyme} moves the amino group of {S1} onto {S2}, giving {P1} and {P2}' },
+{ re: /^transamination/, shape: '1:1', text: '{enzyme} swaps an amino group for a keto group, turning {S} into {P}' },
+{ re: /^(hydrolysis|proteolysis|proteolytic)/, shape: '1:2', skip: ['h2o'], text: '{enzyme} hydrolyzes {S} into {P1} and {P2}' },
+{ re: /^(hydrolysis|proteolysis|proteolytic|dephosphorylation|gtpase action)/, shape: '1:1', skip: ['h2o'], text: '{enzyme} hydrolyzes {S}, giving {P}' },
+{ re: /^phosphorolysis/, shape: '1:1', needsIn: 'pi', skip: ['pi'], text: '{enzyme} splits {S} with phosphate, giving {P}' },
+{ re: /^(thiolysis|cleavage)/, shape: '1:2', needsIn: 'coa', skip: ['coa'], text: '{enzyme} splits {S} with CoA-SH into {P1} and {P2}' },
+{ re: /^(aldol cleavage|elimination|thiolysis|cleavage|phosphorolysis)/, shape: '1:2', text: '{enzyme} splits {S} into {P1} and {P2}' },
+{ re: /^(cleavage|phosphorolysis)/, shape: '1:1', text: '{enzyme} splits {S}, giving {P}' },
+{ re: /^(condensation|aldol condensation|amide bond|amidation|ring closure|complex assembly|carbamoyl transfer|glycosyl transfer|nucleotidyl transfer|transfer of|two-carbon transfer|amidotransfer)/, shape: '2:1', text: '{enzyme} joins {S1} and {S2} into {P}' },
+{ re: /^(condensation|aldol condensation)/, shape: '2:2', text: '{enzyme} joins {S1} and {S2}, giving {P1} and {P2}' },
+{ re: /^photoexcitation/, shape: '1:1', needsIn: 'photon', skip: ['photon'], text: '{enzyme} lifts {S} to {P} with the energy of a photon' },
+{ re: /^(electron transfer|reduction of o|release into the quinone)/, shape: '1:1', skip: CARRIERS, pump: true, text: '{enzyme} takes electrons from {S} and passes them on, giving {P}' },
+{ re: /^(atp synthesis|photophosphorylation)/, shape: '1:1', skip: ['pi', 'hplus'], text: '{enzyme} makes {P} from {S} and Pᵢ' },
+{ re: /^(antiport|symport|transport|facilitated diffusion|movement|uptake|entry)/, shape: 'same', skip: ['hplus'], text: '{enzyme} carries {S} across the membrane' }
 ];
 var SENTENCE_START = /^(It|Its|The|A|An|This|These|In|At|On|Once|When|After|Before|Because|Since|As|With|Without|Here|Each|Every|Both|Most|Many|Some|One|Two|Three|Only|Unlike|Like|If|Where|While|Then|There|Their|Nothing|Hydrolysis|Binding|Breakdown|Protons|Electrons|Small|Cells|Muscle|Liver|Brain|Plants|Animals|Adaptors|Lipases|Mitofusins)\b/;
 var BARE_VERB = /^[A-Z][a-z]+(?:[^s]s|zes|ses|ches|shes)$/;
@@ -25472,43 +25714,47 @@ return m[1] + m[2].toLowerCase() + name.slice(m[1].length + 1);
 }
 function joinNames(list) {
 if (list.length <= 1) { return list.join(''); }
-return list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1];
+var front = list[0];
+for (var i = 1; i < list.length - 1; i++) { front = tt('{list}, {item}', { list: front, item: list[i] }); }
+return tt('{list} and {last}', { list: front, last: list[list.length - 1] });
 }
 function uniq(list) {
 return list.filter(function (x, i) { return list.indexOf(x) === i; });
 }
-function cofactorClause(ins, outs, tpl) {
+function cofactorClause(ins, outs, tpl, info) {
 var skip = tpl && tpl.skip ? tpl.skip : [];
 var inLeft = ins.filter(function (id) { return skip.indexOf(id) < 0; });
 var outLeft = outs.filter(function (id) { return skip.indexOf(id) < 0; });
 var parts = [];
 function drop(list, id) { var i = list.indexOf(id); if (i >= 0) { list.splice(i, 1); } }
-if (tpl && tpl.pump && outLeft.indexOf('hplus') >= 0) { parts.push('moving H⁺ across the membrane'); drop(outLeft, 'hplus'); }
+if (tpl && tpl.pump && outLeft.indexOf('hplus') >= 0) { parts.push(tr('moving H⁺ across the membrane')); drop(outLeft, 'hplus'); }
 ins.forEach(function (id) {
 if (SPENT[id]) {
 var to = SPENT[id].filter(function (x) { return outLeft.indexOf(x) >= 0; })[0];
 if (to) {
-parts.push('spending ' + cofName(id) + (to === 'amp' || to === 'ump' ? ' (to ' + cofName(to) + ' and PPᵢ)' : ''));
+parts.push(to === 'amp' || to === 'ump'
+? tt('spending {cofactor} (to {product} and PPᵢ)', { cofactor: cofName(id), product: cofName(to) })
+: tt('spending {cofactor}', { cofactor: cofName(id) }));
+if (info) { info.spending = true; }
 drop(inLeft, id); drop(outLeft, to); if (to === 'amp' || to === 'ump') { drop(outLeft, 'ppi'); }
 }
 } else if (MADE[id] && outLeft.indexOf(MADE[id]) >= 0) {
-parts.push('making ' + cofName(MADE[id]) + ' from ' + cofName(id));
+parts.push(tt('making {product} from {cofactor}', { product: cofName(MADE[id]), cofactor: cofName(id) }));
 drop(inLeft, id); drop(outLeft, MADE[id]);
 } else if (OXIDIZED[id] && outLeft.indexOf(OXIDIZED[id]) >= 0) {
-parts.push('with ' + cofName(id) + ' taking the electrons as ' + cofName(OXIDIZED[id]));
+parts.push(tt('with {carrier} taking the electrons as {reduced}', { carrier: cofName(id), reduced: cofName(OXIDIZED[id]) }));
 drop(inLeft, id); drop(outLeft, OXIDIZED[id]);
 } else if (REDUCED[id] && outLeft.indexOf(REDUCED[id]) >= 0) {
-parts.push('with electrons from ' + cofName(id));
+parts.push(tt('with electrons from {carrier}', { carrier: cofName(id) }));
 drop(inLeft, id); drop(outLeft, REDUCED[id]);
 }
 });
-if (inLeft.length) { parts.push('using ' + joinNames(inLeft.map(cofName))); }
-if (outLeft.length) { parts.push('releasing ' + joinNames(outLeft.map(cofName))); }
+if (inLeft.length) { parts.push(tt('using {list}', { list: joinNames(inLeft.map(cofName)) })); }
+if (outLeft.length) { parts.push(tt('releasing {list}', { list: joinNames(outLeft.map(cofName)) })); }
 return joinNames(parts);
 }
-function fill(text, subs, prods) {
-return text.replace(/\{S1\}/g, subs[0] || '').replace(/\{S2\}/g, subs[1] || '').replace(/\{P1\}/g, prods[0] || '').replace(/\{P2\}/g, prods[1] || '')
-.replace(/\{S\}/g, joinNames(subs)).replace(/\{P\}/g, joinNames(prods));
+function verbSlots(name, subs, prods) {
+return { enzyme: name, S: joinNames(subs), P: joinNames(prods), S1: subs[0] || '', S2: subs[1] || '', P1: prods[0] || '', P2: prods[1] || '' };
 }
 function verbPhrase(type, subs, prods, ins, outs) {
 var base = String(type || '').toLowerCase().replace(/\s*\([^)]*\)/g, '').trim();
@@ -25520,9 +25766,9 @@ if (!v.re.test(base)) { continue; }
 if (v.shape === 'same' ? !same : (v.shape !== shape || same)) { continue; }
 if (v.needsIn && ins.indexOf(v.needsIn) < 0) { continue; }
 if (v.needsOut && outs.indexOf(v.needsOut) < 0) { continue; }
-return { text: fill(v.text, subs, prods), skip: v.skip || [], pump: !!v.pump };
+return { text: v.text, skip: v.skip || [], pump: !!v.pump };
 }
-if (same) { return { text: fill('carries {S} across the membrane', subs, prods), skip: ['hplus'], pump: false }; }
+if (same) { return { text: '{enzyme} carries {S} across the membrane', skip: ['hplus'], pump: false }; }
 return null;
 }
 function reasonSentence(rxn, subs, ins, outs) {
@@ -25530,29 +25776,29 @@ var base = String(rxn.type || '').toLowerCase();
 var spent = ins.filter(function (id) { return SPENT[id] && SPENT[id].some(function (x) { return outs.indexOf(x) >= 0; }); })[0];
 var madeIrr = ins.filter(function (id) { return MADE[id] && outs.indexOf(MADE[id]) >= 0; })[0];
 if (rxn.irreversible === true) {
-if (spent) { return 'It is irreversible in cells: the energy of ' + cofName(spent) + ' drives it one way.'; }
-if (madeIrr && subs.length) { return 'It is irreversible in cells: the energy-rich bond of ' + joinNames(subs) + ' pays for the ' + cofName(MADE[madeIrr]) + '.'; }
-if (outs.indexOf('co2') >= 0) { return 'It is irreversible in cells: the CO₂ that escapes is not put back.'; }
-if (outs.indexOf('ppi') >= 0) { return 'It is irreversible in cells: the pyrophosphate released is broken down, which pulls it forward.'; }
-if (/condensation|thioester/.test(base) && outs.indexOf('coa') >= 0) { return 'It is irreversible in cells: hydrolysis of the thioester pulls it forward.'; }
-if (/hydrolysis|phosphatase|gtpase|dephosphorylation/.test(base) && outs.indexOf('pi') >= 0) { return 'It is irreversible in cells: splitting off the phosphate is strongly downhill.'; }
-if (/hydrolysis|proteolysis|proteolytic/.test(base)) { return 'It is irreversible in cells: a bond is hydrolyzed, and that is not undone.'; }
-return 'It is irreversible in cells, so it runs one way only.';
+if (spent) { return tt('It is irreversible in cells: the energy of {cofactor} drives it one way.', { cofactor: cofName(spent) }); }
+if (madeIrr && subs.length) { return tt('It is irreversible in cells: the energy-rich bond of {substrate} pays for the {product}.', { substrate: joinNames(subs), product: cofName(MADE[madeIrr]) }); }
+if (outs.indexOf('co2') >= 0) { return tr('It is irreversible in cells: the CO₂ that escapes is not put back.'); }
+if (outs.indexOf('ppi') >= 0) { return tr('It is irreversible in cells: the pyrophosphate released is broken down, which pulls it forward.'); }
+if (/condensation|thioester/.test(base) && outs.indexOf('coa') >= 0) { return tr('It is irreversible in cells: hydrolysis of the thioester pulls it forward.'); }
+if (/hydrolysis|phosphatase|gtpase|dephosphorylation/.test(base) && outs.indexOf('pi') >= 0) { return tr('It is irreversible in cells: splitting off the phosphate is strongly downhill.'); }
+if (/hydrolysis|proteolysis|proteolytic/.test(base)) { return tr('It is irreversible in cells: a bond is hydrolyzed, and that is not undone.'); }
+return tr('It is irreversible in cells, so it runs one way only.');
 }
-if (rxn.twoWay === true) { return 'It is reversible: it runs the way the concentrations on each side push it.'; }
-if (/atp synthesis|photophosphorylation/.test(base)) { return 'Protons flowing back down their gradient turn the enzyme, and that pays for the ATP.'; }
-if (/electron transfer|reduction of o/.test(base)) { return 'The electrons go downhill in energy: each carrier holds them more tightly than the one before.'; }
+if (rxn.twoWay === true) { return tr('It is reversible: it runs the way the concentrations on each side push it.'); }
+if (/atp synthesis|photophosphorylation/.test(base)) { return tr('Protons flowing back down their gradient turn the enzyme, and that pays for the ATP.'); }
+if (/electron transfer|reduction of o/.test(base)) { return tr('The electrons go downhill in energy: each carrier holds them more tightly than the one before.'); }
 var reduced = ins.filter(function (id) { return REDUCED[id] && outs.indexOf(REDUCED[id]) >= 0; })[0];
-if (reduced) { return cofName(reduced) + ' supplies the electrons and is left as ' + cofName(REDUCED[reduced]) + '.'; }
+if (reduced) { return tt('{donor} supplies the electrons and is left as {carrier}.', { donor: cofName(reduced), carrier: cofName(REDUCED[reduced]) }); }
 var oxidized = ins.filter(function (id) { return OXIDIZED[id] && outs.indexOf(OXIDIZED[id]) >= 0; })[0];
-if (oxidized && subs.length) { return 'The electrons taken from ' + joinNames(subs) + ' leave on ' + cofName(OXIDIZED[oxidized]) + '.'; }
+if (oxidized && subs.length) { return tt('The electrons taken from {substrate} leave on {carrier}.', { substrate: joinNames(subs), carrier: cofName(OXIDIZED[oxidized]) }); }
 var made = ins.filter(function (id) { return MADE[id] && outs.indexOf(MADE[id]) >= 0; })[0];
-if (made && subs.length) { return 'The bond broken in ' + joinNames(subs) + ' is energy-rich enough to make ' + cofName(MADE[made]) + ' from ' + cofName(made) + '.'; }
-if (spent && outs.indexOf('pi') >= 0) { return 'The energy of ' + cofName(spent) + ' hydrolysis powers it.'; }
-if (spent) { return cofName(spent) + ' supplies the phosphate group and the energy.'; }
-if (ins.indexOf('photon') >= 0) { return 'The energy comes from the light the pigment absorbs.'; }
-if (/symport/.test(base) || (/transport|uptake|entry/.test(base) && ins.indexOf('hplus') >= 0)) { return 'The proton gradient across the membrane drives it.'; }
-if (/antiport|exchange/.test(base)) { return 'Nothing is made or broken: one molecule crosses as the other goes the opposite way.'; }
+if (made && subs.length) { return tt('The bond broken in {substrate} is energy-rich enough to make {product} from {source}.', { substrate: joinNames(subs), product: cofName(MADE[made]), source: cofName(made) }); }
+if (spent && outs.indexOf('pi') >= 0) { return tt('The energy of {cofactor} hydrolysis powers it.', { cofactor: cofName(spent) }); }
+if (spent) { return tt('{cofactor} supplies the phosphate group and the energy.', { cofactor: cofName(spent) }); }
+if (ins.indexOf('photon') >= 0) { return tr('The energy comes from the light the pigment absorbs.'); }
+if (/symport/.test(base) || (/transport|uptake|entry/.test(base) && ins.indexOf('hplus') >= 0)) { return tr('The proton gradient across the membrane drives it.'); }
+if (/antiport|exchange/.test(base)) { return tr('Nothing is made or broken: one molecule crosses as the other goes the opposite way.'); }
 return '';
 }
 function contentWords(t) {
@@ -25562,35 +25808,43 @@ function noteWhy(note, names, shortName, room) {
 var sentences = String(note || '').match(/[^.!?]*[.!?]+(?=\s|$)|[^.!?]+$/g) || [];
 var keys = {};
 names.forEach(function (n) { contentWords(n).forEach(function (w) { keys[w] = true; }); });
-var best = '';
+var best = null;   // { src: the sentence of the note, prefixed: the short name goes in front of it }
 var bestScore = 0;
+function shownOf(pick) {
+var shown = tr(pick.src);
+if (pick.prefixed) { shown = shortName + ' ' + shown.charAt(0).toLowerCase() + shown.slice(1); }
+return shown.length > room ? '' : shown;
+}
 sentences.forEach(function (raw) {
 var s = raw.trim();
+var src = s;
+var prefixed = false;
 if (!s || s.length > room || s.length < 25) { return; }
 var first = s.split(/\s+/)[0].replace(/[^A-Za-z0-9⁺₂-]/g, '');
 var named = contentWords(first).some(function (w) { return keys[w]; });
 if (BARE_VERB.test(first) && !SENTENCE_START.test(s) && !named) {
 if (!shortName || shortName.length + 1 + s.length > room) { return; }
 s = shortName + ' ' + s.charAt(0).toLowerCase() + s.slice(1);
+prefixed = true;
 } else if (!SENTENCE_START.test(s) && !named && !/^[A-Z][a-z]+ (is|are|was|has|have|binds|moves|makes|pumps|holds|carries|passes|sits|lies|works|needs|does|goes|runs|stays|comes|forms|gets|takes|gives|turns|opens|closes|drives|pulls|lets|leaves|returns|repays|feeds|removes|adds|splits|joins|traps|brings|fixes|uses|spends)\b/.test(s)) {
 return;
 }
 var score = 0;
 contentWords(s).forEach(function (w) { if (keys[w]) { score += 1; } });
-if (score > bestScore || (score === bestScore && score > 0 && !best)) { best = s; bestScore = score; }
+if (score > bestScore || (score === bestScore && score > 0 && !best)) { best = { src: src, prefixed: prefixed }; bestScore = score; }
 });
 if (!best) {
 for (var i = 0; i < sentences.length; i++) {
 var t = sentences[i].trim();
 var w1 = t.split(/\s+/)[0].replace(/[^A-Za-z0-9⁺₂-]/g, '');
-if (t.length >= 25 && t.length <= room && SENTENCE_START.test(t) && !BARE_VERB.test(w1)) { return t; }
+if (t.length >= 25 && t.length <= room && SENTENCE_START.test(t) && !BARE_VERB.test(w1)) { return shownOf({ src: t, prefixed: false }); }
 }
 }
-return best;
+return best ? shownOf(best) : '';
 }
 function why(pathway, rxn) {
 if (!rxn) { return ''; }
-if (typeof rxn.why === 'string' && rxn.why.trim()) { return rxn.why.trim(); }
+if (typeof rxn.why === 'string' && rxn.why.trim()) { return tr(rxn.why.trim()); }
 var enz = entityOf('enzyme', rxn.enzyme);
 var full = enz ? enz.name : String(rxn.enzyme || '');
 var shortName = enz && enz.short ? enz.short : full;
@@ -25600,16 +25854,23 @@ var prods = uniq((rxn.products || []).map(function (n) { return lower(nodeName(p
 var ins = (rxn.ins || []).slice();
 var outs = (rxn.outs || []).slice();
 var verb = verbPhrase(rxn.type, subs, prods, ins, outs);
-var clause = cofactorClause(ins, outs, verb);
+var clauseInfo = { spending: false };
+var clause = cofactorClause(ins, outs, verb, clauseInfo);
 var chemistry = !!verb || word === 'enzyme' || word === 'complex';
 if (/[^s]s$/.test(full) && !/ase$/.test(full) && shortName !== full) { full = shortName; }
 function first(name, withClause) {
-var tail = withClause && clause ? ', ' + clause : '';
-if (chemistry) { return name + ' ' + (verb ? verb.text : fill('turns {S} into {P}', subs, prods)) + tail + '.'; }
-var head = String(rxn.type || '').replace(/\s*\([^)]*\)/g, '').trim();
-if (/spending/.test(tail)) { head = head.replace(/,\s*spends\b.*$/i, ''); }
-var path = subs.length && prods.length ? 'from ' + joinNames(subs) + ' to ' + joinNames(prods) : (prods.length ? joinNames(prods) + ' is made' : joinNames(subs) + ' is used');
-return (head ? head + ': ' : '') + path + tail + '; the ' + word + ' at work is ' + name + '.';
+var tail = withClause && clause ? clause : '';
+if (chemistry) {
+var sentence = tt(verb ? verb.text : '{enzyme} turns {S} into {P}', verbSlots(name, subs, prods));
+return tail ? tt('{sentence}, {clause}.', { sentence: sentence, clause: tail }) : tt('{sentence}.', { sentence: sentence });
+}
+var head = tr(String(rxn.type || '')).replace(/\s*[(（][^)）]*[)）]/g, '').trim();
+if (tail && clauseInfo.spending) { head = head.replace(/,\s*spends\b.*$/i, ''); }
+var path = subs.length && prods.length ? tt('from {substrates} to {products}', { substrates: joinNames(subs), products: joinNames(prods) })
+: (prods.length ? tt('{products} is made', { products: joinNames(prods) }) : tt('{substrates} is used', { substrates: joinNames(subs) }));
+var lead = head ? tt('{head}: {path}', { head: head, path: path }) : path;
+return tail ? tt('{lead}, {clause}; the {word} at work is {name}.', { lead: lead, clause: tail, word: tr(word), name: name })
+: tt('{lead}; the {word} at work is {name}.', { lead: lead, word: tr(word), name: name });
 }
 var names = subs.concat(prods, [full, shortName]);
 var reason = reasonSentence(rxn, subs, ins, outs);
@@ -25630,6 +25891,8 @@ MG.hints = { ladder: ladder, redact: redact, why: why };
 (function (root) {
 'use strict';
 var MG = root.MG = root.MG || {};
+function tt(text, vars) { return MG.i18n.t(text, vars); }
+function tr(text) { return MG.i18n.tr(text); }
 var MODES = ['build', 'pick', 'type'];
 var FORMATS = ['names', 'structures', 'mixed'];
 var PROMPTS = {
@@ -25645,7 +25908,6 @@ out: 'What does this step release or produce?',
 releaseOne: 'Name one thing this step releases or produces.',
 releaseMore: 'What else does this step release or produce?'
 };
-var TYPE_SUFFIX = ' Type one answer.';
 var LOOKALIKE_RATE = 0.75;
 var OPTIONS = 6;
 var OPTIONS_STRUCTURES_BUILD = 4;
@@ -25869,44 +26131,44 @@ var group = s.group ? members[s.group] : null;
 var multi = !!group && group.length > 1;
 var open = multi ? remainingOf(s).length : 0;
 var next = multi && open < group.length;
-var base;
-if (s.kind === 'enz') { base = enzWord(s) === 'enzyme' ? PROMPTS.enz : 'Which ' + enzWord(s) + ' carries out this step?'; }
+var base;   // already in the player's language
+if (s.kind === 'enz') { base = enzWord(s) === 'enzyme' ? tr(PROMPTS.enz) : tt('Which {enzyme} carries out this step?', { enzyme: tr(enzWord(s)) }); }
 else if (s.kind === 'node' && roleOf[s.id] === 'prod') {
-base = !multi ? PROMPTS.product : (next ? PROMPTS.productOther : PROMPTS.productOne);
+base = tr(!multi ? PROMPTS.product : (next ? PROMPTS.productOther : PROMPTS.productOne));
 }
 else if (s.kind === 'node') {
-base = !multi ? PROMPTS.substrate : (next ? PROMPTS.consumeMore : PROMPTS.consumeOne);
+base = tr(!multi ? PROMPTS.substrate : (next ? PROMPTS.consumeMore : PROMPTS.consumeOne));
 }
 else if (s.kind === 'in') {
-base = !multi ? PROMPTS['in'] : (next ? PROMPTS.consumeMore : PROMPTS.consumeOne);
+base = tr(!multi ? PROMPTS['in'] : (next ? PROMPTS.consumeMore : PROMPTS.consumeOne));
 }
 else {
-base = !multi ? PROMPTS.out : (next ? PROMPTS.releaseMore : PROMPTS.releaseOne);
+base = tr(!multi ? PROMPTS.out : (next ? PROMPTS.releaseMore : PROMPTS.releaseOne));
 }
-return mode === 'type' ? base + TYPE_SUFFIX : base;
+return mode === 'type' ? tt('{question} Type one answer.', { question: base }) : base;
 }
 function stepLabel(rid) {
 var r = rxnById[rid];
 if (!r) { return ''; }
-if (r.label) { return r.label; }
-if (pathway.id !== 'full') { return 'Step ' + r.step; }
-if (rid === 'pdc') { return 'Link reaction'; }
-if (hasOwn(glyIds, rid)) { return 'Glycolysis step ' + r.step; }
-return 'TCA cycle step ' + r.step;
+if (r.label) { return tr(r.label); }
+if (pathway.id !== 'full') { return tt('Step {n}', { n: r.step }); }
+if (rid === 'pdc') { return tr('Link reaction'); }
+if (hasOwn(glyIds, rid)) { return tt('Glycolysis step {n}', { n: r.step }); }
+return tt('TCA cycle step {n}', { n: r.step });
 }
 function positionContext(node) {
 var order = pathway.order;
 var usesIt = function (id) { return rxnById[id].substrates.indexOf(node) >= 0; };
 if ((pathway.start || []).indexOf(node) >= 0) {
 var firstUse = order.filter(usesIt)[0];
-return firstUse ? 'Starting molecule, used in ' + stepLabel(firstUse) : 'Starting molecule';
+return firstUse ? tt('Starting molecule, used in {step}', { step: stepLabel(firstUse) }) : tr('Starting molecule');
 }
 var producers = producersOf(node);
 if (!producers.length) { return ''; }
 var made = producers[0];
 var at = order.indexOf(made);
 var used = order.slice(at + 1).concat(order.slice(0, at)).filter(usesIt)[0];
-return used ? 'Product of ' + stepLabel(made) + ', used in ' + stepLabel(used) : 'Product of ' + stepLabel(made);
+return used ? tt('Product of {step}, used in {next}', { step: stepLabel(made), next: stepLabel(used) }) : tt('Product of {step}', { step: stepLabel(made) });
 }
 function contextFor(s) {
 if (s.kind === 'node' && mode !== 'build') { return positionContext(s.node); }
@@ -26198,7 +26460,7 @@ function row(s) {
 return {
 slotId: s.id, kind: s.kind, rxnId: s.rxn,
 step: hasOwn(rxnById, s.rxn) ? rxnById[s.rxn].step : null,
-stepLabel: s.rxn ? stepLabel(s.rxn) : 'Starting molecule',
+stepLabel: s.rxn ? stepLabel(s.rxn) : tr('Starting molecule'),
 answerId: s.value, answerLabel: labelOf(s.entityKind, s.value)
 };
 }
@@ -26254,6 +26516,8 @@ var CHIP_FAMILIES = { adenylate: true, redox: true, carrier: true, small: true }
 var ARROW_SVG = '<svg class="mgq-arrow__line" viewBox="0 0 40 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">' +
 '<path d="M20 2V64"/><path d="M11 54L20 72L29 54"/></svg>';
 function h() { return MG.ui.el.apply(null, arguments); }
+function tt(text, vars) { return MG.i18n.t(text, vars); }
+function tr(text) { return MG.i18n.tr(text); }
 function toast(text) {
 if (MG.ui && typeof MG.ui.toast === 'function') { MG.ui.toast(text, TOAST_MS); }
 }
@@ -26365,9 +26629,9 @@ total: typeof res.total === 'number' ? res.total : (typeof res.levels === 'numbe
 };
 }
 function hintLabel(st) {
-if (st && st.more === false) { return 'No more hints'; }
-if (!st || !st.level) { return 'Hint'; }
-return st.total ? 'Hint (' + st.level + ' of ' + st.total + ')' : 'Hint (' + st.level + ')';
+if (st && st.more === false) { return tr('No more hints'); }
+if (!st || !st.level) { return tr('Hint'); }
+return st.total ? tt('Hint ({level} of {total})', { level: st.level, total: st.total }) : tt('Hint ({level})', { level: st.level });
 }
 function optionContent(q, opt, size) {
 if (q.format === 'structures' && opt.entityKind === 'molecule') {
@@ -26483,7 +26747,7 @@ var wrongNum = h('span', { class: 'mgq-num', text: '0' });
 var countRight = review ? null : h('span', { class: 'mg-count mg-count--right', title: 'Right answers' }, MG.ui.icon('badge-check'), rightNum);
 var countWrong = review ? null : h('span', { class: 'mg-count mg-count--wrong', title: 'Wrong answers' }, MG.ui.icon('badge-cross'), wrongNum);
 var timerEl = review ? null : h('span', { class: 'mg-timer', text: '0:00' });
-var titleEl = review ? h('span', { class: 'mgq-title', text: 'Review: ' + pathway.title }) : null;
+var titleEl = review ? h('span', { class: 'mgq-title', text: tt('Review: {title}', { title: tr(pathway.title) }) }) : null;
 var backBtn = h('button', { type: 'button', class: 'mg-btn mg-btn--icon mgq-back', title: 'Back', 'aria-label': 'Back', on: { click: exitQuiz } }, MG.ui.icon('undo'));
 var settingsBtn = typeof hk.onSettings === 'function' ? h('button', {
 type: 'button', class: 'mg-btn mg-btn--icon mgq-settings' + (review ? ' mgq-settings--review' : ''), title: 'Settings', 'aria-label': 'Settings', 'data-key': 'quiz:settings',
@@ -26495,7 +26759,7 @@ var barEl = h('div', {
 class: 'mg-progress mgq-bar', role: 'progressbar', 'aria-label': 'Answers given',
 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': review ? '100' : '0'
 }, fillEl);
-var statEl = review ? null : h('span', { class: 'mgq-stat', text: '0 answered, 0 to go' });
+var statEl = review ? null : h('span', { class: 'mgq-stat', text: tt('{filled} answered, {left} to go', { filled: 0, left: 0 }) });
 var barRow = h('div', { class: 'mgq-barrow' }, barEl, statEl);
 var side = h('div', { class: 'mgq-side' });
 var eqCard = h('div', { class: 'mg-card mg-card--question mgq-eq-card' });
@@ -26516,11 +26780,19 @@ class: 'mgq-context',
 text: mode === 'pick' ? 'Tap an empty slot on the map, then pick the answer from six choices.' : 'Tap an empty slot on the map, then type the answer.'
 })),
 readoutEl, nextBtn);
+function reviewHelp() {
+var words = Object.keys(enzWords);
+if (words.length > 1) { return 'Tap a molecule, an enzyme or a protein on the map for its details.'; }
+if (words[0] === 'enzyme') { return 'Tap a molecule or an enzyme on the map for its details.'; }
+if (words[0] === 'protein') { return 'Tap a molecule or a protein on the map for its details.'; }
+if (words[0] === 'complex') { return 'Tap a molecule or a complex on the map for its details.'; }
+if (words[0] === 'process') { return 'Tap a molecule or a process on the map for its details.'; }
+return tt('Tap a molecule or a {word} on the map for its details.', { word: words[0] });
+}
 var reviewCard = h('div', { class: 'mg-card mg-card--question mgq-map-card' },
 h('div', { class: 'mgq-map-card__text' },
 h('h2', { class: 'mgq-prompt', text: 'Finished map' }),
-h('p', { class: 'mgq-context', text: Object.keys(enzWords).length > 1 ? 'Tap a molecule, an enzyme or a protein on the map for its details.'
-: 'Tap a molecule or ' + (Object.keys(enzWords)[0] === 'enzyme' ? 'an enzyme' : 'a ' + Object.keys(enzWords)[0]) + ' on the map for its details.' })));
+h('p', { class: 'mgq-context', text: reviewHelp() })));
 var whyLabel = h('span', { class: 'mgq-why__label', text: 'Why' });
 var whyText = h('span', { class: 'mgq-why__text' });
 var whyNext = !review && mode === 'build' ? h('button', { type: 'button', class: 'mg-btn mg-btn--ghost mgq-why__next', on: { click: skipWhy } }, 'Next') : null;
@@ -26540,10 +26812,11 @@ side.appendChild(whyEl);
 var coach = null;
 if (!review && MG.store && typeof MG.store.getSettings === 'function' && MG.store.getSettings().introSeen === false) {
 coach = h('div', { class: 'mgq-coach', role: 'note' },
-h('p', { class: 'mgq-coach__text', text: (mode === 'build'
-? 'Dashed boxes are blanks. Pick the answer the yellow card asks for. '
-: 'Dashed boxes are blanks. Tap one, then ' + (mode === 'type' ? 'type' : 'choose') + ' its answer. ')
-+ 'Hint gives a clue; Reveal shows the answer and counts as a miss.' }),
+h('p', { class: 'mgq-coach__text', text: mode === 'build'
+? 'Dashed boxes are blanks. Pick the answer the yellow card asks for. Hint gives a clue; Reveal shows the answer and counts as a miss.'
+: (mode === 'type'
+? 'Dashed boxes are blanks. Tap one, then type its answer. Hint gives a clue; Reveal shows the answer and counts as a miss.'
+: 'Dashed boxes are blanks. Tap one, then choose its answer. Hint gives a clue; Reveal shows the answer and counts as a miss.') }),
 h('button', {
 type: 'button', class: 'mg-btn mg-btn--ghost mgq-coach__ok', on: { click: function () {
 if (coach.parentNode) { coach.parentNode.removeChild(coach); }
@@ -26598,7 +26871,7 @@ name = fullName('molecule', entry.value);
 var svg = hasDrawing(entry.value) ? structureSVG(entry.value, size[0], size[1], hl, name, isTapered(entry.value) ? RING_LABEL_SCALE : 1) : null;
 var changed = !!(hl && hl.length);
 box = h('button', {
-type: 'button', class: 'mgq-box is-known' + (missed ? ' is-missed' : ''), 'aria-label': name + ', details',
+type: 'button', class: 'mgq-box is-known' + (missed ? ' is-missed' : ''), 'aria-label': tt('{name}, details', { name: name }),
 on: { click: function () { openDetail('molecule', entry.value, { rxnId: rxnId, pathwayId: pathway.id }); } }
 }, svg ? h('span', { class: 'mgq-svg', html: svg })
 : h('span', { class: 'mgq-boxlabel' + (changed ? ' is-changed' : ''), text: shortLabel('molecule', entry.value) }),
@@ -26717,7 +26990,7 @@ if (!lines.length) {
 p.list.appendChild(h('p', { class: 'mgq-hints__empty', text: st && st.more === false ? 'No hints for this one.' : 'Tap Hint for a clue.' }));
 } else if (lines.length > 1) {
 var earlier = lines.length - 1;
-p.list.appendChild(h('p', { class: 'mgq-hints__earlier', text: earlier + (earlier === 1 ? ' earlier hint' : ' earlier hints') }));
+p.list.appendChild(h('p', { class: 'mgq-hints__earlier', text: earlier === 1 ? tt('{n} earlier hint', { n: earlier }) : tt('{n} earlier hints', { n: earlier }) }));
 }
 lines.forEach(function (ln, i) {
 var last = i === lines.length - 1;
@@ -26737,7 +27010,7 @@ toggle));
 });
 if (lines.length > p.shown) {
 var fresh = lines[lines.length - 1];
-p.say.textContent = fresh.label + '. ' + fresh.text;
+p.say.textContent = tt('{label}. {text}', { label: tr(fresh.label), text: tr(fresh.text) });
 }
 p.shown = lines.length;
 var newest = p.list.lastElementChild;
@@ -26774,8 +27047,8 @@ if (shownWhy[rid]) { return false; }
 shownWhy[rid] = true;
 var text = whyOf(rid);
 if (!text) { return false; }
-whyLabel.textContent = mode === 'build' ? 'Why' : stepCaption(rid);
-whyText.textContent = text;
+whyLabel.textContent = mode === 'build' ? tr('Why') : stepCaption(rid);
+whyText.textContent = tr(text);
 whyEl.hidden = false;
 return true;
 }
@@ -26799,8 +27072,8 @@ function renderBuildQuestion(q) {
 shownQ = q;
 clearHintPanel(buildHint);
 hideWhy();
-promptEl.textContent = q.prompt;   // the engine words group questions ("Name one product ...", "Name the other ...")
-contextEl.textContent = q.context || '';
+promptEl.textContent = tr(q.prompt);   // the engine words group questions ("Name one product ...", "Name the other ...")
+contextEl.textContent = tr(q.context || '');
 feedbackEl.textContent = '';
 renderEquation(q);
 renderGrid(q, {}, gridEl, SIZE_BUILD_OPT, chooseBuild, q.format === 'structures');
@@ -26822,7 +27095,7 @@ function buildWrong(q, optId) {
 wrongFor(q.slotId)[optId] = true;
 shownQ = game.options(q.slotId) || q;
 renderGrid(shownQ, { flashId: optId }, gridEl, SIZE_BUILD_OPT, chooseBuild, shownQ.format === 'structures');
-feedbackEl.textContent = 'Not that one. Try another.';
+feedbackEl.textContent = tr('Not that one. Try another.');
 }
 function buildRight(q, optId, res) {
 if (MG.sound) { MG.sound.correct(); }
@@ -26830,7 +27103,7 @@ locked = true;
 syncBuildButtons();
 renderGrid(q, { correctId: optId, lockAll: true }, gridEl, SIZE_BUILD_OPT, chooseBuild, q.format === 'structures');
 renderEquation(q);
-feedbackEl.textContent = 'Correct!';
+feedbackEl.textContent = tr('Correct!');
 if (res.done || finishing) { return; }   // the done event has started the celebration
 var pause = stepWrapped(q.rxnId) && showWhy(q.rxnId) ? WHY_MS : NEXT_MS;
 timers.next = setTimeout(afterFeedback, pause);
@@ -26861,31 +27134,31 @@ locked = true;
 syncBuildButtons();
 renderGrid(q, { correctId: res.expected, lockAll: true }, gridEl, SIZE_BUILD_OPT, chooseBuild, q.format === 'structures');
 renderEquation(q);
-feedbackEl.textContent = 'The answer is ' + fullName(q.entityKind, res.expected) + '.';
+feedbackEl.textContent = tt('The answer is {name}.', { name: fullName(q.entityKind, res.expected) });
 if (res.done || finishing) { return; }
 var pause = stepWrapped(q.rxnId) && showWhy(q.rxnId) ? WHY_MS : REVEAL_MS;
 timers.next = setTimeout(afterFeedback, pause);
 }
 function kindWord(s) {
-if (s.kind === 'enz') { return enzWordOf(s.rxn); }
-if (s.kind === 'in') { return 'consumed'; }
-if (s.kind === 'out') { return 'released'; }
+if (s.kind === 'enz') { return tr(enzWordOf(s.rxn)); }
+if (s.kind === 'in') { return tr('consumed'); }
+if (s.kind === 'out') { return tr('released'); }
 var r = rxnById[s.rxn];
-return r && r.products.indexOf(s.node) >= 0 ? 'product' : 'substrate';
+return tr(r && r.products.indexOf(s.node) >= 0 ? 'product' : 'substrate');
 }
 function stepCaption(rxnId) {
 var r = rxnById[rxnId];
 if (!r) { return ''; }
-if (r.label) { return r.label; }
-if (pathway.id !== 'full') { return 'Step ' + r.step; }
-if (rxnId === 'pdc') { return 'Link reaction'; }
+if (r.label) { return tr(r.label); }
+if (pathway.id !== 'full') { return tt('Step {n}', { n: r.step }); }
+if (rxnId === 'pdc') { return tr('Link reaction'); }
 var gly = !!MG.pathways && !!MG.pathways.glycolysis && MG.pathways.glycolysis.order.indexOf(rxnId) >= 0;
-return (gly ? 'Glycolysis step ' : 'TCA cycle step ') + r.step;
+return gly ? tt('Glycolysis step {n}', { n: r.step }) : tt('TCA cycle step {n}', { n: r.step });
 }
 function chooserHeading(q) {
 var s = game.slot(q.slotId);
 if (!s || !s.rxn) { return 'Starting molecule'; }
-return stepCaption(s.rxn) + ': ' + kindWord(s);
+return tt('{step}: {kind}', { step: stepCaption(s.rxn), kind: kindWord(s) });
 }
 function buildChooser(q) {
 var ui = {
@@ -27049,7 +27322,7 @@ setChooserMsg('Not that one. Try another.');
 function chooserRight(slotId) {
 if (MG.sound) { MG.sound.correct(); }
 var s = game.slot(slotId);
-if (s && s.value) { toast('Correct: ' + fullName(s.entityKind, s.value)); }
+if (s && s.value) { toast(tt('Correct: {name}', { name: fullName(s.entityKind, s.value) })); }
 closeChooser(false);
 if (!finishing && s && s.rxn && stepWrapped(s.rxn)) { showWhy(s.rxn); }
 }
@@ -27077,7 +27350,7 @@ var name = fullName(game.slot(slotId).entityKind, res.expected);
 if (mode === 'type') { chooserUI.input.value = name; }
 else { renderGrid(chooserQ, { correctId: res.expected, lockAll: true }, chooserUI.grid, SIZE_CHOOSER_OPT, chooseFromChooser, false); }
 syncChooserButtons();
-setChooserMsg('The answer is ' + name + '.');
+setChooserMsg(tt('The answer is {name}.', { name: name }));
 var revealed = game.slot(slotId);
 if (!finishing && revealed && revealed.rxn && stepWrapped(revealed.rxn)) { showWhy(revealed.rxn); }
 timers.close = setTimeout(function () { timers.close = 0; closeChooser(true); }, REVEAL_MS);
@@ -27093,7 +27366,7 @@ if (res.ok) { chooserRight(slotId); return; }
 var s = game.slot(slotId);
 var lines = ['Not quite. Try again.'];
 var other = MG.match && typeof MG.match.identify === 'function' ? MG.match.identify(s.entityKind, text) : null;
-if (other) { lines.push('That is ' + fullName(s.entityKind, other) + ', but it does not go here.'); }
+if (other) { lines.push(tt('That is {name}, but it does not go here.', { name: fullName(s.entityKind, other) })); }
 setChooserMsg(lines);
 chooserUI.input.classList.add('is-error');
 flash(chooserUI.input, 'shake');
@@ -27164,9 +27437,9 @@ var pct = st.total ? Math.round((st.filled / st.total) * 100) : 100;
 fillEl.style.width = pct + '%';
 barEl.setAttribute('aria-valuenow', String(pct));
 var left = Math.max(0, st.total - st.filled);
-statEl.textContent = st.filled + ' answered, ' + left + ' to go';
-statEl.title = st.filled + ' of ' + st.total + ' answered';
-readoutEl.textContent = st.filled + ' of ' + st.total + ' answered';
+statEl.textContent = tt('{filled} answered, {left} to go', { filled: st.filled, left: left });
+statEl.title = tt('{filled} of {total} answered', { filled: st.filled, total: st.total });
+readoutEl.textContent = tt('{filled} of {total} answered', { filled: st.filled, total: st.total });
 tick();
 }
 function tick() {
@@ -27211,7 +27484,7 @@ var banner = h('div', { class: 'mg-card mg-card--question mgq-banner', role: 'st
 mascot,
 h('h2', { class: 'mgq-banner__title mg-outlined', text: 'Congratulations!' }),
 h('p', { class: 'mgq-banner__lead', text: 'Pathway complete!' }),
-h('p', { class: 'mgq-banner__text', text: st.right + ' right, ' + st.wrong + ' wrong' }),
+h('p', { class: 'mgq-banner__text', text: tt('{right} right, {wrong} wrong', { right: st.right, wrong: st.wrong }) }),
 why ? h('p', { class: 'mgq-banner__why' }, h('span', { class: 'mgq-why__label', text: 'Why' }), ' ', why) : null,
 h('button', { type: 'button', class: 'mg-btn mg-btn--primary mgq-banner__go', 'data-key': 'celebrate:continue', on: { click: moveOn } }, 'Continue'));
 if (isWide()) { panel.appendChild(banner); }
@@ -27454,6 +27727,8 @@ var GROUP_ORDER = ['Warm up', 'Glucose', 'Fats'];
 var PASS_PCT = 80;
 function h() { return MG.ui.el.apply(null, arguments); }
 function icon(name) { return MG.ui.icon(name); }
+function tt(text, vars) { return MG.i18n.t(text, vars); }
+function tr(text) { return MG.i18n.tr(text); }
 function sound() {
 return !(MG.store && typeof MG.store.getSettings === 'function' && MG.store.getSettings().sound === false);
 }
@@ -27475,7 +27750,7 @@ if (!geom) { return null; }
 var wide = st.kind === 'fatty';
 return MG.renderMolecule(geom, {
 width: wide ? 440 : 260, height: wide ? 130 : 150, maxBond: wide ? 34 : 40,
-title: st.kind === 'fatty' ? 'Structure of a fatty acid' : 'Structure of ' + st.name.toLowerCase()
+title: st.kind === 'fatty' ? tt('Structure of a fatty acid') : tt('Structure of {name}', { name: st.name.toLowerCase() })
 });
 }
 function structureFigure(st) {
@@ -27562,7 +27837,7 @@ var svg = '<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">' +
 '<circle class="mg-atp-ring__arc" cx="60" cy="60" r="' + r + '"' +
 ' stroke-dasharray="' + (c * pct / 100).toFixed(2) + ' ' + c.toFixed(2) + '"' +
 ' transform="rotate(-90 60 60)"/></svg>';
-return h('div', { class: 'mg-ring mg-atp-ring', role: 'img', 'aria-label': 'Right first time ' + pct + ' percent' },
+return h('div', { class: 'mg-ring mg-atp-ring', role: 'img', 'aria-label': tt('Right first time {pct} percent', { pct: pct }) },
 h('div', { class: 'mg-ring__art', html: svg }),
 h('span', { class: 'mg-ring__value', text: pct + '%' }));
 }
@@ -27662,14 +27937,16 @@ var on = kind ? state.scenario === id && (kind === 'unsaturated') === (state.dou
 var tileId = kind || id;
 var bestKey = storageKey(kind ? bestId(id, kind === 'unsaturated' ? 1 : 0) : id, state.convention, state.guided);
 var best = typeof state.best[bestKey] === 'number' ? state.best[bestKey] : null;
-var name = title + '. ' + subtitle + (best === null ? '' : '. Best ' + best + '%');
+var name = best === null
+? tt('{title}. {subtitle}', { title: tr(title), subtitle: tr(subtitle) })
+: tt('{title}. {subtitle}. Best {best}%', { title: tr(title), subtitle: tr(subtitle), best: best });
 return h('button', {
 type: 'button', class: 'mg-atp-tile' + (on ? ' is-selected' : ''), 'aria-pressed': on ? 'true' : 'false',
 'data-key': 'atp:scenario:' + tileId, 'aria-label': name, title: subtitle,
 on: { click: function () { if (kind) { selectFat(kind); } else { selectScenario(id); } } }
 },
 h('span', { class: 'mg-atp-tile__title', text: title }),
-best === null ? null : h('span', { class: 'mg-atp-tile__best', text: 'Best ' + best + '%' }));
+best === null ? null : h('span', { class: 'mg-atp-tile__best', text: tt('Best {best}%', { best: best }) }));
 }
 function optionsPanel(id) {
 var sc = MG.atp.scenario(id);
@@ -27702,7 +27979,7 @@ inner.push(h('p', { class: 'mg-label', text: 'Fatty acid' }));
 inner.push(h('div', { class: 'mg-atp-stepper' },
 h('button', { type: 'button', class: 'mg-btn mg-atp-step', 'data-key': 'atp:carbons:minus', 'aria-label': 'Fewer carbons', disabled: fa.carbons <= 4,
 on: { click: function () { setFattyAcid(fa.carbons - 2, fa.doubleBonds); } } }, '−'),
-h('span', { class: 'mg-atp-stepper__value', text: fa.carbons + ' carbons' }),
+h('span', { class: 'mg-atp-stepper__value', text: tt('{n} carbons', { n: fa.carbons }) }),
 h('button', { type: 'button', class: 'mg-btn mg-atp-step', 'data-key': 'atp:carbons:plus', 'aria-label': 'More carbons', disabled: fa.carbons >= 30,
 on: { click: function () { setFattyAcid(fa.carbons + 2, fa.doubleBonds); } } }, '+')));
 var maxK = MG.atp.fattyAcid(fa.carbons, 99).doubleBonds;
@@ -27710,7 +27987,7 @@ if (unsat) {
 inner.push(h('div', { class: 'mg-atp-stepper' },
 h('button', { type: 'button', class: 'mg-btn mg-atp-step', 'data-key': 'atp:db:minus', 'aria-label': 'Fewer double bonds', disabled: fa.doubleBonds <= 1,
 on: { click: function () { setFattyAcid(fa.carbons, fa.doubleBonds - 1); } } }, '−'),
-h('span', { class: 'mg-atp-stepper__value', text: fa.doubleBonds + ' double ' + (fa.doubleBonds === 1 ? 'bond' : 'bonds') }),
+h('span', { class: 'mg-atp-stepper__value', text: fa.doubleBonds === 1 ? tt('{n} double bond', { n: fa.doubleBonds }) : tt('{n} double bonds', { n: fa.doubleBonds }) }),
 h('button', { type: 'button', class: 'mg-btn mg-atp-step', 'data-key': 'atp:db:plus', 'aria-label': 'More double bonds', disabled: fa.doubleBonds >= maxK,
 on: { click: function () { setFattyAcid(fa.carbons, fa.doubleBonds + 1); } } }, '+')));
 }
@@ -27729,7 +28006,7 @@ on: { click: function () { var r = randomFattyAcid(unsat); setFattyAcid(r.carbon
 inner.push(h('div', { class: 'mg-atp-picks' }, picks));
 }
 if (!inner.length) { return null; }
-return h('div', { class: 'mg-card mg-card--question mg-atp-options', role: 'group', 'aria-label': 'Options for ' + (sc ? sc.title : 'this practice') }, inner);
+return h('div', { class: 'mg-card mg-card--question mg-atp-options', role: 'group', 'aria-label': sc ? tt('Options for {title}', { title: tr(sc.title) }) : tt('Options for this practice') }, inner);
 }
 function setConvention(id) { state.convention = id === 'classic' ? 'classic' : 'modern'; saveState(state); rebuildMenu(); }
 function setGuided(on) { state.guided = !!on; saveState(state); rebuildMenu(); }
@@ -27824,7 +28101,7 @@ run.solved = true;
 run.results[run.index] = run.tries === 0 && !run.hintTapped ? 'clean' : 'hinted';
 run.answered[p.id] = 'solved';
 run.fresh = p.id;
-run.feedback = 'Right. ' + p.working;
+run.feedback = tt('Right. {working}', { working: tr(p.working) });
 playCorrect();
 }
 function check() {
@@ -27874,7 +28151,7 @@ run.results[run.index] = 'shown';
 run.answered[p.id] = 'shown';
 run.fresh = p.id;
 run.shown += 1;
-run.feedback = 'The answer: ' + p.working;
+run.feedback = tt('The answer: {working}', { working: tr(p.working) });
 renderPlay('atp:next');
 }
 function next() {
@@ -27959,7 +28236,7 @@ h('header', { class: 'mg-atp-play__bar' },
 h('button', { type: 'button', class: 'mg-btn mg-btn--ghost mg-atp-back', 'data-key': 'atp:menu', on: { click: backToMenu } }, 'Back'),
 h('div', { class: 'mg-atp-play__name' },
 h('h1', { class: 'mg-atp-play__title', text: run.title }),
-h('p', { class: 'mg-atp-count', text: 'Question ' + (run.index + 1) + ' of ' + run.prompts.length }))),
+h('p', { class: 'mg-atp-count', text: tt('Question {n} of {total}', { n: run.index + 1, total: run.prompts.length }) }))),
 h('div', {
 class: 'mg-progress mg-atp-bar', role: 'progressbar', 'aria-label': 'Progress',
 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(pct)
@@ -27988,7 +28265,7 @@ var inputId = 'mg-atp-' + run.index + '-' + f.key;
 var input = h('input', {
 type: 'text', class: 'mg-input mg-atp-input', id: inputId, 'data-key': 'atp:field:' + f.key,
 inputmode: 'decimal', autocomplete: 'off', spellcheck: 'false',
-'aria-label': f.label + ', question ' + (run.index + 1),
+'aria-label': tt('{label}, question {n}', { label: tr(f.label), n: run.index + 1 }),
 'aria-invalid': mark === false ? 'true' : null,
 readonly: locked,
 value: run.draft[f.key] === undefined ? '' : run.draft[f.key],
@@ -27999,11 +28276,11 @@ keydown: function (e) { if (e.key === 'Enter') { e.preventDefault(); check(); } 
 });
 var markEl = h('span', { class: 'mg-atp-field__mark' }, markParts(mark));
 var minus = h('button', {
-type: 'button', class: 'mg-btn mg-atp-step', 'data-key': 'atp:field:' + f.key + ':minus', 'aria-label': 'Less ' + f.label,
+type: 'button', class: 'mg-btn mg-atp-step', 'data-key': 'atp:field:' + f.key + ':minus', 'aria-label': tt('Less {label}', { label: tr(f.label) }),
 disabled: locked, on: { click: function () { stepValue(f, -1); } }
 }, '−');
 var plus = h('button', {
-type: 'button', class: 'mg-btn mg-atp-step', 'data-key': 'atp:field:' + f.key + ':plus', 'aria-label': 'More ' + f.label,
+type: 'button', class: 'mg-btn mg-atp-step', 'data-key': 'atp:field:' + f.key + ':plus', 'aria-label': tt('More {label}', { label: tr(f.label) }),
 disabled: locked, on: { click: function () { stepValue(f, 1); } }
 }, '+');
 var wrap = h('div', { class: wrapClass },
@@ -28093,10 +28370,10 @@ function renderResults() {
 if (destroyed || !run) { return; }
 var total = run.prompts.length;
 var clean = run.results.filter(function (r) { return r === 'clean'; }).length;
-var facts = [h('p', { class: 'mg-atp-score__line', text: 'Right first time: ' + clean + ' of ' + total })];
-if (run.hintsTaken) { facts.push(h('p', { class: 'mg-atp-score__more', text: 'Hints used: ' + run.hintsTaken })); }
-if (run.shown) { facts.push(h('p', { class: 'mg-atp-score__more', text: 'Answers shown: ' + run.shown })); }
-if (typeof run.best === 'number') { facts.push(h('p', { class: 'mg-atp-score__more', text: 'Best ' + run.best + '%' })); }
+var facts = [h('p', { class: 'mg-atp-score__line', text: tt('Right first time: {clean} of {total}', { clean: clean, total: total }) })];
+if (run.hintsTaken) { facts.push(h('p', { class: 'mg-atp-score__more', text: tt('Hints used: {n}', { n: run.hintsTaken }) })); }
+if (run.shown) { facts.push(h('p', { class: 'mg-atp-score__more', text: tt('Answers shown: {n}', { n: run.shown }) })); }
+if (typeof run.best === 'number') { facts.push(h('p', { class: 'mg-atp-score__more', text: tt('Best {best}%', { best: run.best }) })); }
 var score = h('section', { class: 'mg-card mg-card--option mg-atp-score' },
 ring(run.pct), h('div', { class: 'mg-atp-score__text' }, facts));
 var stageTitle = {};
@@ -28190,7 +28467,10 @@ on: { click: function () { setExplainShuttle(b.id); } }
 })))
 : null;
 var steps = ex.steps.map(function (st, i) {
-var name = st.figure && st.figure.kind === 'fatty' ? 'Structure of ' + ex.structure.name.toLowerCase() + ', carbons numbered from the carboxyl carbon' : 'Structure of ' + ex.structure.name.toLowerCase();
+var low = ex.structure.name.toLowerCase();
+var name = st.figure && st.figure.kind === 'fatty'
+? tt('Structure of {name}, carbons numbered from the carboxyl carbon', { name: low })
+: tt('Structure of {name}', { name: low });
 return h('li', { class: 'mg-atp-ex-step' + (st.id === 'total' ? ' is-total' : ''), 'data-step': st.id },
 h('div', { class: 'mg-atp-ex-step__head' },
 h('span', { class: 'mg-atp-ex-step__num', 'aria-hidden': 'true', text: String(i + 1) }),
@@ -28209,7 +28489,7 @@ h('p', { class: 'mg-label', text: 'Example' }), examples),
 h('div', { class: 'mg-section' },
 h('p', { class: 'mg-label', text: 'Counting' }), counting),
 shuttle),
-h('ol', { class: 'mg-atp-ex__steps', 'aria-label': ex.title + ': the steps' }, steps),
+h('ol', { class: 'mg-atp-ex__steps', 'aria-label': tt('{title}: the steps', { title: tr(ex.title) }) }, steps),
 h('div', { class: 'mg-atp-results__actions' },
 h('button', { type: 'button', class: 'mg-btn mg-btn--primary', 'data-key': 'atp:ex:practice', on: { click: function () { practiceExample(ex); } } }, 'Practice this'),
 h('button', { type: 'button', class: 'mg-btn mg-btn--ghost', 'data-key': 'atp:ex:back2', on: { click: backToMenu } }, 'Back to ATP menu')));
@@ -28278,6 +28558,8 @@ var ARROW_DOWN = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 function h() { return MG.ui.el.apply(null, arguments); }
 function icon(name) { return MG.ui.icon(name); }
 function engine() { return MG.gameEngine; }
+function t(text, vars) { return MG.i18n.t(text, vars); }
+function tr(text) { return MG.i18n.tr(text); }
 function sound() {
 return !(MG.store && typeof MG.store.getSettings === 'function' && MG.store.getSettings().sound === false);
 }
@@ -28298,7 +28580,7 @@ return MG.renderMolecule(MG.geometry[mol], { width: width, height: height, maxBo
 function figuresRow(list) {
 if (!Array.isArray(list) || !list.length) { return null; }
 return h('div', { class: 'mg-gm-figures' + (list.length === 1 ? ' mg-gm-figures--one' : '') }, list.map(function (f) {
-var svg = f.mol ? drawing(f.mol, 220, 130, f.label) : null;
+var svg = f.mol ? drawing(f.mol, 220, 130, tr(f.label)) : null;
 return h('div', { class: 'mg-gm-figures__item' + (svg ? '' : ' is-name') },
 svg ? h('span', { class: 'mg-gm-figures__art', html: svg }) : null,
 h('span', { class: 'mg-gm-figures__label', text: f.label }));
@@ -28348,7 +28630,7 @@ var svg = '<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">' +
 '<circle class="mg-gm-ring__arc" cx="60" cy="60" r="' + r + '"' +
 ' stroke-dasharray="' + (c * pct / 100).toFixed(2) + ' ' + c.toFixed(2) + '"' +
 ' transform="rotate(-90 60 60)"/></svg>';
-return h('div', { class: 'mg-ring mg-gm-ring', role: 'img', 'aria-label': 'Right first time ' + pct + ' percent' },
+return h('div', { class: 'mg-ring mg-gm-ring', role: 'img', 'aria-label': t('Right first time {pct} percent', { pct: pct }) },
 h('div', { class: 'mg-ring__art', html: svg }),
 h('span', { class: 'mg-ring__value', text: pct + '%' }));
 }
@@ -28374,13 +28656,15 @@ if (!run && view && view.classList && view.classList.contains('mg-gm-menu')) { s
 function exitToMenu() { if (typeof opts.onExit === 'function') { opts.onExit(); } }
 function tile(g) {
 var best = state.best[g.id];
-var name = g.title + '. ' + g.subtitle + (typeof best === 'number' ? '. Best ' + best + '%' : '');
+var name = typeof best === 'number'
+? t('{title}. {subtitle}. Best {best}%', { title: tr(g.title), subtitle: tr(g.subtitle), best: best })
+: t('{title}. {subtitle}', { title: tr(g.title), subtitle: tr(g.subtitle) });
 return h('button', {
 type: 'button', class: 'mg-gm-tile', 'data-key': 'games:game:' + g.id, 'aria-label': name, title: g.subtitle,
 on: { click: function () { startRun(g.id); } }
 },
 h('span', { class: 'mg-gm-tile__title', text: g.title }),
-typeof best === 'number' ? h('span', { class: 'mg-gm-tile__best', text: 'Best ' + best + '%' }) : null);
+typeof best === 'number' ? h('span', { class: 'mg-gm-tile__best', text: t('Best {best}%', { best: best }) }) : null);
 }
 function menuScreen() {
 var list = engine().games();
@@ -28508,10 +28792,11 @@ run.hintTapped = true;
 renderPlay('games:hint');
 }
 function answerLine(p) {
-if (p.kind === 'pick') { return 'The answer: ' + byId(p.options, p.answer).label + '.'; }
+if (p.kind === 'pick') { return t('The answer: {answer}.', { answer: tr(byId(p.options, p.answer).label) }); }
 if (p.kind === 'order') { return 'The right order is shown.'; }
 if (p.kind === 'sort') { return 'The right places are shown.'; }
-return 'The answer: ' + p.fields.map(function (f) { return engine().formatNumber(f.answer) + ' ' + f.label; }).join(', ') + '.';
+var parts = p.fields.map(function (f) { return engine().formatNumber(f.answer) + ' ' + tr(f.label); });
+return t('The answer: {answers}.', { answers: parts.join(', ') });
 }
 function reveal() {
 if (!run || run.solved || run.revealed) { return; }
@@ -28588,7 +28873,7 @@ p.options.map(function (o, i) {
 var right = locked && run.chosen === o.id;
 var wrong = !!run.wrong[o.id];
 var cls = 'mg-option mg-gm-option' + (figure ? ' is-figure' : '') + (right ? ' is-correct' : '') + (wrong ? ' is-wrong' : '');
-var name = figure ? 'Drawing ' + LETTERS.charAt(i) : o.label;
+var name = figure ? t('Drawing {letter}', { letter: LETTERS.charAt(i) }) : o.label;
 var inner;
 if (figure) {
 var svg = drawing(o.mol, 220, 130, name);
@@ -28598,7 +28883,7 @@ h('span', { class: 'mg-gm-option__name', text: locked ? o.label : LETTERS.charAt
 inner = [h('span', { class: 'mg-gm-option__label', text: o.label })];
 }
 return h('button', {
-type: 'button', class: cls, 'data-key': 'games:option:' + o.id, 'aria-label': figure ? (locked ? name + ': ' + o.label : name) : null,
+type: 'button', class: cls, 'data-key': 'games:option:' + o.id, 'aria-label': figure ? (locked ? t('Drawing {letter}: {label}', { letter: LETTERS.charAt(i), label: tr(o.label) }) : name) : null,
 disabled: locked || wrong, on: { click: function () { pickOption(o.id); } }
 }, inner);
 }));
@@ -28608,18 +28893,19 @@ return h('ol', { class: 'mg-gm-order' }, run.order.map(function (id, i) {
 var item = byId(p.items, id);
 var mark = run.marks[id];
 var cls = 'mg-gm-order__item' + (mark === true || run.revealed ? ' is-right' : (mark === false ? ' is-wrong' : ''));
-function move(dir, label, art) {
+function move(dir, art) {
 var edge = dir < 0 ? i === 0 : i === run.order.length - 1;
 return h('button', {
 type: 'button', class: 'mg-btn mg-btn--ghost mg-gm-move', 'data-key': 'games:' + (dir < 0 ? 'up' : 'down') + ':' + id,
-'aria-label': 'Move ' + item.label + ' ' + label, disabled: locked || edge, html: art, on: { click: function () { moveItem(id, dir); } }
+'aria-label': dir < 0 ? t('Move {item} up', { item: tr(item.label) }) : t('Move {item} down', { item: tr(item.label) }),
+disabled: locked || edge, html: art, on: { click: function () { moveItem(id, dir); } }
 });
 }
 return h('li', { class: cls, 'data-item': id },
 h('span', { class: 'mg-gm-order__rank', text: String(i + 1) }),
 h('span', { class: 'mg-gm-order__label', text: item.label }),
 markNode(mark, run.revealed),
-h('span', { class: 'mg-gm-order__moves' }, move(-1, 'up', ARROW_UP), move(1, 'down', ARROW_DOWN)));
+h('span', { class: 'mg-gm-order__moves' }, move(-1, ARROW_UP), move(1, ARROW_DOWN)));
 }));
 }
 function sortNode(p, locked) {
@@ -28629,7 +28915,7 @@ var cls = 'mg-gm-sort__item' + (mark === true || run.revealed ? ' is-right' : (m
 return h('li', { class: cls, 'data-item': it.id },
 h('div', { class: 'mg-gm-sort__top' },
 h('span', { class: 'mg-gm-sort__label', text: it.label }), markNode(mark, run.revealed)),
-h('div', { class: 'mg-gm-sort__buckets', role: 'group', 'aria-label': 'Place ' + it.label },
+h('div', { class: 'mg-gm-sort__buckets', role: 'group', 'aria-label': t('Place {item}', { item: tr(it.label) }) },
 p.buckets.map(function (b) {
 var on = run.assign[it.id] === b.id;
 return h('button', {
@@ -28689,7 +28975,7 @@ buttons.push(h('button', {
 type: 'button', class: 'mg-btn mg-btn--primary', 'data-key': 'games:next', on: { click: next }
 }, run.index >= run.prompts.length - 1 ? 'See results' : 'Next'));
 }
-var art = p.figure ? drawing(p.figure.mol, 280, 160, 'Structure of a molecule') : null;
+var art = p.figure ? drawing(p.figure.mol, 280, 160, t('Structure of a molecule')) : null;
 var card = h('section', { class: 'mg-card mg-card--question mg-gm-prompt', 'aria-labelledby': promptId },
 p.group ? h('p', { class: 'mg-gm-prompt__group', text: p.group }) : null,
 h('p', { class: 'mg-gm-prompt__text', id: promptId, text: p.text }),
@@ -28706,7 +28992,7 @@ h('header', { class: 'mg-gm-play__bar' },
 h('button', { type: 'button', class: 'mg-btn mg-btn--ghost mg-gm-back', 'data-key': 'games:menu', on: { click: backToMenu } }, 'Back'),
 h('div', { class: 'mg-gm-play__name' },
 h('h1', { class: 'mg-gm-play__title', text: run.title }),
-h('p', { class: 'mg-gm-count', text: 'Question ' + (run.index + 1) + ' of ' + run.prompts.length }))),
+h('p', { class: 'mg-gm-count', text: t('Question {n} of {total}', { n: run.index + 1, total: run.prompts.length }) }))),
 h('div', {
 class: 'mg-progress mg-gm-bar', role: 'progressbar', 'aria-label': 'Progress',
 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(pct)
@@ -28733,10 +29019,10 @@ function renderResults() {
 if (destroyed || !run) { return; }
 var total = run.prompts.length;
 var clean = run.results.filter(function (r) { return r === 'clean'; }).length;
-var facts = [h('p', { class: 'mg-gm-score__line', text: 'Right first time: ' + clean + ' of ' + total })];
-if (run.hintsTaken) { facts.push(h('p', { class: 'mg-gm-score__more', text: 'Hints used: ' + run.hintsTaken })); }
-if (run.shown) { facts.push(h('p', { class: 'mg-gm-score__more', text: 'Answers shown: ' + run.shown })); }
-if (typeof run.best === 'number') { facts.push(h('p', { class: 'mg-gm-score__more', text: 'Best ' + run.best + '%' })); }
+var facts = [h('p', { class: 'mg-gm-score__line', text: t('Right first time: {clean} of {total}', { clean: clean, total: total }) })];
+if (run.hintsTaken) { facts.push(h('p', { class: 'mg-gm-score__more', text: t('Hints used: {n}', { n: run.hintsTaken }) })); }
+if (run.shown) { facts.push(h('p', { class: 'mg-gm-score__more', text: t('Answers shown: {n}', { n: run.shown }) })); }
+if (typeof run.best === 'number') { facts.push(h('p', { class: 'mg-gm-score__more', text: t('Best {best}%', { best: run.best }) })); }
 var score = h('section', { class: 'mg-card mg-card--option mg-gm-score' }, ring(run.pct), h('div', { class: 'mg-gm-score__text' }, facts));
 var summary = run.summary ? h('section', { class: 'mg-card mg-card--question mg-gm-summary' },
 h('h2', { class: 'mg-results__heading', text: 'In one line' }),
@@ -28831,6 +29117,8 @@ var TOOLS = [
 var CLOCK = ['3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '1', '2'];
 var live = null;
 function h() { return MG.ui.el.apply(null, arguments); }
+function tt(text, vars) { return MG.i18n.t(text, vars); }
+function tr(text) { return MG.i18n.tr(text); }
 function D() { return MG.draw; }
 function E() { return MG.drawEdit; }
 function sound() {
@@ -28843,6 +29131,11 @@ for (var i = 0; i < list.length; i++) { if (list[i].id === id) { return list[i];
 return null;
 }
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+function elementName(el) { return ELEMENT_NAMES[el] ? tr(ELEMENT_NAMES[el]) : el; }
+function tokenMeaning(tok, fallback) { return TOKEN_NAMES[tok] ? tr(TOKEN_NAMES[tok]) : tr(fallback); }
+function statusText(line, state) {
+return line ? tt('{line} {state}.', { line: line, state: state }) : tt('{state}.', { state: state });
+}
 var memory = null;
 function readRaw() {
 try {
@@ -28937,7 +29230,7 @@ return MG.renderMolecule(geom, { width: width, height: height, maxBond: 36, pad:
 function answerSvg(p, width, height) {
 var g = MG.geometry[p.mol];
 if (!g) { return ''; }
-var opts = { width: width, height: height, maxBond: 40, extentOf: g, title: 'Structure of ' + p.name };
+var opts = { width: width, height: height, maxBond: 40, extentOf: g, title: tt('Structure of {name}', { name: p.name }) };
 if (p.kind === 'restore') { opts.ghosts = D().ghosts(p, null, null, true); }
 return MG.renderMolecule(g, opts);
 }
@@ -28949,7 +29242,7 @@ var svg = '<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">' +
 '<circle class="mg-gm-ring__arc" cx="60" cy="60" r="' + r + '"' +
 ' stroke-dasharray="' + (c * pct / 100).toFixed(2) + ' ' + c.toFixed(2) + '"' +
 ' transform="rotate(-90 60 60)"/></svg>';
-return h('div', { class: 'mg-ring mg-gm-ring', role: 'img', 'aria-label': 'Right first time ' + pct + ' percent' },
+return h('div', { class: 'mg-ring mg-gm-ring', role: 'img', 'aria-label': tt('Right first time {pct} percent', { pct: pct }) },
 h('div', { class: 'mg-ring__art', html: svg }),
 h('span', { class: 'mg-ring__value', text: pct + '%' }));
 }
@@ -28979,7 +29272,7 @@ if (sheet) { var s = sheet; sheet = null; s.close(); }
 function choiceButton(group, item, on, onPick) {
 return h('button', {
 type: 'button', class: 'mg-dw-choice' + (on ? ' is-on' : ''), 'aria-pressed': on ? 'true' : 'false', 'data-key': 'draw:' + group + ':' + item.id,
-'aria-label': item.label + '. ' + item.note, title: item.note,
+'aria-label': tt('{label}. {note}', { label: tr(item.label), note: tr(item.note) }), title: item.note,
 on: { click: function () { onPick(item.id); } }
 },
 h('span', { class: 'mg-dw-choice__label', text: item.label }));
@@ -29001,7 +29294,7 @@ h('h2', { class: 'mg-dw-setup__name', text: 'How big are the molecules?' }), siz
 h('button', {
 type: 'button', class: 'mg-btn mg-btn--primary mg-dw-start', 'data-key': 'draw:start', disabled: n < 1, on: { click: startRun }
 }, 'Start'),
-typeof best === 'number' ? h('p', { class: 'mg-dw-best', text: 'Best ' + best + '%' }) : null);
+typeof best === 'number' ? h('p', { class: 'mg-dw-best', text: tt('Best {pct}%', { pct: best }) }) : null);
 return h('section', { class: 'mg-dw-menu' },
 h('header', { class: 'mg-dw-head' },
 h('button', { type: 'button', class: 'mg-btn mg-btn--ghost mg-dw-back', 'data-key': 'draw:exit', on: { click: exitToMenu } }, 'Back to menu'),
@@ -29125,7 +29418,7 @@ var p = current();
 run.revealed = true;
 run.results[run.index] = 'shown';
 run.shown += 1;
-run.feedback = p.kind === 'restore' ? 'The missing pieces: ' + p.answerText + '.' : 'This is ' + p.name + ', as the game draws it.';
+run.feedback = p.kind === 'restore' ? tt('The missing pieces: {pieces}.', { pieces: p.answerText }) : tt('This is {name}, as the game draws it.', { name: p.name });
 renderPlay('draw:next', false);
 }
 function next() {
@@ -29166,7 +29459,9 @@ var isWrong = !!wrong[o.id];
 var on = run.placed[i] === o.id;
 return h('button', {
 type: 'button', class: 'mg-option mg-dw-opt' + (on ? ' is-on' : '') + (isWrong ? ' is-wrong' : ''), 'data-key': 'draw:opt:' + o.id,
-'aria-label': o.name + (on ? ', chosen now' : '') + (isWrong ? ', tried and wrong' : ''), 'aria-pressed': on ? 'true' : 'false', disabled: isWrong,
+'aria-label': on && isWrong ? tt('{name}, chosen now, tried and wrong', { name: o.name }) : on ? tt('{name}, chosen now', { name: o.name }) :
+isWrong ? tt('{name}, tried and wrong', { name: o.name }) : o.name,
+'aria-pressed': on ? 'true' : 'false', disabled: isWrong,
 on: { click: function () { closeSheet(); place(i, o.id); } }
 },
 h('span', { class: 'mg-dw-opt__art', html: pieceSvg(o, 120, 70) }),
@@ -29176,8 +29471,8 @@ isWrong ? h('span', { class: 'mg-dw-opt__no', text: 'not this one' }) : null);
 var tools = run.placed[i]
 ? h('button', { type: 'button', class: 'mg-btn mg-btn--ghost mg-dw-clear', 'data-key': 'draw:clear', on: { click: function () { closeSheet(); clearPiece(i); } } }, 'Take it away')
 : null;
-var title = p.items.length > 1 ? 'What goes in circle ' + (i + 1) + ' of ' + p.items.length + '?' : 'What goes in the circle?';
-var nowLine = now ? h('p', { class: 'mg-dw-sheetnow', 'data-key': 'draw:now', text: 'Now: ' + now.caption + '. Choose another piece to change it.' }) : null;
+var title = p.items.length > 1 ? tt('What goes in circle {n} of {total}?', { n: i + 1, total: p.items.length }) : 'What goes in the circle?';
+var nowLine = now ? h('p', { class: 'mg-dw-sheetnow', 'data-key': 'draw:now', text: tt('Now: {piece}. Choose another piece to change it.', { piece: now.caption }) }) : null;
 var body = h('div', { class: 'mg-dw-sheetbody' }, nowLine, grid, tools);
 var mod = MG.ui.modal({
 title: title, label: title, panelClass: 'mg-sheet mg-dw-sheet', body: body,
@@ -29194,7 +29489,7 @@ on: { click: function (e) { e.stopPropagation(); act(); } }
 }
 function figureNode(p) {
 var g = MG.geometry[p.mol];
-var o = { width: FW, height: FH, maxBond: MAX_BOND, pad: 18, extentOf: g, title: 'Structure of ' + p.name };
+var o = { width: FW, height: FH, maxBond: MAX_BOND, pad: 18, extentOf: g, title: tt('Structure of {name}', { name: p.name }) };
 o.ghosts = D().ghosts(p, run.placed, run.marks, run.revealed);
 var drawn = MG.renderMoleculeEx(g, o);
 var layout = drawn.layout;
@@ -29204,8 +29499,10 @@ var targets = [];
 p.items.forEach(function (it, i) {
 var a = layout.atoms[it.atom];
 var chosen = run.placed[i] ? byId(it.options, run.placed[i]) : null;
-var about = run.revealed ? 'shown' : (chosen ? 'chosen: ' + chosen.name + '. Press to change it' : 'empty');
-target(targets, FW, FH, a.x, a.y, 'Circle ' + (i + 1) + ' of ' + p.items.length + ', ' + about, 'draw:ghost:' + i, function () { openSheet(i); });
+var at = { n: i + 1, total: p.items.length };
+var about = run.revealed ? tt('Circle {n} of {total}, shown', at) :
+(chosen ? tt('Circle {n} of {total}, chosen: {name}. Press to change it', { n: at.n, total: at.total, name: chosen.name }) : tt('Circle {n} of {total}, empty', at));
+target(targets, FW, FH, a.x, a.y, about, 'draw:ghost:' + i, function () { openSheet(i); });
 });
 box.appendChild(h('div', { class: 'mg-dw-targets' }, targets));
 box.addEventListener('click', function (e) {
@@ -29227,7 +29524,7 @@ first: 'First atom placed.', atom: 'Atom added.', bond: 'Bond added.', order: 'B
 deselect: 'Selection cleared.', change: 'Atom changed.', 'erase-atom': 'Atom erased.', 'erase-bond': 'Bond erased.', stamp: 'Group placed.'
 };
 var line = said[res.did] || res.message || '';
-return (line ? line + ' ' : '') + E().describe(run.ed) + '.';
+return statusText(line ? tr(line) : '', E().describe(run.ed));
 }
 function helpText() {
 var st = run.ed;
@@ -29239,7 +29536,7 @@ if (st.sel === null) { return 'Tap an atom to select it.'; }
 return 'Tap beside the selected atom to add the next one. Tap a bond to make it single or double. Tap an atom to select it, or to close a ring.';
 }
 function atomLabel(a) {
-var name = ELEMENT_NAMES[a.el] || (TOKEN_NAMES[a.el] ? a.el + ', ' + TOKEN_NAMES[a.el] : a.el);
+var name = ELEMENT_NAMES[a.el] ? tr(ELEMENT_NAMES[a.el]) : (TOKEN_NAMES[a.el] ? tt('{symbol}, {meaning}', { symbol: a.el, meaning: tr(TOKEN_NAMES[a.el]) }) : a.el);
 return name.charAt(0).toUpperCase() + name.slice(1);
 }
 function toModel(x, y) { return { x: (x - run.view.ox) / run.view.s, y: (y - run.view.oy) / run.view.s }; }
@@ -29262,7 +29559,7 @@ refreshEditor(focus);
 function palette(key, act) {
 if (!run || locked()) { return; }
 var said = act();
-afterEdit((typeof said === 'string' ? said + ' ' : '') + E().describe(run.ed) + '.', key);
+afterEdit(statusText(typeof said === 'string' ? said : '', E().describe(run.ed)), key);
 }
 function refreshEditor(focus) {
 if (destroyed || !run || !container) { return; }
@@ -29271,7 +29568,7 @@ if (!old) { renderPlay(focus, false); return; }
 var fresh = editorNode(current());
 old.parentNode.replaceChild(fresh, old);
 var fb = container.querySelector('.mg-dw-feedback');
-if (fb) { fb.textContent = run.feedback || ''; }
+if (fb) { fb.textContent = tr(run.feedback || ''); }
 var say = container.querySelector('[data-key="draw:say"]');
 if (say) { say.textContent = run.status || ''; }
 var t = focus ? container.querySelector('[data-key="' + focus + '"]') : null;
@@ -29295,10 +29592,10 @@ return out + '</svg>';
 }
 function pageSvg(p, size) {
 var st = run.ed;
-var title = 'Your drawing of ' + p.name;
+var title = tt('Your drawing of {name}', { name: p.name });
 if (!st.atoms.length) {
 run.layout = null;
-return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + size.w + ' ' + size.h + '" width="' + size.w + '" height="' + size.h + '" role="img"><title>' + title + ': empty</title></svg>';
+return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + size.w + ' ' + size.h + '" width="' + size.w + '" height="' + size.h + '" role="img"><title>' + tt('Your drawing of {name}: empty', { name: p.name }) + '</title></svg>';
 }
 var marks = run.over.map(function (i) { return { atom: i, state: 'wrong' }; });
 var drawn = MG.renderMoleculeEx(E().toGeometry(st), { width: size.w, height: size.h, view: run.view, pad: 0, title: title, marks: marks });
@@ -29311,7 +29608,7 @@ var art = h('div', { class: 'mg-dw-art', html: pageSvg(p, size) });
 var over = h('div', { class: 'mg-dw-over', html: overlayMarkup(size) });
 var paper = h('div', {
 class: 'mg-dw-paper' + (st.atoms.length ? '' : ' is-empty'), 'data-key': 'draw:paper', tabindex: '-1', role: 'group',
-'aria-label': 'Drawing page. ' + E().describe(st) + '.'
+'aria-label': tt('Drawing page. {state}.', { state: E().describe(st) })
 }, art, over);
 var keys = [];
 if (!st.atoms.length) {
@@ -29322,22 +29619,24 @@ editorTap(m.x, m.y, 1, 'draw:center');
 }
 st.atoms.forEach(function (a, i) {
 var bonds = st.bonds.filter(function (b) { return b.a === a.id || b.b === a.id; }).length;
+var about = { atom: atomLabel(a), n: i + 1, total: st.atoms.length, bonds: bonds === 1 ? tt('{n} bond', { n: bonds }) : tt('{n} bonds', { n: bonds }) };
 target(keys, size.w, size.h, v.ox + a.x * v.s, v.oy + a.y * v.s,
-atomLabel(a) + ', atom ' + (i + 1) + ' of ' + st.atoms.length + ', ' + bonds + (bonds === 1 ? ' bond' : ' bonds') + (st.sel === a.id ? ', selected' : '') + '. Press to act on it',
+st.sel === a.id ? tt('{atom}, atom {n} of {total}, {bonds}, selected. Press to act on it', about) : tt('{atom}, atom {n} of {total}, {bonds}. Press to act on it', about),
 'draw:atom:' + a.id, function () { editorTap(a.x, a.y, 1, 'draw:atom:' + a.id); });
 });
 st.bonds.forEach(function (b, j) {
 var A = E()._test.atomById(st, b.a), B = E()._test.atomById(st, b.b);
 if (!A || !B) { return; }
 target(keys, size.w, size.h, v.ox + (A.x + B.x) / 2 * v.s, v.oy + (A.y + B.y) / 2 * v.s,
-(b.o === 2 ? 'Double' : 'Single') + ' bond ' + (j + 1) + ' between ' + (ELEMENT_NAMES[A.el] || A.el) + ' and ' + (ELEMENT_NAMES[B.el] || B.el) + '. Press to act on it',
+b.o === 2 ? tt('Double bond {n} between {a} and {b}. Press to act on it', { n: j + 1, a: elementName(A.el), b: elementName(B.el) })
+: tt('Single bond {n} between {a} and {b}. Press to act on it', { n: j + 1, a: elementName(A.el), b: elementName(B.el) }),
 'draw:bond:' + b.id, function () { editorTap((A.x + B.x) / 2, (A.y + B.y) / 2, 1, 'draw:bond:' + b.id); });
 });
 if (st.tool === 'add' && st.sel !== null && !st.stamp) {
 E().slotsOf(st).forEach(function (s) {
 var sx = v.ox + s.x * v.s, sy = v.oy + s.y * v.s;
 if (s.taken !== null || sx < 14 || sy < 14 || sx > size.w - 14 || sy > size.h - 14) { return; }
-target(keys, size.w, size.h, v.ox + s.x * v.s, v.oy + s.y * v.s, 'Add ' + (ELEMENT_NAMES[st.brush] || st.brush) + ' at ' + CLOCK[s.k] + ' o\'clock of the selected atom',
+target(keys, size.w, size.h, v.ox + s.x * v.s, v.oy + s.y * v.s, tt('Add {element} at {clock} o\'clock of the selected atom', { element: elementName(st.brush), clock: CLOCK[s.k] }),
 'draw:slot:' + s.k, function () { editorTap(s.x, s.y, 1, 'draw:slot:' + s.k); });
 });
 }
@@ -29362,37 +29661,38 @@ on: { click: function () { palette(key, act); } }
 }
 var brushes = ['C', 'O', 'N', 'S', 'P'].concat(p.tokens || []);
 var atomsRow = h('div', { class: 'mg-dw-row', role: 'group', 'aria-label': 'Atoms' }, brushes.map(function (el) {
-var tip = el + (ELEMENT_NAMES[el] ? ', ' + ELEMENT_NAMES[el] : ', ' + (TOKEN_NAMES[el] || 'a group written as one label'));
-return keyButton('draw:brush:' + el, el, st.brush === el && st.tool !== 'erase' && !st.stamp, tip, function () { E().setBrush(st, el); return el + ' chosen.'; }, el.length > 2 ? 'mg-dw-key--wide' : '');
+var tip = tt('{symbol}, {meaning}', { symbol: el, meaning: ELEMENT_NAMES[el] ? tr(ELEMENT_NAMES[el]) : tokenMeaning(el, 'a group written as one label') });
+return keyButton('draw:brush:' + el, el, st.brush === el && st.tool !== 'erase' && !st.stamp, tip, function () { E().setBrush(st, el); return tt('{element} chosen.', { element: el }); }, el.length > 2 ? 'mg-dw-key--wide' : '');
 }));
 var stampsRow = h('div', { class: 'mg-dw-row', role: 'group', 'aria-label': 'Groups placed whole' }, STAMPS.map(function (s) {
-return keyButton('draw:stamp:' + s.id, s.label, st.stamp === s.id, s.tip, function () { E().setStamp(st, s.id); return st.stamp ? s.label + ' ready: tap where it goes.' : s.label + ' put away.'; }, 'mg-dw-key--wide');
+return keyButton('draw:stamp:' + s.id, s.label, st.stamp === s.id, s.tip, function () { E().setStamp(st, s.id); return st.stamp ? tt('{group} ready: tap where it goes.', { group: tr(s.label) }) : tt('{group} put away.', { group: tr(s.label) }); }, 'mg-dw-key--wide');
 }));
 var toolsRow = h('div', { class: 'mg-dw-row', role: 'group', 'aria-label': 'Tools' },
-TOOLS.map(function (t) {
-return keyButton('draw:tool:' + t.id, t.label, st.tool === t.id && !st.stamp, t.tip, function () { E().setTool(st, t.id); return t.label + ' tool.'; }, 'mg-dw-key--wide');
+TOOLS.map(function (tool) {
+return keyButton('draw:tool:' + tool.id, tool.label, st.tool === tool.id && !st.stamp, tool.tip, function () { E().setTool(st, tool.id); return tt('{tool} tool.', { tool: tr(tool.label) }); }, 'mg-dw-key--wide');
 }).concat([
-keyButton('draw:double', 'Double', st.dbl, 'Double: the next bond you add is a double bond', function () { E().toggleDouble(st); return st.dbl ? 'The next bond will be double.' : 'The next bond will be single.'; }, 'mg-dw-key--wide'),
+keyButton('draw:double', 'Double', st.dbl, 'Double: the next bond you add is a double bond', function () { E().toggleDouble(st); return st.dbl ? tt('The next bond will be double.') : tt('The next bond will be single.'); }, 'mg-dw-key--wide'),
 h('button', {
 type: 'button', class: 'mg-dw-key mg-dw-key--wide', 'data-key': 'draw:undo', disabled: !st.undo.length, title: 'Undo: take the last change back', 'aria-label': 'Undo: take the last change back',
-on: { click: function () { palette('draw:undo', function () { E().undo(st); return 'Undone.'; }); } }
+on: { click: function () { palette('draw:undo', function () { E().undo(st); return tt('Undone.'); }); } }
 }, 'Undo'),
 h('button', {
 type: 'button', class: 'mg-dw-key mg-dw-key--wide' + (run.armClear ? ' is-warn' : ''), 'data-key': 'draw:clear-page', disabled: !st.atoms.length, title: 'Clear: empty the page',
 'aria-label': run.armClear ? 'Sure? Press again to clear the page' : 'Clear: empty the page',
 on: { click: function () {
 if (!run.armClear) { run.armClear = true; refreshEditor('draw:clear-page'); return; }
-palette('draw:clear-page', function () { E().clear(st); return 'Page cleared.'; });
+palette('draw:clear-page', function () { E().clear(st); return tt('Page cleared.'); });
 } }
 }, run.armClear ? 'Sure?' : 'Clear')
 ]));
 var tokenNote = (p.tokens || []).length
-? h('p', { class: 'mg-dw-note', text: 'This molecule is drawn with ' + (p.tokens.length === 1 ? 'a group' : 'groups') + ' written as one label: ' +
-p.tokens.map(function (t) { return t + ' is ' + (TOKEN_NAMES[t] || 'a group'); }).join(', ') + '.' })
+? h('p', { class: 'mg-dw-note', text: tt(p.tokens.length === 1 ? 'This molecule is drawn with a group written as one label: {list}.' : 'This molecule is drawn with groups written as one label: {list}.', {
+list: p.tokens.map(function (tok) { return tt('{group} is {meaning}', { group: tok, meaning: tokenMeaning(tok, 'a group') }); }).join(', ')
+}) })
 : null;
 return h('div', { class: 'mg-dw-editor' },
 paper,
-h('p', { class: 'mg-dw-status', text: run.status || (E().describe(st) + '.') }),
+h('p', { class: 'mg-dw-status', text: run.status || statusText('', E().describe(st)) }),
 h('p', { class: 'mg-dw-help', text: helpText() }),
 atomsRow, stampsRow, toolsRow, tokenNote);
 }
@@ -29400,7 +29700,7 @@ function storedNode(p) {
 var g = MG.geometry[p.mol];
 var all = g.atoms.map(function (a, i) { return i; });
 var allBonds = g.bonds.map(function (b, j) { return j; });
-var svg = MG.renderMolecule(g, { width: FW, height: FH, maxBond: MAX_BOND, pad: 18, extentOf: g, title: 'Structure of ' + p.name, hlAtoms: all, hlBonds: allBonds });
+var svg = MG.renderMolecule(g, { width: FW, height: FH, maxBond: MAX_BOND, pad: 18, extentOf: g, title: tt('Structure of {name}', { name: p.name }), hlAtoms: all, hlBonds: allBonds });
 return h('div', { class: 'mg-dw-figure is-locked mg-dw-stored', 'data-key': 'draw:figure' }, h('div', { class: 'mg-dw-art', html: svg }));
 }
 function moreButton(targetId) {
@@ -29446,7 +29746,7 @@ h('header', { class: 'mg-dw-play__bar' },
 h('button', { type: 'button', class: 'mg-btn mg-btn--ghost mg-dw-back', 'data-key': 'draw:menu', on: { click: backToMenu } }, 'Back'),
 h('div', { class: 'mg-dw-play__name' },
 h('h1', { class: 'mg-dw-play__title', text: run.title }),
-h('p', { class: 'mg-dw-count', text: 'Question ' + (run.index + 1) + ' of ' + run.prompts.length }))),
+h('p', { class: 'mg-dw-count', text: tt('Question {n} of {total}', { n: run.index + 1, total: run.prompts.length }) }))),
 h('div', {
 class: 'mg-progress mg-dw-bar', role: 'progressbar', 'aria-label': 'Progress',
 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(pct)
@@ -29469,15 +29769,15 @@ function renderResults() {
 if (destroyed || !run) { return; }
 var total = run.prompts.length;
 var clean = run.results.filter(function (r) { return r === 'clean'; }).length;
-var facts = [h('p', { class: 'mg-gm-score__line', text: 'Right first time: ' + clean + ' of ' + total })];
-if (run.hintsTaken) { facts.push(h('p', { class: 'mg-gm-score__more', text: 'Hints used: ' + run.hintsTaken })); }
-if (run.shown) { facts.push(h('p', { class: 'mg-gm-score__more', text: 'Answers shown: ' + run.shown })); }
-if (typeof run.best === 'number') { facts.push(h('p', { class: 'mg-gm-score__more', text: 'Best ' + run.best + '%' })); }
+var facts = [h('p', { class: 'mg-gm-score__line', text: tt('Right first time: {clean} of {total}', { clean: clean, total: total }) })];
+if (run.hintsTaken) { facts.push(h('p', { class: 'mg-gm-score__more', text: tt('Hints used: {n}', { n: run.hintsTaken }) })); }
+if (run.shown) { facts.push(h('p', { class: 'mg-gm-score__more', text: tt('Answers shown: {n}', { n: run.shown }) })); }
+if (typeof run.best === 'number') { facts.push(h('p', { class: 'mg-gm-score__more', text: tt('Best {pct}%', { pct: run.best }) })); }
 var score = h('section', { class: 'mg-card mg-card--option mg-gm-score' }, ring(run.pct), h('div', { class: 'mg-gm-score__text' }, facts));
 var misses = [];
 run.prompts.forEach(function (p, i) {
 if (run.results[i] === 'clean') { return; }
-var what = p.kind === 'restore' ? 'The missing pieces: ' + p.answerText + '.' : 'The finished drawing is shown.';
+var what = p.kind === 'restore' ? tt('The missing pieces: {pieces}.', { pieces: p.answerText }) : 'The finished drawing is shown.';
 misses.push(h('li', { class: 'mg-dw-look__item' },
 h('div', { class: 'mg-dw-look__art', html: answerSvg(p, 200, 120) }),
 h('div', { class: 'mg-dw-look__text' },
@@ -29572,7 +29872,7 @@ var FORMATS = [
 ];
 var FORMAT_NAME = { names: 'names', structures: 'structures', mixed: 'mixed' };
 var DEFAULTS = {
-format: 'mixed', showSlotLabels: true, givenStart: false, cofactors: true, sound: true, introSeen: false, theme: 'light', advanced: false,
+format: 'mixed', showSlotLabels: true, givenStart: false, cofactors: true, sound: true, introSeen: false, theme: 'light', advanced: false, lang: 'auto',
 pathwayId: 'glycolysis', mode: 'build', excluded: {}
 };
 var NONE = '';
@@ -29638,18 +29938,21 @@ undo: '<path d="M9.5 5.5 4.5 10.5l5 5"/><path d="M4.5 10.5H14a6 6 0 0 1 0 12H9"/
 'badge-cross': '<circle class="mg-icon__disc" cx="12" cy="12" r="9.3"/><path d="M8.7 8.7 15.3 15.3M15.3 8.7 8.7 15.3"/>',
 gear: '<path class="mg-icon__disc" fill-rule="evenodd" d="' + gearPath() + '"/>'
 };
+function tr(text) { return MG.i18n ? MG.i18n.tr(text) : text; }
+function tt(text, vars) { return MG.i18n.t(text, vars); }
+var TRANSLATED_ATTR = { title: true, placeholder: true, alt: true };
 function el(tag, attrs) {
 var node = document.createElement(tag);
 var a = attrs || {};
 Object.keys(a).forEach(function (key) {
 var value = a[key];
 if (key.indexOf('aria-') === 0 || key.indexOf('data-') === 0) {
-if (value !== null && value !== undefined) { node.setAttribute(key, String(value)); }
+if (value !== null && value !== undefined) { node.setAttribute(key, key.indexOf('aria-') === 0 ? tr(String(value)) : String(value)); }
 return;
 }
 if (value === null || value === undefined || value === false) { return; }
 if (key === 'class') { node.className = String(value); }
-else if (key === 'text') { node.textContent = String(value); }
+else if (key === 'text') { node.textContent = tr(String(value)); }
 else if (key === 'html') { node.innerHTML = String(value); }
 else if (key === 'on') {
 Object.keys(value).forEach(function (ev) {
@@ -29659,7 +29962,7 @@ if (typeof value[ev] === 'function') { node.addEventListener(ev, value[ev]); }
 else if (key === 'style') { applyStyle(node, value); }
 else if (key === 'value' || key === 'checked') { node[key] = value; }
 else if (value === true) { node.setAttribute(key, ''); }
-else { node.setAttribute(key, String(value)); }
+else { node.setAttribute(key, TRANSLATED_ATTR[key] ? tr(String(value)) : String(value)); }
 });
 for (var i = 2; i < arguments.length; i++) { append(node, arguments[i]); }
 return node;
@@ -29675,7 +29978,7 @@ function append(node, child) {
 if (child === null || child === undefined || typeof child === 'boolean') { return; }
 if (Array.isArray(child)) { child.forEach(function (c) { append(node, c); }); return; }
 if (child.nodeType) { node.appendChild(child); return; }
-node.appendChild(document.createTextNode(String(child)));
+node.appendChild(document.createTextNode(tr(String(child))));
 }
 function icon(name) {
 var holder = document.createElement('span');
@@ -29770,10 +30073,10 @@ if (r) { return { rxn: r, pathway: p }; }
 return null;
 }
 function stepText(r, pathway) {
-if (r.short) { return r.short; }
-if (typeof r.step !== 'number') { return String(r.step); }
+if (r.short) { return tr(r.short); }
+if (typeof r.step !== 'number') { return tr(String(r.step)); }
 if (pathway && pathway.id === 'full' && reactionById(pathwayById('tca'), r.id)) { return 'TCA ' + r.step; }
-return 'Step ' + r.step;
+return tt('Step {n}', { n: r.step });
 }
 function masteryOf(pathwayId, rxnId) {
 if (!MG.store || typeof MG.store.mastery !== 'function') { return null; }
@@ -30071,13 +30374,13 @@ var node = el('button', { type: 'button', class: cls }, label);
 function disarm() {
 armed = false;
 clearTimeout(timer);
-node.textContent = label;
+node.textContent = tr(label);
 node.classList.remove('is-armed');
 }
 node.addEventListener('click', function () {
 if (!armed) {
 armed = true;
-node.textContent = armedLabel;
+node.textContent = tr(armedLabel);
 node.classList.add('is-armed');
 timer = setTimeout(disarm, 4000);
 return;
@@ -30236,7 +30539,7 @@ if (geom && typeof geom.charge === 'number') { rows.push(['Charge', chargeText(g
 } else if (t.kind === 'enzyme') {
 if (e.ec) {
 var ecClass = ecClassName(e.ec);
-rows.push(['EC number', ecClass ? e.ec + ' (' + ecClass + ')' : e.ec]);
+rows.push(['EC number', ecClass ? tt('{ec} ({class})', { ec: e.ec, 'class': tr(ecClass) }) : e.ec]);
 }
 if (e.family) { rows.push(['Class', classLabel(e.family)]); }
 } else if (t.kind === 'cofactor') {
@@ -30248,7 +30551,7 @@ return other ? other.name : humanize(id);
 }).join(', ')]);
 }
 }
-if (rxn) { rows.push(['Reaction', stepText(rxn, pathway) + ' (' + rxn.type + ')']); }
+if (rxn) { rows.push(['Reaction', tt('{step} ({type})', { step: stepText(rxn, pathway), type: tr(rxn.type) })]); }
 var info = rows.length ? el('dl', { class: 'mg-info' }, rows.map(function (row) {
 return el('div', { class: 'mg-info__row' }, el('dt', { text: row[0] }), el('dd', { text: row[1] }));
 })) : null;
@@ -30379,6 +30682,30 @@ host.appendChild(app);
 paintBackdrop();
 window.addEventListener('resize', scheduleBackdrop);
 showSelect();
+if (storeGet('mg-reopen-settings')) { storeSet('mg-reopen-settings', ''); openSettings(); }
+}
+function adoptNames() {
+if (!MG.i18n || MG.i18n.lang() === 'en' || !MG.entities) { return; }
+['molecule', 'enzyme', 'cofactor'].forEach(function (kind) {
+var table = MG.entities[kind] || {};
+Object.keys(table).forEach(function (id) {
+var e = table[id];
+var shown = MG.i18n.tr(e.name);
+if (shown !== e.name) {
+e.aliases = e.aliases || [];
+if (e.aliases.indexOf(shown) < 0) { e.aliases.push(shown); }
+}
+});
+});
+}
+function boot(rootEl) {
+var i18n = MG.i18n;
+var want = 'en';
+try { want = (MG.store && MG.store.getSettings().lang) || 'auto'; } catch (err) { want = 'auto'; }
+if (!i18n) { start(rootEl); return; }
+if (want === 'auto') { want = i18n.detect(); }
+var timer = setTimeout(function () { start(rootEl); }, 4000);
+i18n.use(want, function () { clearTimeout(timer); adoptNames(); start(rootEl); });
 }
 function ensure() {
 if (!app) { start(document.getElementById('app') || document.body); }
@@ -30521,10 +30848,12 @@ var label = r.tile || enzyme.short || enzyme.name;
 var off = !blank && excluded.indexOf(r.id) >= 0;
 var pct = typeof mastery[r.id] === 'number' ? mastery[r.id] : null;
 var where = stepText(r, pathway);
-var state = off ? ', left out' : (pct === null ? ', no answers yet' : ', mastery ' + Math.round(pct) + ' percent');
+var spoken = off ? tt('{step}: {name}, left out', { step: where, name: enzyme.name })
+: (pct === null ? tt('{step}: {name}, no answers yet', { step: where, name: enzyme.name })
+: tt('{step}: {name}, mastery {pct} percent', { step: where, name: enzyme.name, pct: Math.round(pct) }));
 var body = el('button', {
 type: 'button', class: 'mg-tile__body', 'data-key': 'tile:' + r.id,
-'aria-label': where + ': ' + enzyme.name + state,
+'aria-label': spoken,
 on: { click: function () { detailCard('enzyme', r.enzyme, { rxnId: r.id, pathwayId: pathway.id }); } }
 },
 el('span', { class: 'mg-tile__step', text: where }),
@@ -30535,7 +30864,7 @@ if (!off && pct !== null) { style.background = masteryColor(pct); }
 style['--mastery'] = pct === null ? '' : String(Math.round(pct));
 var toggle = blank ? null : el('button', {
 type: 'button', class: 'mg-tile__toggle', 'data-key': 'toggle:' + r.id,
-'aria-label': (off ? 'Put back ' : 'Leave out ') + where, title: off ? 'Put this step back in the quiz' : 'Leave this step out of the quiz',
+'aria-label': off ? tt('Put back {step}', { step: where }) : tt('Leave out {step}', { step: where }), title: off ? 'Put this step back in the quiz' : 'Leave this step out of the quiz',
 on: { click: function () { toggleStep(pathway.id, r.id); } }
 }, icon(off ? 'plus' : 'close'));
 return el('div', { class: 'mg-tile' + (off ? ' is-excluded' : '') + (!off && pct !== null ? ' is-scored' : ''), style: style }, body, toggle);
@@ -30555,8 +30884,8 @@ var cards = courseList().map(function (c) {
 var on = !!course && course.id === c.id;
 return el('button', {
 type: 'button', class: 'mg-choice mg-choice--course mg-choice--small' + (on ? ' is-selected' : ''),
-'aria-pressed': on, 'data-key': 'course:' + c.id, 'aria-label': c.title + '. ' + c.subtitle,
-title: c.sections.length + ' sections, in order',
+'aria-pressed': on, 'data-key': 'course:' + c.id, 'aria-label': tt('{title}. {subtitle}', { title: tr(c.title), subtitle: tr(c.subtitle) }),
+title: tt('{n} sections, in order', { n: c.sections.length }),
 on: { click: function () { chooseCourse(c.id); } }
 },
 el('span', { class: 'mg-choice__face' },
@@ -30571,7 +30900,7 @@ var on = picked.indexOf(p.id) >= 0;
 var several = picked.length >= 2;
 return el('button', {
 type: 'button', class: 'mg-ptile' + (on ? ' is-selected' : '') + (several ? ' mg-ptile--pick' : ''), 'aria-pressed': on,
-'aria-label': p.title + '. ' + p.subtitle, title: p.subtitle,
+'aria-label': tt('{title}. {subtitle}', { title: tr(p.title), subtitle: tr(p.subtitle) }), title: p.subtitle,
 'data-key': 'pathway:' + p.id, on: { click: function () { choosePathway(p.id); } }
 },
 el('span', { class: 'mg-ptile__head' },
@@ -30583,14 +30912,14 @@ function everythingButton(p, selectedId, where, small) {
 var on = p.id === selectedId;
 var steps = p.order.length;
 var all = where === null;
-var covers = all ? 'every pathway' : where;
 var counted = !all || everythingTarget() === p.id;
 var face = small ? el('span', { class: 'mg-everything__pill', text: 'Everything' }) : 'Everything';
 return el('button', {
 type: 'button', class: 'mg-btn mg-everything' + (small ? ' mg-everything--small' : '') + (all ? ' mg-everything--all' : '') + (on ? ' is-selected' : ''),
 'aria-pressed': on, 'data-key': 'everything:' + p.id,
-'aria-label': 'Everything in ' + covers + (counted ? ': all ' + steps + ' steps on one map' : ': every pathway on one map'),
-title: counted ? 'All ' + steps + ' steps on one map' : 'Every pathway on one map',
+'aria-label': !counted ? tr('Everything in every pathway: every pathway on one map')
+: (all ? tt('Everything in every pathway: all {steps} steps on one map', { steps: steps }) : tt('Everything in {where}: all {steps} steps on one map', { where: tr(where), steps: steps })),
+title: counted ? tt('All {steps} steps on one map', { steps: steps }) : 'Every pathway on one map',
 on: { click: function () { chooseEverything(p.id); } }
 }, face);
 }
@@ -30613,10 +30942,13 @@ var inPick = g.pathways.filter(function (p) { return picked.indexOf(p.id) >= 0; 
 var mapOn = !!g.everything && g.everything.id === s.pathwayId;
 var badge = mapOn ? 'Map' : (inPick ? String(inPick) : '');
 var panelId = 'mg-tab-' + g.id;
+var tabName = mapOn ? tt('{title}, {n} pathways, the Everything map is chosen', { title: tr(g.title), n: g.pathways.length })
+: (inPick ? tt('{title}, {n} pathways, {picked} picked', { title: tr(g.title), n: g.pathways.length, picked: inPick })
+: tt('{title}, {n} pathways', { title: tr(g.title), n: g.pathways.length }));
 var tab = el('button', {
 type: 'button', class: 'mg-group__tab' + (isOpen ? ' is-open' : '') + (badge ? ' has-pick' : ''),
 'aria-expanded': isOpen, 'aria-controls': panelId, 'data-key': 'tab:' + g.id,
-'aria-label': g.title + ', ' + g.pathways.length + ' pathways' + (mapOn ? ', the Everything map is chosen' : (inPick ? ', ' + inPick + ' picked' : '')),
+'aria-label': tabName,
 on: { click: function () { toggleTab(g); } }
 },
 dot,
@@ -30627,7 +30959,7 @@ var all = inPick === g.pathways.length;
 var pickAll = el('button', {
 type: 'button', class: 'mg-group__pickall' + (several ? (all ? ' is-all' : (inPick ? ' is-some' : '')) : ''),
 'aria-pressed': all, 'data-key': 'group:' + g.id,
-'aria-label': (all ? 'Take out all of ' : 'Add all of ') + g.title,
+'aria-label': all ? tt('Take out all of {title}', { title: tr(g.title) }) : tt('Add all of {title}', { title: tr(g.title) }),
 on: { click: function () { toggleGroup(g); } }
 }, el('span', { class: 'mg-group__box', 'aria-hidden': 'true' }), el('span', { text: all ? 'Clear' : 'Pick all' }));
 return el('div', { class: 'mg-group' + (isOpen ? ' is-open' : '') },
@@ -30646,7 +30978,9 @@ return el('button', {
 type: 'button', class: 'mg-section-tile' + (on ? ' is-selected' : '') + (stat.started ? ' is-scored' : ''), 'aria-pressed': on,
 'data-key': 'section:' + pathwayId,
 style: stat.started ? { background: masteryColor(stat.pct) } : null,
-'aria-label': 'Section ' + (index + 1) + ', ' + p.title + ', ' + (stat.started ? Math.round(stat.pct) + ' percent' : 'not started'),
+'aria-label': stat.started
+? tt('Section {n}, {title}, {pct} percent', { n: index + 1, title: tr(p.title), pct: Math.round(stat.pct) })
+: tt('Section {n}, {title}, not started', { n: index + 1, title: tr(p.title) }),
 title: p.subtitle,
 on: { click: function () { chooseSection(pathwayId); } }
 },
@@ -30664,7 +30998,7 @@ el('div', { class: 'mg-label-actions' }, every ? everythingButton(every, s.pathw
 sectionList(course, s));
 }
 function sectionList(course, s) {
-return el('div', { class: 'mg-sections', role: 'group', 'aria-label': course.title + ' sections' },
+return el('div', { class: 'mg-sections', role: 'group', 'aria-label': tt('{course} sections', { course: tr(course.title) }) },
 course.sections.map(function (pid, i) { return sectionTile(course, pid, i, s.pathwayId); }));
 }
 function selectScreen(fresh) {
@@ -30707,7 +31041,7 @@ var cofToggle = el('button', {
 type: 'button', class: 'mg-cof' + (cofOn ? ' is-on' : ''), 'aria-pressed': cofOn, 'data-key': 'cofactors:toggle',
 title: 'ATP, water, NADH and the other small molecules a step uses or releases: ask for them (on) or show them (off)',
 on: { click: toggleCofactors }
-}, 'Cofactors: ' + (cofOn ? 'on' : 'off'));
+}, cofOn ? 'Cofactors: on' : 'Cofactors: off');
 var tiles = pathway ? pathway.order.map(function (rid) {
 var r = reactionById(pathway, rid);
 return r ? tileFor(r, pathway, mastery, blank, excluded) : null;
@@ -30721,7 +31055,7 @@ el('p', { class: 'mg-empty__text', text: course ? 'Tap a section to see its step
 var isMix = !!pathway && !!MG.custom && MG.custom.isMix(pathway.id);
 var everything = (!!pathway && !!pathway.hidden && !isMix) || isEverythingPicked(s) || (!!course && !!course.everything && s.pathwayId === course.everything);
 var hint = pathway ? 'Tap a step to read about it.' : null;
-var startLabel = none ? (course ? 'Pick a section' : 'Pick a pathway') : (everything ? 'Start everything' : (ctx ? 'Start section ' + (ctx.index + 1) : 'Start Quiz'));
+var startLabel = none ? (course ? 'Pick a section' : 'Pick a pathway') : (everything ? 'Start everything' : (ctx ? tt('Start section {n}', { n: ctx.index + 1 }) : 'Start Quiz'));
 var scored = pathway ? hasHistory(pathway) : false;
 var wipe = confirmButton('mg-btn mg-btn--ghost mg-history__btn', 'Clear history', 'Tap again to clear these scores', function () {
 if (!pathway) { return; }
@@ -30730,18 +31064,18 @@ toast('History cleared');
 rerender('start');
 });
 wipe.node.setAttribute('data-key', 'history');
-wipe.node.setAttribute('title', !pathway ? 'Nothing is picked' : (scored ? 'Erase the saved scores of the ' + total + ' steps above' : 'No scores saved for these steps yet'));
+wipe.node.setAttribute('title', !pathway ? tr('Nothing is picked') : (scored ? tt('Erase the saved scores of the {n} steps above', { n: total }) : tr('No scores saved for these steps yet')));
 if (!scored) { wipe.node.disabled = true; }
 var practice = weakPractice();
 var practiceBtn = practice ? el('button', {
 type: 'button', class: 'mg-btn mg-btn--ghost mg-history__btn mg-practice__btn', 'data-key': 'practice',
-title: 'A ' + MODE_NAME[s.mode] + ' round of the ' + practice.steps.length + ' steps you miss most, from every pathway',
+title: tt('A {mode} round of the {n} steps you miss most, from every pathway', { mode: tr(MODE_NAME[s.mode]), n: practice.steps.length }),
 on: { click: function () { startPractice(practice); } }
-}, 'Practice weak steps (' + practice.steps.length + ')') : null;
+}, tt('Practice weak steps ({n})', { n: practice.steps.length })) : null;
 var picks = pathway && (isMix || isEverythingPicked(s)) ? pickedPathways(s).length : 0;
 var inQuiz = total - excluded.length;
 var totalLine = picks > 1
-? el('p', { class: 'mg-dock__total', 'data-key': 'total', 'aria-live': 'polite', text: picks + ' pathways, ' + inQuiz + (inQuiz === 1 ? ' step' : ' steps') })
+? el('p', { class: 'mg-dock__total', 'data-key': 'total', 'aria-live': 'polite', text: inQuiz === 1 ? tt('{picks} pathways, {n} step', { picks: picks, n: inQuiz }) : tt('{picks} pathways, {n} steps', { picks: picks, n: inQuiz }) })
 : null;
 var dock = el('div', { class: 'mg-dock' },
 totalLine,
@@ -30804,7 +31138,7 @@ patch[key] = on;
 writeSettings(patch);
 if (key === 'sound' && on && MG.sound && typeof MG.sound.correct === 'function') { MG.sound.correct(); }
 });
-sw.setAttribute('title', text);
+sw.setAttribute('title', tr(text));
 return el('div', { class: 'mg-setting', title: text },
 el('div', {}, el('div', { class: 'mg-setting__title', text: title })),
 sw);
@@ -30830,6 +31164,25 @@ return el('div', { class: 'mg-setting mg-setting--stack', title: 'Light or dark.
 el('div', {}, el('div', { class: 'mg-setting__title', text: 'Appearance' })),
 group);
 }
+function languageRow() {
+var i18n = MG.i18n;
+var list = i18n ? i18n.langs() : [];
+if (list.length < 2) { return null; }
+var saved = readSettings().lang;
+var current = saved === 'auto' ? i18n.detect() : saved;
+var select = el('select', { class: 'mg-setting__select', 'aria-label': 'Language' });
+list.forEach(function (l) { select.appendChild(el('option', { value: l.id, text: l.name, selected: l.id === current ? true : null })); });
+select.addEventListener('change', function () {
+var id = select.value;
+i18n.use(id, function (ok) {
+if (!ok) { select.value = current; toast('That language could not be loaded'); return; }
+writeSettings({ lang: id });
+storeSet('mg-reopen-settings', '1');
+if (root.location && typeof root.location.reload === 'function') { root.location.reload(); }
+});
+});
+return el('div', { class: 'mg-setting' }, el('div', {}, el('div', { class: 'mg-setting__title', text: 'Language' })), select);
+}
 function packAvailable() {
 if (!MG.packs || typeof MG.packs.hasContent !== 'function' || !MG.packs.hasContent()) { return false; }
 return !(MG.store && typeof MG.store.persists === 'function' && !MG.store.persists());
@@ -30851,6 +31204,7 @@ if (handle) { handle.close(); }
 var body = el('div', { class: 'mg-settings' },
 inQuiz ? el('p', { class: 'mg-settings__note', text: 'Some changes apply to the next quiz.' }) : null,
 themeRow(),
+inQuiz ? null : languageRow(),
 settingRow('Show slot labels', 'Small captions such as enzyme, in and out on empty slots.', 'showSlotLabels'),
 settingRow('Give me the first molecule', 'Blank modes start with the first molecule already filled in.', 'givenStart'),
 settingRow('Sound', 'A soft chime for right answers and a fanfare when a pathway is finished.', 'sound'),
@@ -31071,7 +31425,7 @@ var svg = '<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">' +
 '<circle class="mg-ring__arc" cx="60" cy="60" r="' + r + '" fill="none" stroke="' + masteryColor(pct) + '" stroke-width="16"' +
 ' stroke-dasharray="' + (c * pct / 100).toFixed(2) + ' ' + c.toFixed(2) + '"' +
 ' transform="rotate(-90 60 60)"/></svg>';
-return el('div', { class: 'mg-ring', role: 'img', 'aria-label': 'Accuracy ' + pct + ' percent' },
+return el('div', { class: 'mg-ring', role: 'img', 'aria-label': tt('Accuracy {pct} percent', { pct: pct }) },
 el('div', { class: 'mg-ring__art', html: svg }),
 el('span', { class: 'mg-ring__value', text: pct + '%' }));
 }
@@ -31089,14 +31443,15 @@ if (m.kind === 'enz' && rx && rx.terms && rx.terms.enz) { word = rx.terms.enz; }
 else if (m.kind === 'enz' && rec && rec.terms && rec.terms.enz) { word = rec.terms.enz; }
 var noReaction = m.rxnId === null || m.rxnId === undefined;
 if (typeof m.stepLabel === 'string' && m.stepLabel.trim() !== '') {
-return noReaction ? m.stepLabel + ': ' + name : m.stepLabel + ' ' + word + ': ' + name;
+return noReaction ? tt('{step}: {name}', { step: tr(m.stepLabel), name: name })
+: tt('{step} {kind}: {name}', { step: tr(m.stepLabel), kind: tr(word), name: name });
 }
 var where;
-if (noReaction) { where = 'Start'; }
-else if (typeof m.step === 'number') { where = 'Step ' + m.step; }
-else if (m.step === 'Link') { where = 'Link reaction'; }
-else { where = 'Step'; }
-return where + ' ' + word + ': ' + name;
+if (noReaction) { where = tr('Start'); }
+else if (typeof m.step === 'number') { where = tt('Step {n}', { n: m.step }); }
+else if (m.step === 'Link') { where = tr('Link reaction'); }
+else { where = tr('Step'); }
+return tt('{step} {kind}: {name}', { step: where, kind: tr(word), name: name });
 }
 function missedRow(m, pathwayId) {
 var kind = DETAIL_KIND[m.kind] || 'molecule';
@@ -31111,12 +31466,12 @@ var rows = course.sections.map(function (pid, i) {
 var p = pathwayById(pid);
 var pct = runPct(course.id, pid);
 return el('li', { class: 'mg-course-done__row' },
-el('span', { text: (i + 1) + '. ' + (p ? p.title : humanize(pid)) }),
+el('span', { text: tt('{n}. {title}', { n: i + 1, title: tr(p ? p.title : humanize(pid)) }) }),
 el('span', { class: 'mg-course-done__pct', text: pct === null ? 'not played' : pct + ' %' }));
 });
 return el('section', { class: 'mg-card mg-card--question mg-results__card' },
 el('h2', { class: 'mg-results__heading', text: 'Course complete' }),
-el('p', { class: 'mg-results__hint', text: course.title + ': accuracy in each section.' }),
+el('p', { class: 'mg-results__hint', text: tt('{course}: accuracy in each section.', { course: tr(course.title) }) }),
 el('ul', { class: 'mg-course-done' }, rows));
 }
 function resultsScreen(sum, course) {
@@ -31132,10 +31487,14 @@ var secTitle = sum.title || (pathway && pathway.title) || 'Quiz';
 var mode = MODE_NAME[sum.mode] ? sum.mode : (lastConfig && MODE_NAME[lastConfig.mode] ? lastConfig.mode : 'build');
 var format = lastConfig && FORMAT_NAME[lastConfig.format] ? lastConfig.format : readSettings().format;
 var formatLabel = FORMATS.filter(function (f) { return f.id === format; })[0];
-var modeText = 'Mode: ' + MODE_NAME[mode] + (mode === 'type' || (pathway && !hasDrawnMolecules(pathway)) || !formatLabel ? '' : ', ' + formatLabel.label);
-var title = last ? courseObj.title + ' complete' : secTitle + ' complete';
+var modeText = mode === 'type' || (pathway && !hasDrawnMolecules(pathway)) || !formatLabel
+? tt('Mode: {mode}', { mode: tr(MODE_NAME[mode]) })
+: tt('Mode: {mode}, {format}', { mode: tr(MODE_NAME[mode]), format: tr(formatLabel.label) });
+var title = tt('{title} complete', { title: tr(last ? courseObj.title : secTitle) });
 var sub = !courseObj ? modeText
-: (all ? 'Every section of ' + courseObj.title + '. ' : last ? 'Last section: ' + secTitle + '. ' : 'Section ' + (course.index + 1) + ' of ' + courseObj.sections.length + ' in ' + courseObj.title + '. ') + modeText;
+: all ? tt('Every section of {course}. {mode}', { course: tr(courseObj.title), mode: modeText })
+: last ? tt('Last section: {section}. {mode}', { section: tr(secTitle), mode: modeText })
+: tt('Section {n} of {total} in {course}. {mode}', { n: course.index + 1, total: courseObj.sections.length, course: tr(courseObj.title), mode: modeText });
 var verdict = pct >= 90 ? 'Excellent work.' : (pct >= 70 ? 'Good progress.' : 'Keep at it. What you got wrong is your next lesson.');
 var missed = (Array.isArray(sum.missed) ? sum.missed : []).concat(Array.isArray(sum.retried) ? sum.retried : []);
 var missedCard = el('section', { class: 'mg-card mg-card--option' },
@@ -31152,7 +31511,7 @@ var sideCards = [linesCard, last ? courseDoneCard(courseObj) : null, missedCard]
 var lead;
 if (nextPath) {
 lead = el('button', { type: 'button', class: 'mg-btn mg-btn--primary', on: { click: function () { nextSection(course, mode); } } },
-'Next section: ' + nextPath.title);
+tt('Next section: {title}', { title: tr(nextPath.title) }));
 } else if (last) {
 lead = el('button', { type: 'button', class: 'mg-btn mg-btn--primary', on: { click: function () { showCourse(courseObj.id, sum.pathwayId); } } },
 'Course overview');
@@ -31167,7 +31526,8 @@ on: { click: function () { harderMode(mode, course, sum.pathwayId); } }
 var again = missedSteps(sum);
 var practiceBtn = again.length ? el('button', {
 type: 'button', class: 'mg-btn mg-practice__btn', 'data-key': 'practice',
-title: 'A ' + MODE_NAME[mode] + ' round of the ' + again.length + (again.length === 1 ? ' step' : ' steps') + ' you missed',
+title: again.length === 1 ? tt('A {mode} round of the {n} step you missed', { mode: tr(MODE_NAME[mode]), n: again.length })
+: tt('A {mode} round of the {n} steps you missed', { mode: tr(MODE_NAME[mode]), n: again.length }),
 on: { click: function () { startPractice({ pathwayId: sum.pathwayId, steps: again }); } }
 }, 'Practice missed steps') : null;
 var reviewBtn = el('button', { type: 'button', class: 'mg-btn mg-btn--ghost', on: { click: function () { reviewMap(sum, course); } } }, 'Review the Map');
@@ -31241,6 +31601,7 @@ masteryColor: masteryColor
 };
 MG.app = {
 start: start,
+boot: boot,
 showSelect: showSelect,
 showCourse: function (courseId) { showCourse(courseId, null); },
 showAtp: showAtp,
@@ -31291,7 +31652,7 @@ openTabs: function (value) { if (value !== undefined) { openTabs = value; } retu
 })(typeof window !== 'undefined' ? window : globalThis);
 </script>
 	<script>
-		if (window.MG && MG.app) { MG.app.start(document.getElementById('app')); }
+		if (window.MG && MG.app) { MG.app.boot(document.getElementById('app')); }
 		if (window.MG && MG.brand) {
 			var icon = document.createElement('link');
 			icon.rel = 'icon';
